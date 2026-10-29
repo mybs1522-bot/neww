@@ -70,10 +70,9 @@ const CtaWithTimer = ({
         {/* Pricing Anchor */}
         <div className="flex items-baseline justify-center gap-2 md:gap-3 my-0.5">
           <span className="text-zinc-400 line-through text-xs md:text-sm font-mono">₹{BUNDLE_ORIGINAL_PRICE.toLocaleString('en-IN')}</span>
-          <span className="text-zinc-400 line-through text-xs md:text-sm font-mono">₹2,999</span>
           <span className={`text-3xl md:text-4xl font-heading font-bold tracking-tight ${isDark ? 'text-white' : 'text-zinc-950'}`}>₹{BUNDLE_PRICE}</span>
           <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[10px] md:text-xs font-mono font-bold px-2 py-0.5 rounded-full">
-            92% OFF
+            73% OFF
           </span>
         </div>
 
@@ -1173,9 +1172,9 @@ const LandingPage: React.FC = () => {
           
           <div className="flex flex-col min-w-0">
             <div className="flex items-baseline gap-1.5">
-              <span className="text-[11px] text-zinc-400 line-through font-mono">₹2,999</span>
+              <span className="text-[11px] text-zinc-400 line-through font-mono">₹3,699</span>
               <span className="text-xl font-heading font-bold text-zinc-950">₹{BUNDLE_PRICE}</span>
-              <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full">92% OFF</span>
+              <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full">73% OFF</span>
             </div>
             <div className="flex items-center gap-1 text-[10px] text-zinc-500 font-mono truncate">
               <span>Ends:</span>
@@ -1216,7 +1215,7 @@ const LandingPage: React.FC = () => {
             </h3>
 
             <p className="text-zinc-600 text-xs leading-relaxed mb-3.5">
-              Over <strong>52,480+ Indian designers</strong> are already using these 12 courses & 10,000+ 3D models. If you close this page, price will increase to <strong>₹2,999</strong>!
+              Over <strong>52,480+ Indian designers</strong> are already using these 12 courses & 10,000+ 3D models. If you close this page, price will increase to <strong>₹3,699</strong>!
             </p>
 
             <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-2.5 mb-3.5 text-left text-xs text-zinc-700 space-y-1 font-medium">
@@ -1250,7 +1249,7 @@ const LandingPage: React.FC = () => {
                 onClick={() => setShowExitModal(false)}
                 className="text-[11px] text-zinc-400 hover:text-zinc-600 py-0.5 transition-colors font-mono cursor-pointer"
               >
-                No thanks, I will pay ₹2,999 later
+                No thanks, I will pay ₹3,699 later
               </button>
             </div>
           </div>
@@ -1290,9 +1289,9 @@ const LandingPage: React.FC = () => {
                 ) : (
                   <>
                     <span className="text-2xl sm:text-3xl font-heading font-bold text-white">₹{BUNDLE_PRICE}</span>
-                    <span className="text-zinc-500 text-xs line-through font-mono">₹2,999</span>
+                    <span className="text-zinc-500 text-xs line-through font-mono">₹3,699</span>
                     <span className="bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-medium px-2 py-0.5 rounded-full border border-emerald-500/30">
-                      92% OFF
+                      73% OFF
                     </span>
                   </>
                 )}

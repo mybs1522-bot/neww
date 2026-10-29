@@ -266,7 +266,7 @@ export const COURSE_CATEGORIES = [
 ];
 
 export const BUNDLE_PRICE = 999;
-export const BUNDLE_ORIGINAL_PRICE = 12000;
+export const BUNDLE_ORIGINAL_PRICE = 3699;
 
 export const TESTIMONIALS: Testimonial[] = [
   {

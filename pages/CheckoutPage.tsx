@@ -546,8 +546,8 @@ const CheckoutPage: React.FC = () => {
                   ) : (
                     <>
                       <span className="text-3xl font-display font-black">₹{BUNDLE_PRICE}</span>
-                      <span className="text-gray-400 text-sm line-through">₹11,988</span>
-                      <span className="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-0.5 rounded-full">92% OFF</span>
+                      <span className="text-gray-400 text-sm line-through">₹3,699</span>
+                      <span className="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-0.5 rounded-full">73% OFF</span>
                     </>
                   )}
                 </div>

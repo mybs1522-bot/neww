@@ -343,8 +343,8 @@ export const FAQ_ITEMS_LANDING = [
     answer: "Yes, an official verified Skill Certificate is included at zero extra charge. You can proudly add it to your CV, LinkedIn, and client portfolio."
   },
   {
-    question: "Why is the price only ₹999 instead of ₹12,000+?",
-    answer: "We want every aspiring Indian designer, student, and studio owner to have access to world-class 3D education without paying lakhs to coaching institutes. This ₹999 promotional price is strictly valid for the current batch and will increase to ₹2,999 once the batch timer expires."
+    question: "Why is the price only ₹999 instead of ₹3,699?",
+    answer: "We want every aspiring Indian designer, student, and studio owner to have access to world-class 3D education without paying lakhs to coaching institutes. This ₹999 promotional price is strictly valid for the current batch and will increase to ₹3,699 once the batch timer expires."
   }
 ];
 
