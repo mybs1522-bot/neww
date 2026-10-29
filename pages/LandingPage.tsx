@@ -334,14 +334,8 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Video Player Box */}
-                <div className="w-full max-w-3xl mx-auto mb-6 bg-zinc-950 p-2 sm:p-2.5 rounded-2xl shadow-xl border border-zinc-800 relative overflow-hidden">
-                  <div className="flex items-center justify-between px-3 py-1.5 text-[11px] text-zinc-400 font-mono border-b border-zinc-800 mb-2">
-                    <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" /> PREVIEW
-                    </span>
-                    <span>30-Day Step-by-Step Blueprint (Self-Paced)</span>
-                  </div>
-                  <div className="w-full overflow-hidden rounded-xl bg-black" style={{ position: 'relative', paddingTop: '56.25%' }}>
+                <div className="w-full max-w-3xl mx-auto mb-6 rounded-2xl shadow-xl border border-zinc-800 bg-black overflow-hidden">
+                  <div className="w-full overflow-hidden bg-black" style={{ position: 'relative', paddingTop: '56.25%' }}>
                     <iframe 
                       src="https://iframe.mediadelivery.net/embed/489113/a214b199-e64a-4eaf-af70-edfbc586e5fd?autoplay=true&loop=true&muted=true&preload=true&responsive=true" 
                       loading="lazy" 
