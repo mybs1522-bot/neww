@@ -181,6 +181,21 @@
         transform: scale(0.98);
       }
 
+      /* Slow breathing pulse for CTA buttons */
+      @keyframes pulse-slow {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+        }
+        50% {
+          transform: scale(1.025);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.26);
+        }
+      }
+      .animate-pulse-slow {
+        animation: pulse-slow 2.6s ease-in-out infinite;
+      }
+
       /* Subtle marquee */
       @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
       @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }

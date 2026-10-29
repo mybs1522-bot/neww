@@ -80,7 +80,7 @@ const CtaWithTimer = ({
         {/* Large Action Button */}
         <button
           onClick={onClick}
-          className={`w-full py-3.5 md:py-4 px-6 rounded-full font-heading font-semibold text-sm md:text-base transition-all flex items-center justify-center gap-2 group cursor-pointer ${
+          className={`w-full py-3.5 md:py-4 px-6 rounded-full font-heading font-semibold text-sm md:text-base transition-all flex items-center justify-center gap-2 group cursor-pointer animate-pulse-slow ${
             isDark 
               ? 'bg-white text-zinc-950 hover:bg-zinc-100 shadow-lg' 
               : 'btn-premium'
@@ -421,7 +421,7 @@ const LandingPage: React.FC = () => {
                     timeLeft={timeLeft} 
                     onClick={openPaymentModal} 
                     variant="default"
-                    title="⚡ GET ALL 12 COURSES @ ₹999 ONLY"
+                    title="⚡ GET ALL 12 COURSES NOW"
                     subtext="Instant Access in 60 Seconds • UPI / GPay / Cards Accepted"
                   />
                 </div>
@@ -552,9 +552,9 @@ const LandingPage: React.FC = () => {
 
                   <button
                     onClick={openPaymentModal}
-                    className="w-full py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                    className="w-full py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md animate-pulse-slow"
                   >
-                    <span>Enroll Now & Start Earning (₹999 Only)</span>
+                    <span>Enroll Now & Start Earning</span>
                     <ArrowRight size={16} />
                   </button>
                 </div>
@@ -629,9 +629,9 @@ const LandingPage: React.FC = () => {
                 <div className="text-center mt-6">
                   <button
                     onClick={openPaymentModal}
-                    className="btn-premium px-6 py-3 text-xs sm:text-sm font-heading font-semibold inline-flex items-center gap-2 cursor-pointer"
+                    className="btn-premium animate-pulse-slow px-6 py-3 text-xs sm:text-sm font-heading font-semibold inline-flex items-center gap-2 cursor-pointer"
                   >
-                    <span>Master All 4 Stages for ₹999</span>
+                    <span>Master All 4 Stages Now</span>
                     <ArrowRight size={15} />
                   </button>
                 </div>
@@ -811,9 +811,9 @@ const LandingPage: React.FC = () => {
               <div className="text-center mt-6">
                 <button
                   onClick={openPaymentModal}
-                  className="px-6 py-3 rounded-full bg-white text-zinc-950 font-heading font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-all cursor-pointer shadow-md"
+                  className="px-6 py-3 rounded-full bg-white text-zinc-950 font-heading font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-all cursor-pointer shadow-md animate-pulse-slow"
                 >
-                  Claim Full Course Access @ ₹999
+                  Claim Full Course Access Now
                 </button>
               </div>
             </section>
@@ -862,7 +862,7 @@ const LandingPage: React.FC = () => {
                     timeLeft={timeLeft} 
                     onClick={openPaymentModal} 
                     variant="white"
-                    title="CLAIM 12 COURSES + ALL 6 BONUSES @ ₹999"
+                    title="CLAIM 12 COURSES + ALL 6 BONUSES NOW"
                   />
                 </div>
               </div>
@@ -1060,10 +1060,10 @@ const LandingPage: React.FC = () => {
 
                     <button
                       onClick={openPaymentModal}
-                      className="w-full max-w-md mx-auto py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                      className="w-full max-w-md mx-auto py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md animate-pulse-slow"
                     >
                       <Download size={16} />
-                      <span>Get Instant Access to Everything (@ ₹999)</span>
+                      <span>Get Instant Access to Everything</span>
                     </button>
                     <p className="text-[10px] text-zinc-400 mt-2 font-mono">⚡ Immediate Google Drive Access Delivered on Email & WhatsApp</p>
                   </div>
@@ -1128,7 +1128,7 @@ const LandingPage: React.FC = () => {
                   timeLeft={timeLeft} 
                   onClick={openPaymentModal} 
                   variant="dark"
-                  title="CLAIM YOUR ₹999 ACCESS PASS NOW"
+                  title="CLAIM YOUR ACCESS PASS NOW"
                 />
               </div>
             </section>
@@ -1187,10 +1187,10 @@ const LandingPage: React.FC = () => {
 
           <button
             onClick={openPaymentModal}
-            className="btn-premium py-2.5 px-4 sm:px-6 text-xs sm:text-sm font-heading font-semibold flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+            className="btn-premium animate-pulse-slow py-2.5 px-4 sm:px-6 text-xs sm:text-sm font-heading font-semibold flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
           >
             <Zap size={13} className="fill-white shrink-0" />
-            <span>Get 12 Courses @ ₹999</span>
+            <span>Get All 12 Courses</span>
             <ArrowRight size={13} className="shrink-0" />
           </button>
         </div>
@@ -1240,10 +1240,10 @@ const LandingPage: React.FC = () => {
                   setShowExitModal(false);
                   openPaymentModal();
                 }}
-                className="btn-premium w-full py-3 rounded-full font-heading font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                className="btn-premium animate-pulse-slow w-full py-3 rounded-full font-heading font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <Zap size={14} className="fill-white" />
-                <span>Lock My ₹999 Access Now</span>
+                <span>Lock My Access Now</span>
               </button>
 
               <button
