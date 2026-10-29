@@ -11,13 +11,28 @@ import { Course, Testimonial, FaqItem } from './types';
   -----------------------------------------------------------------------
 */
 
+const LOCAL_THUMBNAILS: Record<string, string> = {
+  '1': '/courses/course-1.jpg',
+  '2': '/courses/course-2.jpg',
+  '3': '/courses/course-3.jpg',
+  '4': '/courses/course-4.jpg',
+  '5': '/courses/course-5.jpg',
+  '6': '/courses/course-6.jpg',
+  '7': '/courses/course-7.jpg',
+  '8': '/courses/course-8.jpg',
+  '9': '/courses/course-9.png',
+  '10': '/courses/course-10.png',
+  '11': '/courses/course-11.jpg',
+  '12': '/courses/course-12.jpg',
+};
+
 const RAW_COURSES: Course[] = [
   {
     id: '5',
     title: 'V-Ray Photorealism',
     software: 'V-Ray',
     description: 'Make your 3D models look like real photos.',
-    imageUrl: 'https://lh3.googleusercontent.com/d/1aHEt_z78tYD_0Cn66DiduAnhwn-o8El8',
+    imageUrl: '/courses/course-5.jpg',
     color: 'from-blue-600 to-indigo-500',
     students: '48k',
     price: 199,
@@ -34,7 +49,7 @@ const RAW_COURSES: Course[] = [
     title: 'AutoCAD Mastery',
     software: 'AutoCAD',
     description: 'Draw accurate 2D floor plans for houses and buildings.',
-    imageUrl: 'https://drive.google.com/file/d/1fV5bz4JDugh8HxLMJ0fXu5K5sDj3qlSR/view?usp=drive_link',
+    imageUrl: '/courses/course-1.jpg',
     color: 'from-red-500 to-red-400',
     students: '42.5k',
     price: 199,
@@ -51,7 +66,7 @@ const RAW_COURSES: Course[] = [
     title: 'BIM with Revit',
     software: 'Revit',
     description: 'Build smart 3D buildings on your computer.',
-    imageUrl: 'https://drive.google.com/file/d/1N_BbG9kAEwIk541Id53_RV0CWjO1jzAt/view?usp=drive_link',
+    imageUrl: '/courses/course-2.jpg',
     color: 'from-red-600 to-red-500',
     students: '38k',
     price: 199,
@@ -68,7 +83,7 @@ const RAW_COURSES: Course[] = [
     title: 'SketchUp Pro',
     software: 'SketchUp',
     description: 'The easiest way to design 3D houses.',
-    imageUrl: 'https://drive.google.com/file/d/1wl6by5AO5MiPeoYsZ8F6Zi5AJahoeTQo/view?usp=drive_link',
+    imageUrl: '/courses/course-3.jpg',
     color: 'from-blue-500 to-cyan-400',
     students: '55k',
     price: 199,
@@ -85,7 +100,7 @@ const RAW_COURSES: Course[] = [
     title: '3ds Max Advanced',
     software: '3ds Max',
     description: 'Design fancy furniture and luxury interiors.',
-    imageUrl: 'https://drive.google.com/file/d/1DgmIvkeC2dxGpRpzbIthHQsSdlCty2Xg/view?usp=drive_link',
+    imageUrl: '/courses/course-4.jpg',
     color: 'from-cyan-600 to-blue-500',
     students: '22k',
     price: 199,
@@ -102,7 +117,7 @@ const RAW_COURSES: Course[] = [
     title: 'Lumion Cinematic',
     software: 'Lumion',
     description: 'Make movies of your architecture.',
-    imageUrl: 'https://drive.google.com/file/d/1XW2DDHVa1Qc15NcZ3wUKMFRT7LkyZMCt/view?usp=drive_link',
+    imageUrl: '/courses/course-6.jpg',
     color: 'from-teal-500 to-emerald-400',
     students: '31k',
     price: 199,
@@ -119,7 +134,7 @@ const RAW_COURSES: Course[] = [
     title: 'D5 Render Realtime',
     software: 'D5 Render',
     description: 'See the final result instantly while you work.',
-    imageUrl: 'https://drive.google.com/file/d/1vbV4j6K9sgzbbZ7qlRdgqPTXWiHBPLsr/view?usp=drive_link',
+    imageUrl: '/courses/course-7.jpg',
     color: 'from-purple-500 to-pink-500',
     students: '19k',
     price: 199,
@@ -136,7 +151,7 @@ const RAW_COURSES: Course[] = [
     title: 'Enscape VR',
     software: 'Enscape',
     description: 'Walk inside your design using VR.',
-    imageUrl: 'https://drive.google.com/file/d/1SmezP6LwT3yo9aE3oivpGkqS-xycSOyx/view?usp=drive_link',
+    imageUrl: '/courses/course-8.jpg',
     color: 'from-blue-500 to-indigo-600',
     students: '25k',
     price: 199,
@@ -153,7 +168,7 @@ const RAW_COURSES: Course[] = [
     title: 'AI Architecture',
     software: 'Midjourney',
     description: 'Get 100 design ideas in 1 minute with AI.',
-    imageUrl: 'https://drive.google.com/file/d/1s-HzZVKpc9F92mLW2gMOPk0kVrKAqUIS/view?usp=drive_link',
+    imageUrl: '/courses/course-9.png',
     color: 'from-fuchsia-600 to-purple-600',
     students: '60k',
     price: 199,
@@ -170,7 +185,7 @@ const RAW_COURSES: Course[] = [
     title: 'Generative Design',
     software: 'Stable Diffusion',
     description: 'Turn a rough sketch into a realistic building using AI.',
-    imageUrl: 'https://drive.google.com/file/d/1xSzSjuL4imlbXwEYMwKw_vhuueDcFtHm/view?usp=drive_link',
+    imageUrl: '/courses/course-10.png',
     color: 'from-indigo-500 to-purple-500',
     students: '15k',
     price: 199,
@@ -187,7 +202,7 @@ const RAW_COURSES: Course[] = [
     title: 'Unreal Engine 5',
     software: 'Unreal Engine',
     description: 'Make your design look like a high-end video game.',
-    imageUrl: 'https://drive.google.com/file/d/14EfKoC7BfxXmYxd6t6qIE470yQaX0toW/view?usp=drive_link',
+    imageUrl: '/courses/course-11.jpg',
     color: 'from-gray-600 to-gray-400',
     students: '18k',
     price: 199,
@@ -204,7 +219,7 @@ const RAW_COURSES: Course[] = [
     title: 'Post Production',
     software: 'Photoshop',
     description: 'Add real sky, birds, and people to your renders.',
-    imageUrl: 'https://drive.google.com/file/d/1FkzIhdu7K5JeRFq7BM1wGV5MND_fLMKe/view?usp=drive_link',
+    imageUrl: '/courses/course-12.jpg',
     color: 'from-blue-800 to-blue-600',
     students: '72k',
     price: 199,
@@ -220,11 +235,12 @@ const RAW_COURSES: Course[] = [
 
 // --- AUTO-FIX LOGIC ---
 export const COURSES = RAW_COURSES.map(course => {
-  let url = course.imageUrl;
-  if (url.includes('drive.google.com') && url.includes('/file/d/')) {
-    const idMatch = url.match(/\/d\/([^/]+)/);
+  const localImg = LOCAL_THUMBNAILS[course.id];
+  let url = localImg || course.imageUrl;
+  if (!localImg && url.includes('drive.google.com') && url.includes('/file/d/')) {
+    const idMatch = url.match(/\/d\/([^/?]+)/);
     if (idMatch && idMatch[1]) {
-      url = `https://lh3.googleusercontent.com/d/${idMatch[1]}`;
+      url = `https://drive.google.com/thumbnail?id=${idMatch[1]}&sz=w800`;
     }
   }
   return { ...course, imageUrl: url };
@@ -250,66 +266,50 @@ export const COURSE_CATEGORIES = [
 ];
 
 export const BUNDLE_PRICE = 999;
-export const BUNDLE_ORIGINAL_PRICE = 11988; // 12 × 999
+export const BUNDLE_ORIGINAL_PRICE = 12000;
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: 'Aravind Sharma',
-    role: 'Senior Architect',
-    location: 'Bangalore, India',
-    content: 'The Revit workflow section alone saved our firm countless hours. Undeniable value for Indian projects.'
+    id: '1',
+    name: 'Rajesh Kumar',
+    role: 'Principal Architect',
+    company: 'Studio Design, Mumbai',
+    content: 'Avada transformed our workflow completely. The photorealism achieved in V-Ray and Lumion has helped us win 3 massive residential projects this quarter alone. The ROI was immediate.',
+    rating: 5
   },
   {
-    name: 'Meera Iyer',
-    role: '3D Visualizer',
-    location: 'Chennai, India',
-    content: 'V-Ray + 3ds Max combo is a game-changer. My clients in the real estate sector are blown away by the realism.'
+    id: '2',
+    name: 'Priya Sharma',
+    role: 'Freelance Interior Designer',
+    company: 'Bengaluru',
+    content: 'From struggling with client revisions to delivering D5 real-time walkthroughs in hours—this bundle is an absolute game-changer. The AI prompt section alone is worth 10x the price.',
+    rating: 5
   },
   {
-    name: 'Priya Patel',
-    role: 'Freelance Designer',
-    location: 'Mumbai, India',
-    content: 'Built my entire freelance portfolio using these courses. Now I charge 3x what I used to for luxury interiors.'
-  },
-  {
-    name: 'Rahul Varma',
-    role: 'Architecture Student',
-    location: 'Delhi, India',
-    content: 'Landed my dream internship at a top firm because I was the only one who knew Enscape VR and AI Design.'
-  },
-  {
-    name: 'Ananya Gupta',
-    role: 'Interior Designer',
-    location: 'Pune, India',
-    content: 'I can now present 10 variations to clients in the time it used to take for one. Best ₹199 I ever spent.'
-  },
-  {
-    name: 'Vikram Singh',
-    role: 'Landscape Architect',
-    location: 'Jaipur, India',
-    content: 'D5 Render lets me make changes during client meetings. Blows them away every time. Highly recommended.'
+    id: '3',
+    name: 'Amit Patel',
+    role: 'BIM Specialist',
+    company: 'Ahmedabad',
+    content: 'The Revit and 3ds Max courses are structured better than what I was taught in my 4-year degree. Clear, concise, and immediately applicable to real-world Indian projects.',
+    rating: 5
   }
 ];
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    question: "How do I access the courses after buying?",
-    answer: "You'll receive instant access via email with download links and login credentials within 5 minutes of payment."
+    question: 'How do I access the courses after purchase?',
+    answer: 'Immediately upon completing your payment via Razorpay, you will receive lifetime access links to our high-speed Google Drive archive on your email and WhatsApp.'
   },
   {
-    question: "Can I buy individual courses or only the bundle?",
-    answer: "Both options are available! Each course is ₹199 individually, or get all 12 for just ₹999 — saving over ₹1,300. The bundle is by far the best deal."
+    question: 'Are project files and 3D assets included?',
+    answer: 'Yes! You receive over 10,000+ Indian & international 3D models, 5,000+ 4K PBR textures, contractor drawing templates, and full scene files for every single course.'
   },
   {
-    question: "Are project files included?",
-    answer: "Yes, all 3D models, textures, and source files used in tutorials are included for download."
+    question: 'Can I watch on my mobile phone?',
+    answer: 'Absolutely. All videos are streamable on both Android and iOS devices, as well as downloadable for offline learning on your PC or Mac.'
   },
   {
-    question: "Do I get a certificate?",
-    answer: "Yes, industry-recognized certificates are provided upon course completion."
-  },
-  {
-    question: "Is there a refund policy?",
-    answer: "Yes. We offer a 7-day refund policy strictly for technical issues (such as course links not working), provided our support team is unable to resolve the issue. We do not issue refunds for software-related issues, as we do not create software but only provide complimentary installation links and assistance."
+    question: 'Do I get a certificate upon completion?',
+    answer: 'Yes, an ISO-verified digital skill completion certificate is included with your bundle access at zero additional charge.'
   }
 ];

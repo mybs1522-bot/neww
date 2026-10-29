@@ -379,18 +379,28 @@ export const INCOME_TIERS = [
   }
 ];
 
-/* ─── LOGO ─── */
+/* ─── LOGO (MINIMAL ARCHITECTURAL) ─── */
 export const Logo = () => (
-  <div className="flex flex-col items-start cursor-pointer group" onClick={() => window.location.href = '/'}>
-    <div className="flex items-center gap-1.5">
-      <span className="font-display font-black text-xl tracking-tight text-slate-900">Avada</span>
-      <span className="bg-orange-500 text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded tracking-widest">PRO 3D</span>
+  <div className="flex items-center gap-2.5 cursor-pointer group" onClick={() => window.location.href = '/'}>
+    <div className="size-7 rounded-md bg-zinc-950 text-white font-mono font-bold text-xs flex items-center justify-center tracking-tighter">
+      AV
     </div>
-    <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-orange-600">Architecture & Interior AI</span>
+    <div className="flex flex-col leading-none text-left">
+      <div className="flex items-center gap-1.5">
+        <span className="font-heading font-semibold text-base tracking-tight text-zinc-950">AVADA</span>
+        <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border border-zinc-200 bg-zinc-100 text-zinc-800">PRO 3D</span>
+      </div>
+      <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-500 mt-0.5">Architecture & Interior AI</span>
+    </div>
   </div>
 );
 
-/* ─── SOCIAL PROOF TOAST ─── */
+/* ─── PATTERN DIVIDER ─── */
+export const Pattern = ({ className = '' }: { className?: string }) => (
+  <div className={`crosshatch-pattern ${className}`} />
+);
+
+/* ─── SOCIAL PROOF TOAST (CLEAN MINIMAL) ─── */
 export const SocialProofToast: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [idx, setIdx] = useState(0);
@@ -408,19 +418,19 @@ export const SocialProofToast: React.FC = () => {
   }, []);
   const j = RAW_JOINERS[idx];
   return (
-    <div className={`fixed bottom-24 left-3 z-[70] max-w-[340px] transition-all duration-500 ease-out ${visible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-6 opacity-0 scale-95 pointer-events-none'}`}>
-      <div className="bg-slate-900/95 text-white backdrop-blur-xl border border-slate-700/80 rounded-2xl p-3 shadow-2xl flex items-center gap-3">
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-500 to-amber-400 flex items-center justify-center font-bold text-white shrink-0 shadow-md">
+    <div className={`fixed bottom-20 sm:bottom-24 left-3 z-[70] max-w-[320px] transition-all duration-500 ease-out ${visible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95 pointer-events-none'}`}>
+      <div className="bg-white/95 text-zinc-900 backdrop-blur-md border border-zinc-200 rounded-xl p-2.5 shadow-lg flex items-center gap-2.5">
+        <div className="size-8 rounded-lg bg-zinc-900 text-white flex items-center justify-center font-mono font-bold text-xs shrink-0">
           {j.name.charAt(0)}
         </div>
-        <div className="overflow-hidden">
+        <div className="overflow-hidden min-w-0 flex-1">
           <div className="flex items-center gap-1.5">
-            <p className="text-xs font-bold text-white truncate">{j.name}</p>
-            <span className="text-[10px] text-orange-400 font-semibold">• {j.city}</span>
+            <p className="text-xs font-semibold text-zinc-900 truncate">{j.name}</p>
+            <span className="text-[10px] text-zinc-500 font-mono shrink-0">• {j.city}</span>
           </div>
-          <p className="text-[10px] text-slate-300 truncate">Enrolled in 12-Course Bundle • <span className="text-emerald-400 font-medium">{j.time}</span></p>
+          <p className="text-[10px] text-zinc-500 truncate">Enrolled in 12-Course Bundle • <span className="text-emerald-600 font-medium font-mono">{j.time}</span></p>
         </div>
-        <div className="ml-auto shrink-0 w-2 h-2 rounded-full bg-emerald-400 animate-ping"></div>
+        <div className="shrink-0 size-2 rounded-full bg-emerald-500 animate-pulse"></div>
       </div>
     </div>
   );
