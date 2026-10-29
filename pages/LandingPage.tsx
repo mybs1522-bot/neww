@@ -1424,15 +1424,15 @@ const LandingPage: React.FC = () => {
               <button
                 onClick={handlePayment}
                 disabled={isLoading}
-                className="btn-premium w-full py-3.5 rounded-full font-heading font-semibold text-sm sm:text-base flex items-center justify-center gap-2 group disabled:opacity-60 cursor-pointer"
+                className="btn-premium animate-pulse-slow w-full py-3.5 rounded-full font-heading font-semibold text-sm sm:text-base flex items-center justify-center gap-2 group disabled:opacity-60 cursor-pointer"
               >
                 {isLoading ? (
                   <><Loader2 className="animate-spin" size={16} /> Processing...</>
                 ) : (
                   <>
-                    <Zap size={16} className="fill-white" />
-                    <span>Proceed to Pay ₹{finalPrice}</span>
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <Download size={16} className="shrink-0" />
+                    <span>Download All</span>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform shrink-0" />
                   </>
                 )}
               </button>
