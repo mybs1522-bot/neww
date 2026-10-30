@@ -288,26 +288,26 @@ const LandingPage: React.FC = () => {
           <main>
             
             {/* ═══ 1. HERO SECTION (10/10 CONVERSIONS FOR COLD AUDIENCE) ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid pt-6 sm:pt-10 pb-8 bg-white text-center">
+            <section className="screen-line-before screen-line-after border-x border-grid pt-5 sm:pt-8 pb-8 bg-white text-center">
               <div className="px-2 sm:px-4">
                 
-                {/* Social Proof Pill + Wiggle Cursive */}
-                <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
+                {/* Social Proof Pill */}
+                <div className="flex items-center justify-center gap-2 mb-3">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-zinc-200 rounded-full text-[11px] sm:text-xs font-mono text-zinc-800">
                     <Star size={12} className="fill-amber-400 text-amber-400" />
                     <span>Rated <strong>4.9/5</strong> by <strong>52,000+</strong> Indian Designers</span>
                   </div>
-                  <span className="font-hand text-base sm:text-lg text-amber-700 font-bold animate-wiggle">
+                  <span className="font-hand text-base sm:text-lg text-amber-700 font-bold hidden xs:inline animate-wiggle">
                     ✦ Complete 12-in-1 Pass
                   </span>
                 </div>
 
                 {/* Outcome Headline with Highlighter */}
-                <div className="mb-2">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-zinc-200 rounded-full text-xs sm:text-sm font-mono font-semibold text-zinc-700 mb-2">
+                <div className="mb-2.5">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-amber-500/10 border border-amber-500/25 text-amber-900 rounded-full text-xs font-mono font-semibold mb-2">
                     ⏱️ In the next 15 days
                   </span>
-                  <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.15]">
+                  <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.18] max-w-2xl mx-auto">
                     <span className="block text-2xl sm:text-4xl md:text-5xl">
                       You'll learn to Design <span className="highlight-yellow">Floor Plans, 3D Interiors & Exteriors</span>, <span className="highlight-green">Image & Video renders</span>.
                     </span>
@@ -316,7 +316,7 @@ const LandingPage: React.FC = () => {
 
                 {/* Stylish Highlight on Phone: Recorded Course + Live Doubt Classes */}
                 <div className="flex items-center justify-center my-3">
-                  <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 sm:px-4 py-1.5 bg-zinc-950 text-white rounded-full shadow-md border border-zinc-800 text-xs sm:text-sm">
+                  <div className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-1.5 bg-zinc-950 text-white rounded-full shadow-md border border-zinc-800 text-xs sm:text-sm">
                     <span className="font-heading font-semibold text-zinc-200">
                       🎬 Recorded Course
                     </span>
@@ -328,34 +328,35 @@ const LandingPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="text-center mb-3">
-                  <span className="block text-xs sm:text-sm text-zinc-600 font-normal">
-                    Less than a dinner out — just <span className="line-through font-mono text-zinc-400">₹3,699</span> <strong className="text-zinc-950 font-bold font-mono">₹999 (one-time)</strong>, guaranteed freelance projects for all students.
-                  </span>
-                </div>
-
-                {/* Subtitle with High-Impact Highlight */}
-                <div className="max-w-2xl mx-auto mb-4">
-                  <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
-                    We will handhold you from zero, you just need a laptop and 1-2 hours each day for next 15 days. This will transform the way you work in this industry.
+                {/* Subtitle with High-Impact Handholding Hook */}
+                <div className="max-w-xl mx-auto mb-3 px-1">
+                  <p className="text-xs sm:text-sm md:text-base text-zinc-700 leading-relaxed font-normal">
+                    We will handhold you from zero. You just need a laptop and 1–2 hours each day for the next 15 days. This will transform how you work and close high-paying client projects!
                   </p>
-                  <div className="font-hand text-lg sm:text-xl text-emerald-700 font-bold -rotate-1 mt-1.5">
+                  <div className="font-hand text-base sm:text-lg text-emerald-700 font-bold -rotate-1 mt-1">
                     ✨ Zero 3D experience needed • 100% beginner friendly!
                   </div>
                 </div>
 
-                {/* Core Category Pills */}
-                <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-5">
-                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 text-xs sm:text-sm font-medium px-3 py-1 rounded-full">
+                {/* Impulse Price Anchor (Less than a dinner out) */}
+                <div className="text-center mb-3">
+                  <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-full shadow-2xs">
+                    Less than a dinner out: just <span className="line-through font-mono text-zinc-400">₹3,699</span> <strong className="text-zinc-950 font-bold font-mono">₹999 (one-time)</strong> • Guaranteed freelance projects included
+                  </span>
+                </div>
+
+                {/* Core Category Pills (Compact & Mobile-Optimized) */}
+                <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-5 text-[11px] sm:text-xs">
+                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 font-medium px-2.5 py-1 rounded-full">
                     📐 2D Floor Planning
                   </span>
-                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 text-xs sm:text-sm font-medium px-3 py-1 rounded-full">
+                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 font-medium px-2.5 py-1 rounded-full">
                     🛋️ 3D Interior Design
                   </span>
-                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 text-xs sm:text-sm font-medium px-3 py-1 rounded-full">
+                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 font-medium px-2.5 py-1 rounded-full">
                     🏛️ 3D Exterior Elevation
                   </span>
-                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 text-xs sm:text-sm font-medium px-3 py-1 rounded-full">
+                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 font-medium px-2.5 py-1 rounded-full">
                     ⚡ 4K Photorealism & AI
                   </span>
                 </div>
@@ -399,7 +400,7 @@ const LandingPage: React.FC = () => {
                         num: '03',
                         icon: '⚡',
                         title: 'Zero Experience Needed (Day 1 Blueprint)',
-                        desc: 'Takes you from total beginner to creating 4K renders in 30 days'
+                        desc: 'Takes you from total beginner to creating 4K renders in 15 days'
                       },
                       {
                         num: '04',
