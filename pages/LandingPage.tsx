@@ -369,44 +369,53 @@ const LandingPage: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-left">
                     {[
                       {
+                        num: '01',
                         icon: '📐',
                         title: 'All 12 Industry Softwares Included',
                         desc: 'AutoCAD, Revit, SketchUp, 3ds Max, V-Ray, D5, Lumion, Midjourney AI',
                         highlight: 'highlight-yellow'
                       },
                       {
+                        num: '02',
                         icon: '🛋️',
                         title: '10,000+ Ready 3D Indian Assets',
                         desc: 'Modular kitchens, wardrobes, luxury beds, sofas, pooja units — drag & drop',
                         highlight: 'highlight-green'
                       },
                       {
+                        num: '03',
                         icon: '⚡',
                         title: 'Zero Experience Needed (Day 1 Blueprint)',
                         desc: 'Takes you from total beginner to creating 4K renders in 30 days',
                         highlight: 'highlight-yellow'
                       },
                       {
+                        num: '04',
                         icon: '📁',
                         title: 'Instant Google Drive Access in 60s',
                         desc: 'Lifetime links sent on email & WhatsApp • Watch on phone or laptop',
                         highlight: 'highlight-green'
                       },
                       {
+                        num: '05',
                         icon: '💬',
                         title: '24/7 Dedicated WhatsApp Doubt Help',
                         desc: 'Never get stuck on software crashes, lighting glitches, or install errors',
                         highlight: 'highlight-orange'
                       },
                       {
+                        num: '06',
                         icon: '📜',
                         title: 'ISO Skill Certificate & Client Kit',
                         desc: 'Quotation templates, price calculator & scripts to lock 50% advance token',
                         highlight: 'highlight-yellow'
                       }
                     ].map((pt, i) => (
-                      <div key={i} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-3 flex items-start gap-2.5 hover:border-zinc-300 transition-colors duration-150">
-                        <span className="text-xl shrink-0 mt-0.5">{pt.icon}</span>
+                      <div key={i} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-3 flex items-start gap-3 hover:border-zinc-300 transition-colors duration-150">
+                        <div className="flex flex-col items-center shrink-0">
+                          <span className="text-xl mt-0.5">{pt.icon}</span>
+                          <span className="text-[9px] font-mono font-bold text-zinc-400 mt-1">{pt.num}</span>
+                        </div>
                         <div>
                           <div className="font-heading font-bold text-zinc-950 text-xs sm:text-sm leading-snug">
                             {pt.title}
