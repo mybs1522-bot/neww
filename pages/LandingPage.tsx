@@ -348,10 +348,10 @@ const LandingPage: React.FC = () => {
                 <div className="w-full max-w-3xl mx-auto mb-6 rounded-2xl shadow-xl border border-zinc-800 bg-black overflow-hidden">
                   <div className="w-full overflow-hidden bg-black" style={{ position: 'relative', paddingTop: '56.25%' }}>
                     <iframe 
-                      src="https://iframe.mediadelivery.net/embed/489113/a214b199-e64a-4eaf-af70-edfbc586e5fd?autoplay=true&loop=true&muted=true&preload=true&responsive=true" 
+                      src="https://iframe.mediadelivery.net/embed/489113/a4460094-5648-498d-8d29-6e63aa1feb91?autoplay=true&loop=true&muted=true&preload=true&responsive=true" 
                       loading="lazy" 
                       style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }} 
-                      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+                      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" 
                       allowFullScreen={true} 
                     />
                   </div>
