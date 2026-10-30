@@ -79,7 +79,7 @@ const CtaWithTimer = ({
         {/* Large Action Button */}
         <button
           onClick={onClick}
-          className={`w-full py-3.5 md:py-4 px-6 rounded-full font-heading font-semibold text-sm md:text-base transition-all flex items-center justify-center gap-2 group cursor-pointer animate-pulse-slow ${
+          className={`w-full py-3.5 md:py-4 px-6 rounded-full font-heading font-semibold text-sm md:text-base transition-colors duration-150 flex items-center justify-center gap-2 group cursor-pointer animate-pulse-slow ${
             isDark 
               ? 'bg-white text-zinc-950 hover:bg-zinc-100 shadow-lg' 
               : 'btn-premium'
@@ -180,6 +180,18 @@ const LandingPage: React.FC = () => {
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, [hasShownExitModal, showPaymentModal, paymentSuccess]);
 
+  // Lock body scroll on mobile when modal is active to prevent jitter
+  useEffect(() => {
+    if (showPaymentModal || showExitModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showPaymentModal, showExitModal]);
+
   const formatTime = (val: number) => val.toString().padStart(2, '0');
   const validateEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());
 
@@ -277,8 +289,8 @@ const LandingPage: React.FC = () => {
     : COURSES.filter(c => ['9', '10', '11'].includes(c.id));
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950 font-sans overflow-x-hidden selection:bg-zinc-200 selection:text-zinc-900">
-      <div className="max-w-screen overflow-x-hidden">
+    <div className="min-h-screen bg-white text-zinc-950 font-sans selection:bg-zinc-200 selection:text-zinc-900">
+      <div className="w-full">
         <div className="mx-auto px-4 md:max-w-4xl">
           <main>
             
@@ -349,8 +361,8 @@ const LandingPage: React.FC = () => {
                 {/* ═══ MOST IMPORTANT SALE POINTS BEFORE 1ST CTA (POINTERS ONLY) ═══ */}
                 <div className="max-w-3xl mx-auto mb-6">
                   <div className="text-center mb-3">
-                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-600 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                      ⚡ EVERYTHING YOU GET INSIDE
+                    <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-600 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
+                      ⚡ Everything included inside
                     </span>
                   </div>
 
@@ -393,7 +405,7 @@ const LandingPage: React.FC = () => {
                         highlight: 'highlight-yellow'
                       }
                     ].map((pt, i) => (
-                      <div key={i} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-3 flex items-start gap-2.5 hover:border-zinc-300 transition-all">
+                      <div key={i} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-3 flex items-start gap-2.5 hover:border-zinc-300 transition-colors duration-150">
                         <span className="text-xl shrink-0 mt-0.5">{pt.icon}</span>
                         <div>
                           <div className="font-heading font-bold text-zinc-950 text-xs sm:text-sm leading-snug">
@@ -454,7 +466,7 @@ const LandingPage: React.FC = () => {
                     <div 
                       key={i} 
                       onClick={openPaymentModal}
-                      className="w-[130px] sm:w-[150px] shrink-0 bg-white border border-zinc-200/90 rounded-2xl overflow-hidden p-2.5 text-center shadow-2xs hover:shadow-xs hover:border-zinc-300 transition-all cursor-pointer group"
+                      className="w-[130px] sm:w-[150px] shrink-0 bg-white border border-zinc-200/90 rounded-2xl overflow-hidden p-2.5 text-center shadow-2xs hover:shadow-xs hover:border-zinc-300 transition-colors duration-150 cursor-pointer group"
                     >
                       <div className="w-full aspect-square overflow-hidden rounded-xl bg-zinc-100 mb-2 border border-zinc-100">
                         <img 
@@ -513,7 +525,7 @@ const LandingPage: React.FC = () => {
                       <button
                         key={num}
                         onClick={() => setCalculatorProjects(num)}
-                        className={`py-2 rounded-xl font-mono text-xs sm:text-sm transition-all cursor-pointer ${
+                        className={`py-2 rounded-xl font-mono text-xs sm:text-sm transition-colors duration-150 cursor-pointer ${
                           calculatorProjects === num 
                             ? 'bg-white text-zinc-950 font-bold shadow-sm' 
                             : 'bg-zinc-800/80 text-zinc-300 border border-zinc-700/60 hover:bg-zinc-800'
@@ -527,12 +539,12 @@ const LandingPage: React.FC = () => {
                   {/* Real Earnings math */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800 mb-4">
                     <div className="text-center sm:text-left border-b sm:border-b-0 sm:border-r border-zinc-800 pb-2.5 sm:pb-0 sm:pr-3">
-                      <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider block">Average Market Rate</span>
+                      <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider block">Average market rate</span>
                       <span className="text-base sm:text-lg font-bold text-zinc-100 mt-0.5 block">₹25,000 – ₹35,000 / project</span>
                       <span className="text-[11px] text-emerald-400 mt-0.5 block">✓ 2D Floor Plans + 3D Walkthroughs</span>
                     </div>
                     <div className="text-center sm:text-right pt-2 sm:pt-0 sm:pl-3">
-                      <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider block">Your Monthly Earning</span>
+                      <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider block">Your monthly earning</span>
                       <span className="text-2xl sm:text-3xl font-mono font-bold text-white mt-0.5 block">
                         ₹{(calculatorProjects * 30000).toLocaleString('en-IN')}
                         <span className="text-xs text-zinc-400 font-normal">/mo</span>
@@ -545,7 +557,7 @@ const LandingPage: React.FC = () => {
 
                   <button
                     onClick={openPaymentModal}
-                    className="w-full py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md animate-pulse-slow"
+                    className="w-full py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-colors duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-md animate-pulse-slow"
                   >
                     <span>Enroll Now & Start Earning</span>
                     <ArrowRight size={16} />
@@ -560,8 +572,8 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
               <div className="px-3 sm:px-4">
                 <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-600 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    ⚠️ ARE YOU STRUGGLING WITH THIS?
+                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-600 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
+                    ⚠️ Common architectural struggles
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
                     4 Critical Problems Stopping 95% of Indian Designers
@@ -570,7 +582,7 @@ const LandingPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-3.5">
                   {PAIN_TRIGGERS_INDIAN.map((item, idx) => (
-                    <div key={idx} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-3.5 sm:p-4 transition-all hover:border-zinc-400 flex items-start gap-3">
+                    <div key={idx} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-3.5 sm:p-4 transition-colors duration-150 hover:border-zinc-400 flex items-start gap-3">
                       <span className="text-2xl shrink-0 p-1.5 bg-white rounded-lg border border-zinc-200">{item.emoji}</span>
                       <div>
                         <h3 className="font-heading font-semibold text-zinc-950 text-sm sm:text-base mb-1 leading-snug">{item.title}</h3>
@@ -588,8 +600,8 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
               <div className="px-3 sm:px-4">
                 <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    ⭐ THE 4-STAGE EXECUTION BLUEPRINT
+                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
+                    ⭐ 4-stage execution roadmap
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
                     From Blank Screen to Final Client Cheque
@@ -598,7 +610,7 @@ const LandingPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                   {SOLUTION_PILLARS.map((col, idx) => (
-                    <div key={idx} className="bg-white border border-zinc-200/90 hover:border-zinc-400 rounded-xl p-4 sm:p-5 transition-all flex flex-col justify-between">
+                    <div key={idx} className="bg-white border border-zinc-200/90 hover:border-zinc-400 rounded-xl p-4 sm:p-5 transition-colors duration-150 flex flex-col justify-between">
                       <div>
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-[10px] font-mono font-bold text-zinc-800 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded">
@@ -637,8 +649,8 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
               <div className="px-3 sm:px-4">
                 <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    🎯 WHO IS THIS BUNDLE FOR?
+                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
+                    🎯 Who this bundle is for
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
                     Designed for Anyone Who Wants to Design Spaces
@@ -647,7 +659,7 @@ const LandingPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                   {WHO_IS_THIS_FOR.map((item, idx) => (
-                    <div key={idx} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-4 transition-all flex flex-col justify-between">
+                    <div key={idx} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-4 transition-colors duration-150 flex flex-col justify-between">
                       <div>
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-xl p-1 bg-white rounded-lg border border-zinc-200">{item.icon}</span>
@@ -674,8 +686,8 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
               <div className="px-3 sm:px-4">
                 <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    📚 12 FULL MASTERCLASSES
+                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
+                    📚 12 full masterclasses included
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
                     All 12 Industry Masterclasses in One Access Pass
@@ -687,7 +699,7 @@ const LandingPage: React.FC = () => {
                       <button
                         key={tab}
                         onClick={() => setActiveCategoryTab(tab)}
-                        className={`px-3 py-1 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                        className={`px-3 py-1 rounded-full text-xs font-mono transition-colors duration-150 cursor-pointer ${
                           activeCategoryTab === tab
                             ? 'bg-zinc-950 text-white font-medium shadow-xs'
                             : 'bg-zinc-100 text-zinc-600 border border-zinc-200 hover:bg-zinc-200'
@@ -702,7 +714,7 @@ const LandingPage: React.FC = () => {
                 {/* Courses Grid with 1:1 SQUARE THUMBNAILS */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                   {filteredCourses.map((c) => (
-                    <div key={c.id} className="bg-white border border-zinc-200 rounded-2xl overflow-hidden hover:border-zinc-400 transition-all flex flex-col justify-between shadow-xs">
+                    <div key={c.id} className="bg-white border border-zinc-200 rounded-2xl overflow-hidden hover:border-zinc-400 transition-colors duration-150 flex flex-col justify-between shadow-xs">
                       <div>
                         {/* 1:1 SQUARE THUMBNAIL */}
                         <div className="relative aspect-square overflow-hidden bg-zinc-100 border-b border-zinc-200">
@@ -764,8 +776,8 @@ const LandingPage: React.FC = () => {
             {/* ═══ 7. STUDENT WORK & RENDERS ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
               <div className="px-3 sm:px-4 mb-5 text-center">
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
-                  📸 100% REAL STUDENT RESULTS
+                <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
+                  📸 100% real student results
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white mt-2">
                   See What Beginners Created in Just 30 Days
@@ -804,7 +816,7 @@ const LandingPage: React.FC = () => {
               <div className="text-center mt-6">
                 <button
                   onClick={openPaymentModal}
-                  className="px-6 py-3 rounded-full bg-white text-zinc-950 font-heading font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-all cursor-pointer shadow-md animate-pulse-slow"
+                  className="px-6 py-3 rounded-full bg-white text-zinc-950 font-heading font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-colors duration-150 cursor-pointer shadow-md animate-pulse-slow"
                 >
                   Claim Full Course Access Now
                 </button>
@@ -827,7 +839,7 @@ const LandingPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6">
                   {FREE_BONUSES.map((b) => (
-                    <div key={b.id} className="bg-white border border-zinc-200 rounded-xl p-4 hover:border-zinc-400 transition-all flex flex-col justify-between">
+                    <div key={b.id} className="bg-white border border-zinc-200 rounded-xl p-4 hover:border-zinc-400 transition-colors duration-150 flex flex-col justify-between">
                       <div>
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-2xl">{b.icon}</span>
@@ -867,8 +879,8 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
               <div className="px-3 sm:px-4">
                 <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    ⚡ VALUE COMPARISON
+                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
+                    ⚡ Value comparison
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
                     ₹999 vs ₹1,50,000 Offline Institute
@@ -940,8 +952,8 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
               <div className="px-3 sm:px-4">
                 <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    💬 VERIFIED REVIEWS
+                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
+                    💬 Verified student reviews
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
                     What Indian Designers & Architects Say
@@ -951,7 +963,7 @@ const LandingPage: React.FC = () => {
                 {/* Featured Transformation Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-6">
                   {TRANSFORMATION_STORIES.map((s, idx) => (
-                    <div key={idx} className="bg-white border border-zinc-200 rounded-xl p-4 hover:border-zinc-400 transition-all flex flex-col justify-between">
+                    <div key={idx} className="bg-white border border-zinc-200 rounded-xl p-4 hover:border-zinc-400 transition-colors duration-150 flex flex-col justify-between">
                       <div>
                         <div className="flex items-center justify-between mb-2.5">
                           <div className="flex items-center gap-2">
@@ -1017,8 +1029,8 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
               <div className="max-w-3xl mx-auto px-3 sm:px-4">
                 <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    🎁 EVERYTHING INCLUDED
+                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
+                    🎁 Everything included
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
                     Everything You Get Inside the ₹999 Bundle
@@ -1043,7 +1055,7 @@ const LandingPage: React.FC = () => {
 
                   {/* Total Value Summary Box */}
                   <div className="bg-zinc-950 text-white p-5 sm:p-6 text-center">
-                    <p className="text-zinc-400 text-[10px] font-mono uppercase tracking-widest mb-1">Total Real Market Value</p>
+                    <p className="text-zinc-400 text-[10px] font-mono font-medium mb-1">Total real market value</p>
                     <p className="text-xl font-mono font-bold text-zinc-400 line-through mb-1">₹54,988</p>
                     <div className="flex items-baseline justify-center gap-2 mb-4">
                       <span className="text-zinc-400 text-xs font-medium">Today's Batch Price:</span>
@@ -1053,7 +1065,7 @@ const LandingPage: React.FC = () => {
 
                     <button
                       onClick={openPaymentModal}
-                      className="w-full max-w-md mx-auto py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md animate-pulse-slow"
+                      className="w-full max-w-md mx-auto py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-colors duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-md animate-pulse-slow"
                     >
                       <Download size={16} />
                       <span>Get Instant Access to Everything</span>
@@ -1070,8 +1082,8 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
               <div className="max-w-3xl mx-auto px-3 sm:px-4">
                 <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-700 bg-zinc-200/80 px-3 py-0.5 rounded-full">
-                    ❓ GOT QUESTIONS?
+                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-200/80 px-3 py-0.5 rounded-full">
+                    ❓ Frequently asked questions
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
                     Frequently Asked Questions
@@ -1082,7 +1094,7 @@ const LandingPage: React.FC = () => {
                   {FAQ_ITEMS_LANDING.map((faq, i) => (
                     <div 
                       key={i} 
-                      className="bg-white border border-zinc-200 rounded-xl overflow-hidden transition-all"
+                      className="bg-white border border-zinc-200 rounded-xl overflow-hidden transition-colors duration-150"
                     >
                       <button
                         onClick={() => setOpenFaqIndex(openFaqIndex === i ? null : i)}
@@ -1108,7 +1120,7 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-10 sm:py-16 bg-zinc-950 text-white relative overflow-hidden text-center">
               <div className="max-w-3xl mx-auto px-4 relative z-10">
                 <span className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-zinc-800 text-zinc-300 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider mb-2.5 border border-zinc-700">
-                  <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" /> LIMITED BATCH INTAKE
+                  <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" /> Limited batch intake
                 </span>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white leading-tight mb-2.5">
                   Don't Let Another Year Pass Wishing You Had Mastered 3D & AI
@@ -1153,7 +1165,7 @@ const LandingPage: React.FC = () => {
         target="_blank" 
         rel="noopener noreferrer"
         aria-label="WhatsApp Support"
-        className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] right-3.5 z-[75] flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-mono font-medium px-3 py-2 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all"
+        className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] right-3.5 z-[75] flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-mono font-medium px-3 py-2 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-transform duration-150"
         style={{ boxShadow: '0 4px 16px rgba(37,211,102,0.35)' }}
       >
         <MessageCircle size={16} className="fill-white" />
@@ -1201,7 +1213,7 @@ const LandingPage: React.FC = () => {
             </button>
 
             <span className="bg-zinc-100 text-zinc-800 text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-zinc-200">
-              Wait! Special Offer Active
+              Special offer active
             </span>
 
             <h3 className="text-lg sm:text-xl font-heading font-bold text-zinc-950 mt-2 mb-1.5">
@@ -1266,8 +1278,8 @@ const LandingPage: React.FC = () => {
 
             {/* Modal Header */}
             <div className="bg-zinc-950 text-white p-4 sm:p-5 border-b border-zinc-800">
-              <div className="inline-flex items-center gap-1 text-zinc-400 text-[10px] font-mono uppercase tracking-widest mb-1">
-                <Sparkles size={11} className="text-emerald-400" /> Complete 12-Course Architecture Pass
+              <div className="inline-flex items-center gap-1 text-zinc-400 text-[10px] font-mono font-medium mb-1">
+                <Sparkles size={11} className="text-emerald-400" /> Complete 12-course architecture pass
               </div>
               <h3 className="text-lg sm:text-xl font-heading font-bold text-white">Avada PRO 3D Architecture Bundle</h3>
               
@@ -1310,27 +1322,27 @@ const LandingPage: React.FC = () => {
               </div>
 
               {/* Live Form Inputs */}
-              <div className="space-y-2.5 mb-3.5">
+              <div className="space-y-3 mb-3.5">
                 <div>
-                  <label className="block text-[10px] font-mono font-semibold text-zinc-700 uppercase tracking-wider mb-1">
-                    E-mail
+                  <label className="block text-[11px] font-mono font-medium text-zinc-700 mb-1">
+                    Email address
                   </label>
                   <div className="relative">
-                    <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" />
+                    <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" />
                     <input
                       type="email"
                       placeholder="yourname@gmail.com"
                       value={email}
                       onChange={(e) => { setEmail(e.target.value); setEmailError(false); }}
-                      className={`w-full pl-9 pr-3 py-2 bg-zinc-50 border ${emailError ? 'border-red-500' : 'border-zinc-300 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900'} rounded-xl text-xs sm:text-sm font-medium outline-none transition-all`}
+                      className={`w-full pl-9 pr-3 py-2.5 bg-zinc-50 border ${emailError ? 'border-red-500' : 'border-zinc-300 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900'} rounded-xl text-base sm:text-sm font-medium outline-none transition-colors min-h-[44px]`}
                     />
                   </div>
                   {emailError && <p className="text-red-500 text-[10px] font-mono mt-0.5">Please enter a valid email address</p>}
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-mono font-semibold text-zinc-700 uppercase tracking-wider mb-1">
-                    Phone
+                  <label className="block text-[11px] font-mono font-medium text-zinc-700 mb-1">
+                    WhatsApp mobile number
                   </label>
                   <div className="relative">
                     <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 font-mono text-xs">+91</span>
@@ -1346,7 +1358,7 @@ const LandingPage: React.FC = () => {
                         setPhone(val.slice(0, 10)); 
                         setPhoneError(false); 
                       }}
-                      className={`w-full pl-11 pr-3 py-2 bg-zinc-50 border ${phoneError ? 'border-red-500' : 'border-zinc-300 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900'} rounded-xl text-xs sm:text-sm font-medium outline-none transition-all`}
+                      className={`w-full pl-11 pr-3 py-2.5 bg-zinc-50 border ${phoneError ? 'border-red-500' : 'border-zinc-300 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900'} rounded-xl text-base sm:text-sm font-medium outline-none transition-colors min-h-[44px]`}
                     />
                   </div>
                   {phoneError && <p className="text-red-500 text-[10px] font-mono mt-0.5">Please enter a valid 10-digit mobile number</p>}
@@ -1359,7 +1371,7 @@ const LandingPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowCouponInput(true)}
-                    className="text-[11px] font-mono font-semibold text-zinc-600 hover:text-zinc-950 flex items-center gap-1 cursor-pointer"
+                    className="text-[11px] font-mono font-semibold text-zinc-600 hover:text-zinc-950 flex items-center gap-1 cursor-pointer py-1"
                   >
                     <Sparkles size={12} />
                     Have a coupon code?
@@ -1376,7 +1388,7 @@ const LandingPage: React.FC = () => {
                           setDiscountPercent(0);
                           setCouponCode('');
                         }}
-                        className="text-zinc-400 hover:text-zinc-600 cursor-pointer"
+                        className="text-zinc-400 hover:text-zinc-600 cursor-pointer p-1"
                       >
                         <X size={14} />
                       </button>
@@ -1384,7 +1396,7 @@ const LandingPage: React.FC = () => {
                   ) : (
                     <div>
                       <div className="flex justify-between items-center mb-1">
-                        <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase">Coupon Code</span>
+                        <span className="text-[10px] font-mono font-medium text-zinc-600">Coupon code</span>
                         <button onClick={() => setShowCouponInput(false)} className="text-[10px] text-zinc-400 cursor-pointer font-mono">Cancel</button>
                       </div>
                       <div className="flex gap-2">
@@ -1393,11 +1405,11 @@ const LandingPage: React.FC = () => {
                           placeholder="ENTER CODE"
                           value={couponCode}
                           onChange={(e) => { setCouponCode(e.target.value.toUpperCase()); setCouponError(null); }}
-                          className="flex-1 px-2.5 py-1.5 bg-white border border-zinc-300 rounded-lg text-xs font-mono font-bold uppercase outline-none"
+                          className="flex-1 px-3 py-2 bg-white border border-zinc-300 rounded-lg text-base sm:text-xs font-mono font-bold uppercase outline-none min-h-[44px]"
                         />
                         <button
                           onClick={() => applyCouponCodeDirect(couponCode)}
-                          className="px-3 py-1.5 bg-zinc-950 text-white rounded-lg text-xs font-mono font-medium hover:bg-zinc-800 cursor-pointer"
+                          className="px-4 py-2 bg-zinc-950 text-white rounded-lg text-xs font-mono font-medium hover:bg-zinc-800 cursor-pointer min-h-[44px]"
                         >
                           Apply
                         </button>
@@ -1479,7 +1491,7 @@ const LandingPage: React.FC = () => {
 
             <button
               onClick={() => setPaymentSuccess(null)}
-              className="w-full py-3 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-heading font-medium text-xs sm:text-sm transition-all cursor-pointer"
+              className="w-full py-3 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-heading font-medium text-xs sm:text-sm transition-colors duration-150 cursor-pointer"
             >
               Close & Start Designing
             </button>

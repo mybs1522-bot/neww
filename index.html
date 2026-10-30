@@ -53,10 +53,40 @@
       }
     </script>
     <style>
+      /* Hallmark · v2.0.0 · theme: modern-minimal · mobile-first craft */
       :root {
         --d-border: #e4e4e7;
         --d-grid: #e4e4e7;
+        --bg-page: #ffffff;
+        --text-primary: #09090b;
+        --text-secondary: #52525b;
+        --font-sans: "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+        --font-hand: "Caveat", cursive;
       }
+
+      /* Hallmark Floor 4: overflow-x: clip on html and body. Never hidden, never 100vw. */
+      html, body {
+        overflow-x: clip;
+        max-width: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      /* Hallmark Touch & Mobile Ergonomics */
+      *, *::before, *::after {
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: border-box;
+      }
+      button, a, input, select, textarea {
+        touch-action: manipulation;
+      }
+      button:focus-visible, a:focus-visible, input:focus-visible {
+        outline: 2px solid #18181b;
+        outline-offset: 2px;
+      }
+
       ::-webkit-scrollbar { width: 5px; height: 5px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 5px; }
@@ -66,7 +96,7 @@
       html { scroll-behavior: smooth; }
 
       .font-hand {
-        font-family: 'Caveat', cursive;
+        font-family: var(--font-hand);
       }
 
       /* Text Background Highlighter Pen effects */
@@ -111,9 +141,10 @@
       .animate-wiggle {
         display: inline-block;
         animation: wiggle 2.8s ease-in-out infinite;
+        will-change: transform;
       }
 
-      /* Full width grid lines matching archbyshagun.in */
+      /* Full width grid lines matching archbyshagun.in with zero mobile horizontal overflow */
       .screen-line-before {
         position: relative;
       }
@@ -121,9 +152,9 @@
         content: '';
         position: absolute;
         top: 0;
-        left: -100vw;
+        left: -1000px;
+        right: -1000px;
         height: 1px;
-        width: 200vw;
         background-color: var(--d-grid);
         z-index: 1;
         pointer-events: none;
@@ -136,9 +167,9 @@
         content: '';
         position: absolute;
         bottom: 0;
-        left: -100vw;
+        left: -1000px;
+        right: -1000px;
         height: 1px;
-        width: 200vw;
         background-color: var(--d-grid);
         z-index: 1;
         pointer-events: none;
@@ -158,27 +189,30 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        left: -100vw;
-        width: 200vw;
+        left: 0;
+        right: 0;
+        width: 100%;
         background-image: repeating-linear-gradient(315deg, rgba(228, 228, 231, 0.7) 0, rgba(228, 228, 231, 0.7) 1px, transparent 0, transparent 50%);
         background-size: 10px 10px;
         pointer-events: none;
       }
 
-      /* Premium Obsidian CTA Button with micro-sheen */
+      /* Premium Obsidian CTA Button with micro-sheen (Hallmark Floor 2: no transition: all) */
       .btn-premium {
         background: linear-gradient(180deg, #27272a 0%, #09090b 100%);
         color: #ffffff;
         border-radius: 9999px;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 4px 14px rgba(0, 0, 0, 0.16);
-        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: background-color 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+        min-height: 44px;
+        touch-action: manipulation;
       }
       .btn-premium:hover {
         background: linear-gradient(180deg, #3f3f46 0%, #18181b 100%);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 6px 20px rgba(0, 0, 0, 0.22);
       }
       .btn-premium:active {
-        transform: scale(0.98);
+        transform: scale(0.97);
       }
 
       /* Slow breathing pulse for CTA buttons */
@@ -188,20 +222,41 @@
           box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
         }
         50% {
-          transform: scale(1.025);
+          transform: scale(1.02);
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.26);
         }
       }
       .animate-pulse-slow {
         animation: pulse-slow 2.6s ease-in-out infinite;
+        will-change: transform;
       }
 
-      /* Subtle marquee */
-      @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-      @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-      .animate-scroll-left { display: flex; width: max-content; animation: scroll-left 45s linear infinite; }
-      .animate-scroll-right { display: flex; width: max-content; animation: scroll-right 45s linear infinite; }
+      /* Hardware-accelerated subtle marquee for mobile 60/120fps */
+      @keyframes scroll-left { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+      @keyframes scroll-right { 0% { transform: translate3d(-50%, 0, 0); } 100% { transform: translate3d(0, 0, 0); } }
+      .animate-scroll-left {
+        display: flex;
+        width: max-content;
+        animation: scroll-left 45s linear infinite;
+        will-change: transform;
+      }
+      .animate-scroll-right {
+        display: flex;
+        width: max-content;
+        animation: scroll-right 45s linear infinite;
+        will-change: transform;
+      }
       .hover\:pause:hover, .hover\:pause:active { animation-play-state: paused; }
+
+      /* Hallmark Floor 7: prefers-reduced-motion fallback */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
 
       body {
         background-color: #ffffff;
@@ -219,7 +274,7 @@
     </script>
     <link rel="stylesheet" href="/index.css">
   </head>
-  <body class="bg-white text-zinc-950 font-sans overflow-x-hidden antialiased selection:bg-zinc-200 selection:text-zinc-900">
+  <body class="bg-white text-zinc-950 font-sans antialiased selection:bg-zinc-200 selection:text-zinc-900">
     <noscript>
       <img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=907155057168097&ev=PageView&noscript=1"/>
