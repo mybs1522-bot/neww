@@ -321,7 +321,7 @@ const LandingPage: React.FC = () => {
                 {/* Subtitle with High-Impact Highlight */}
                 <div className="max-w-2xl mx-auto mb-4">
                   <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
-                    Stop doing slow, low-paying 2D line work. Learn how to take projects from <strong>scratch to photorealistic delivery</strong> and start closing <span className="highlight-yellow font-bold text-zinc-950">₹25,000 to ₹50,000+</span> client contracts from home!
+                    We will handhold you from zero, you just need a laptop and 1-2 hours each day for next 15 days. This will transform the way you work in this industry.
                   </p>
                   <div className="font-hand text-lg sm:text-xl text-emerald-700 font-bold -rotate-1 mt-1.5">
                     ✨ Zero 3D experience needed • 100% beginner friendly!
