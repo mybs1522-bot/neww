@@ -122,7 +122,6 @@ const LandingPage: React.FC = () => {
 
   const [showStickyBar, setShowStickyBar] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const [calculatorProjects, setCalculatorProjects] = useState<number>(2);
   const [activeCategoryTab, setActiveCategoryTab] = useState<string>('All');
   const [showExitModal, setShowExitModal] = useState(false);
   const [hasShownExitModal, setHasShownExitModal] = useState(false);
@@ -494,77 +493,6 @@ const LandingPage: React.FC = () => {
                       </span>
                     </div>
                   ))}
-                </div>
-              </div>
-            </section>
-
-            <Pattern />
-
-            {/* ═══ 2. INTERACTIVE ROI CALCULATOR (COLD AUDIENCE MONEY MAGNET) ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white relative">
-              <div className="px-3 sm:px-6 max-w-3xl mx-auto">
-                <div className="text-center mb-5">
-                  <div className="flex flex-wrap items-center justify-center gap-2 mb-2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-zinc-800 text-zinc-300 text-xs font-mono uppercase tracking-wider border border-zinc-700">
-                      <DollarSign size={13} /> Earning Calculator
-                    </span>
-                    <span className="font-hand text-lg sm:text-xl text-amber-300 font-bold animate-wiggle">
-                      ✦ 1 project pays for this 30x over!
-                    </span>
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white">
-                    How Much Can You Earn As a 3D Designer in India?
-                  </h2>
-                  <p className="text-zinc-400 text-xs sm:text-sm mt-1">
-                    Select how many 3D house elevation or room projects you plan to take per month:
-                  </p>
-                </div>
-
-                {/* Calculator Box */}
-                <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-xl">
-                  {/* Project buttons */}
-                  <div className="grid grid-cols-4 gap-2 mb-4">
-                    {[1, 2, 3, 4].map((num) => (
-                      <button
-                        key={num}
-                        onClick={() => setCalculatorProjects(num)}
-                        className={`py-2 rounded-xl font-mono text-xs sm:text-sm transition-colors duration-150 cursor-pointer ${
-                          calculatorProjects === num 
-                            ? 'bg-white text-zinc-950 font-bold shadow-sm' 
-                            : 'bg-zinc-800/80 text-zinc-300 border border-zinc-700/60 hover:bg-zinc-800'
-                        }`}
-                      >
-                        {num} {num === 1 ? 'Project' : 'Projects'}/mo
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Real Earnings math */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800 mb-4">
-                    <div className="text-center sm:text-left border-b sm:border-b-0 sm:border-r border-zinc-800 pb-2.5 sm:pb-0 sm:pr-3">
-                      <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider block">Average market rate</span>
-                      <span className="text-base sm:text-lg font-bold text-zinc-100 mt-0.5 block">₹25,000 – ₹35,000 / project</span>
-                      <span className="text-[11px] text-emerald-400 mt-0.5 block">✓ 2D Floor Plans + 3D Walkthroughs</span>
-                    </div>
-                    <div className="text-center sm:text-right pt-2 sm:pt-0 sm:pl-3">
-                      <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider block">Your monthly earning</span>
-                      <span className="text-2xl sm:text-3xl font-mono font-bold text-white mt-0.5 block">
-                        ₹{(calculatorProjects * 30000).toLocaleString('en-IN')}
-                        <span className="text-xs text-zinc-400 font-normal">/mo</span>
-                      </span>
-                      <span className="text-[11px] text-zinc-400 mt-0.5 block">
-                        ROI on ₹999 Course: <strong className="text-emerald-400 font-mono">{Math.round(((calculatorProjects * 30000) / 999) * 100).toLocaleString('en-IN')}% in 30 Days</strong>
-                      </span>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={openPaymentModal}
-                    className="w-full py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-colors duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-md animate-pulse-slow"
-                  >
-                    <span>Enroll Now & Start Earning</span>
-                    <ArrowRight size={16} />
-                  </button>
                 </div>
               </div>
             </section>
