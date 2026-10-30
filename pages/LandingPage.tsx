@@ -120,7 +120,6 @@ const LandingPage: React.FC = () => {
     return { h: Math.floor((r / 3600000) % 24), m: Math.floor((r / 60000) % 60), s: Math.floor((r / 1000) % 60) };
   });
 
-  const [showStickyBar, setShowStickyBar] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [activeCategoryTab, setActiveCategoryTab] = useState<string>('All');
   const [showExitModal, setShowExitModal] = useState(false);
@@ -156,12 +155,7 @@ const LandingPage: React.FC = () => {
     const t = setInterval(calc, 1000); calc(); return () => clearInterval(t);
   }, []);
 
-  // Sticky Bar & Student Count
-  useEffect(() => {
-    const h = () => setShowStickyBar(window.scrollY > 350);
-    window.addEventListener('scroll', h, { passive: true });
-    return () => window.removeEventListener('scroll', h);
-  }, []);
+  // Live Student Count increment
   useEffect(() => {
     const t = setInterval(() => setStudentCount(c => c + 1), 5000);
     return () => clearInterval(t);
@@ -1125,8 +1119,8 @@ const LandingPage: React.FC = () => {
         <span className="hidden sm:inline">WhatsApp Help</span>
       </a>
 
-      {/* ═══ STICKY BOTTOM BAR ═══ */}
-      <div className={`fixed bottom-0 left-0 right-0 z-[70] transition-transform duration-300 bg-white/95 backdrop-blur-md border-t border-zinc-200 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] ${showStickyBar ? 'translate-y-0' : 'translate-y-full'}`}>
+      {/* ═══ STICKY BOTTOM BAR (ALWAYS VISIBLE UPON LANDING) ═══ */}
+      <div className="fixed bottom-0 left-0 right-0 z-[70] bg-white/95 backdrop-blur-md border-t border-zinc-200 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] translate-y-0">
         <div className="max-w-4xl mx-auto px-3.5 py-2 flex items-center justify-between gap-3">
           
           <div className="flex flex-col min-w-0">
