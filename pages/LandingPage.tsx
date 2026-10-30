@@ -309,14 +309,36 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Outcome Headline with Highlighter */}
-                <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.15] mb-3">
-                  <span className="block text-2xl sm:text-4xl md:text-5xl">
-                    12 Courses to Design <span className="highlight-yellow">Floor Plans, 3D Interiors & Exteriors</span>, <span className="highlight-green">Image & Video renders</span>.
+                <div className="mb-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-zinc-200 rounded-full text-xs sm:text-sm font-mono font-semibold text-zinc-700 mb-2">
+                    ⏱️ In the next 15 days
                   </span>
-                  <span className="block text-xs sm:text-sm font-medium text-zinc-600 mt-2 uppercase tracking-wide">
+                  <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.15]">
+                    <span className="block text-2xl sm:text-4xl md:text-5xl">
+                      You'll learn to Design <span className="highlight-yellow">Floor Plans, 3D Interiors & Exteriors</span>, <span className="highlight-green">Image & Video renders</span>.
+                    </span>
+                  </h1>
+                </div>
+
+                {/* Stylish Highlight on Phone: Recorded Course + Live Doubt Classes */}
+                <div className="flex items-center justify-center my-3">
+                  <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 sm:px-4 py-1.5 bg-zinc-950 text-white rounded-full shadow-md border border-zinc-800 text-xs sm:text-sm">
+                    <span className="font-heading font-semibold text-zinc-200">
+                      🎬 Recorded Course
+                    </span>
+                    <span className="text-zinc-500 font-mono font-bold">+</span>
+                    <span className="inline-flex items-center gap-1.5 font-heading font-bold text-emerald-400">
+                      <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                      Live Class for Doubt Sessions
+                    </span>
+                  </div>
+                </div>
+
+                <div className="text-center mb-3">
+                  <span className="block text-xs sm:text-sm font-medium text-zinc-600 uppercase tracking-wide">
                     UNBELIEVABLE PRICE OF JUST <span className="line-through font-mono">₹3,699</span> <strong className="text-zinc-950 font-bold font-mono">₹999 (one-time)</strong>, GUARANTEED FREELANCE PROJECTS FOR ALL STUDENTS.
                   </span>
-                </h1>
+                </div>
 
                 {/* Subtitle with High-Impact Highlight */}
                 <div className="max-w-2xl mx-auto mb-4">
