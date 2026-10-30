@@ -335,8 +335,8 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 <div className="text-center mb-3">
-                  <span className="block text-xs sm:text-sm font-medium text-zinc-600 uppercase tracking-wide">
-                    UNBELIEVABLE PRICE OF JUST <span className="line-through font-mono">₹3,699</span> <strong className="text-zinc-950 font-bold font-mono">₹999 (one-time)</strong>, GUARANTEED FREELANCE PROJECTS FOR ALL STUDENTS.
+                  <span className="block text-xs sm:text-sm text-zinc-600 font-normal">
+                    Less than a dinner out — just <span className="line-through font-mono text-zinc-400">₹3,699</span> <strong className="text-zinc-950 font-bold font-mono">₹999 (one-time)</strong>, guaranteed freelance projects for all students.
                   </span>
                 </div>
 
