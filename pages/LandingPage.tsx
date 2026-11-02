@@ -537,49 +537,77 @@ const LandingPage: React.FC = () => {
 
             <Pattern />
 
-            {/* ═══ 4. THE 4-STAGE SOLUTION PILLARS ═══ */}
+            {/* ═══ REAL INDIAN STUDENT TESTIMONIALS (MOVED HERE) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
               <div className="px-3 sm:px-4">
                 <div className="text-center mb-6">
                   <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    ⭐ 4-stage execution roadmap
+                    💬 Verified student reviews
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
-                    From Blank Screen to Final Client Cheque
+                    What Indian Designers &amp; Architects Say
                   </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                  {SOLUTION_PILLARS.map((col, idx) => (
-                    <div key={idx} className="bg-white border border-zinc-200/90 hover:border-zinc-400 rounded-xl p-4 sm:p-5 transition-colors duration-150 flex flex-col justify-between">
+                {/* Featured Transformation Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-6">
+                  {TRANSFORMATION_STORIES.map((s, idx) => (
+                    <div key={idx} className="bg-white border border-zinc-200 rounded-xl p-4 hover:border-zinc-400 transition-colors duration-150 flex flex-col justify-between">
                       <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-[10px] font-mono font-bold text-zinc-800 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded">
-                            {col.badge}
+                        <div className="flex items-center justify-between mb-2.5">
+                          <div className="flex items-center gap-2">
+                            <div className="size-8 rounded-full bg-zinc-900 text-white font-mono font-bold flex items-center justify-center text-xs">
+                              {s.name.charAt(0)}
+                            </div>
+                            <div>
+                              <h3 className="font-heading font-bold text-zinc-950 text-sm leading-tight">{s.name}</h3>
+                              <span className="text-[10px] text-zinc-500 font-mono">{s.role} • {s.city}</span>
+                            </div>
+                          </div>
+                          <span className="bg-emerald-50 text-emerald-800 text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full border border-emerald-200">
+                            {s.incomeIncrease}
                           </span>
-                          <span className="text-xl">{col.icon}</span>
                         </div>
-                        <h3 className="font-heading font-bold text-zinc-950 text-base mb-1">{col.title}</h3>
-                        <p className="text-zinc-600 text-xs leading-relaxed mb-3">{col.desc}</p>
+
+                        <div className="space-y-1.5 text-xs my-2.5">
+                          <p className="text-zinc-500 bg-zinc-50 p-2 rounded-lg"><strong className="text-zinc-700 font-semibold">Before:</strong> {s.before}</p>
+                          <p className="text-zinc-800 bg-zinc-100/70 p-2 rounded-lg"><strong className="text-zinc-950 font-semibold">After:</strong> {s.after}</p>
+                        </div>
                       </div>
-                      
-                      <div className="pt-2.5 border-t border-zinc-100 flex items-center gap-1.5 text-xs font-medium text-emerald-800 bg-emerald-50/60 p-2 rounded-lg border border-emerald-100">
-                        <CheckCircle2 size={13} className="shrink-0 text-emerald-600" />
-                        <span>Result: <strong className="font-semibold">{col.result}</strong></span>
+
+                      <div className="flex items-center justify-between pt-2 border-t border-zinc-100 text-[11px] text-zinc-400 font-mono">
+                        <div className="flex text-amber-400">
+                          {[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-amber-400" />)}
+                        </div>
+                        <span className="text-emerald-700 font-medium flex items-center gap-1"><CheckCircle size={11} /> Verified Learner</span>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Quick CTA */}
-                <div className="text-center mt-6">
-                  <button
-                    onClick={openPaymentModal}
-                    className="btn-premium animate-pulse-slow px-6 py-3 text-xs sm:text-sm font-heading font-semibold inline-flex items-center gap-2 cursor-pointer"
-                  >
-                    <span>Master All 4 Stages Now</span>
-                    <ArrowRight size={15} />
-                  </button>
+                {/* Testimonials List */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  {TESTIMONIALS_LANDING.map((t, idx) => (
+                    <div key={idx} className="bg-white border border-zinc-200 rounded-xl p-3 flex flex-col justify-between text-xs">
+                      <div>
+                        <div className="flex text-amber-400 mb-1.5">
+                          {[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-amber-400" />)}
+                        </div>
+                        <p className="text-zinc-600 leading-relaxed mb-2.5">"{t.content}"</p>
+                      </div>
+                      <div className="pt-2 border-t border-zinc-100">
+                        <span className="font-heading font-semibold text-zinc-950 block truncate">{t.name}</span>
+                        <span className="text-[10px] font-mono text-zinc-500 block truncate">{t.role} • {t.location}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Mentors Image */}
+                <div className="max-w-3xl mx-auto mt-8 text-center">
+                  <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-2 sm:p-3">
+                    <img src="/renders/mentors.png" alt="Industry Mentors" className="w-full h-auto object-contain" loading="lazy" />
+                  </div>
                 </div>
               </div>
             </section>
@@ -830,83 +858,6 @@ const LandingPage: React.FC = () => {
                         <span><strong className="text-zinc-950">Client Proposal Templates:</strong> Lock 50% advance token payments</span>
                       </li>
                     </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <Pattern />
-
-            {/* ═══ 10. REAL INDIAN STUDENT TESTIMONIALS ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
-              <div className="px-3 sm:px-4">
-                <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    💬 Verified student reviews
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
-                    What Indian Designers & Architects Say
-                  </h2>
-                </div>
-
-                {/* Featured Transformation Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-6">
-                  {TRANSFORMATION_STORIES.map((s, idx) => (
-                    <div key={idx} className="bg-white border border-zinc-200 rounded-xl p-4 hover:border-zinc-400 transition-colors duration-150 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center justify-between mb-2.5">
-                          <div className="flex items-center gap-2">
-                            <div className="size-8 rounded-full bg-zinc-900 text-white font-mono font-bold flex items-center justify-center text-xs">
-                              {s.name.charAt(0)}
-                            </div>
-                            <div>
-                              <h3 className="font-heading font-bold text-zinc-950 text-sm leading-tight">{s.name}</h3>
-                              <span className="text-[10px] text-zinc-500 font-mono">{s.role} • {s.city}</span>
-                            </div>
-                          </div>
-                          <span className="bg-emerald-50 text-emerald-800 text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full border border-emerald-200">
-                            {s.incomeIncrease}
-                          </span>
-                        </div>
-
-                        <div className="space-y-1.5 text-xs my-2.5">
-                          <p className="text-zinc-500 bg-zinc-50 p-2 rounded-lg"><strong className="text-zinc-700 font-semibold">Before:</strong> {s.before}</p>
-                          <p className="text-zinc-800 bg-zinc-100/70 p-2 rounded-lg"><strong className="text-zinc-950 font-semibold">After:</strong> {s.after}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between pt-2 border-t border-zinc-100 text-[11px] text-zinc-400 font-mono">
-                        <div className="flex text-amber-400">
-                          {[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-amber-400" />)}
-                        </div>
-                        <span className="text-emerald-700 font-medium flex items-center gap-1"><CheckCircle size={11} /> Verified Learner</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Testimonials List */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                  {TESTIMONIALS_LANDING.map((t, idx) => (
-                    <div key={idx} className="bg-white border border-zinc-200 rounded-xl p-3 flex flex-col justify-between text-xs">
-                      <div>
-                        <div className="flex text-amber-400 mb-1.5">
-                          {[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-amber-400" />)}
-                        </div>
-                        <p className="text-zinc-600 leading-relaxed mb-2.5">"{t.content}"</p>
-                      </div>
-                      <div className="pt-2 border-t border-zinc-100">
-                        <span className="font-heading font-semibold text-zinc-950 block truncate">{t.name}</span>
-                        <span className="text-[10px] font-mono text-zinc-500 block truncate">{t.role} • {t.location}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Mentors Image */}
-                <div className="max-w-3xl mx-auto mt-8 text-center">
-                  <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-2 sm:p-3">
-                    <img src="/renders/mentors.png" alt="Industry Mentors" className="w-full h-auto object-contain" loading="lazy" />
                   </div>
                 </div>
               </div>
