@@ -554,34 +554,6 @@ const LandingPage: React.FC = () => {
 
             <Pattern />
 
-            {/* ═══ 3. THE 4 PAIN POINTS (PUNCHY & HIGHLIGHTED) ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
-              <div className="px-3 sm:px-4">
-                <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-600 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    ⚠️ Common architectural struggles
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
-                    4 Critical Problems Stopping 95% of Indian Designers
-                  </h2>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-3.5">
-                  {PAIN_TRIGGERS_INDIAN.map((item, idx) => (
-                    <div key={idx} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-3.5 sm:p-4 transition-colors duration-150 hover:border-zinc-400 flex items-start gap-3">
-                      <span className="text-2xl shrink-0 p-1.5 bg-white rounded-lg border border-zinc-200">{item.emoji}</span>
-                      <div>
-                        <h3 className="font-heading font-semibold text-zinc-950 text-sm sm:text-base mb-1 leading-snug">{item.title}</h3>
-                        <p className="text-zinc-600 text-xs leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            <Pattern />
-
             {/* ═══ REAL INDIAN STUDENT TESTIMONIALS (MOVED HERE) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
               <div className="px-3 sm:px-4">
