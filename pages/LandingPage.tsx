@@ -305,17 +305,6 @@ const LandingPage: React.FC = () => {
             {/* ═══ 1. HERO SECTION (10/10 CONVERSIONS FOR COLD AUDIENCE) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid pt-5 sm:pt-8 pb-8 bg-white text-center">
               <div className="px-2 sm:px-4">
-                
-                {/* Social Proof Pill */}
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 border border-zinc-200 rounded-full text-[11px] sm:text-xs font-mono text-zinc-800">
-                    <Star size={12} className="fill-amber-400 text-amber-400" />
-                    <span>Rated <strong>4.9/5</strong> by <strong>52,000+</strong> Indian Designers</span>
-                  </div>
-                  <span className="font-hand text-base sm:text-lg text-amber-700 font-bold hidden xs:inline animate-wiggle">
-                    ✦ Complete 12-in-1 Pass
-                  </span>
-                </div>
 
                 {/* Outcome Headline with Highlighter */}
                 <div className="mb-2.5">
