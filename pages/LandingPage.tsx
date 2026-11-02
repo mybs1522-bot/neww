@@ -1191,28 +1191,34 @@ const LandingPage: React.FC = () => {
                 )}
               </div>
 
-              {/* Small logos of courses included */}
+              {/* Small logos of courses included - Single Scrolling Line */}
               <div className="mt-3 pt-2.5 border-t border-zinc-800/80">
                 <div className="text-[10px] font-mono text-zinc-400 mb-1.5 flex items-center justify-between">
                   <span>12 Courses Included:</span>
                   <span className="text-[9px] text-emerald-400 font-semibold">Software Links</span>
                 </div>
-                <div className="flex flex-wrap items-center gap-1.5">
-                  {COURSES.map((c) => (
-                    <span 
-                      key={c.id} 
-                      className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-[10px] text-zinc-300 font-mono"
-                      title={c.title}
-                    >
-                      <img 
-                        src={c.imageUrl} 
-                        alt={c.software} 
-                        className="size-3.5 rounded-xs object-cover shrink-0" 
-                        loading="lazy" 
-                      />
-                      <span>{c.software}</span>
-                    </span>
-                  ))}
+                
+                <div className="relative w-full overflow-hidden py-0.5">
+                  <div className="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-zinc-950 to-transparent z-10" />
+                  <div className="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-zinc-950 to-transparent z-10" />
+
+                  <div className="flex gap-1.5 animate-scroll-left hover:pause w-max py-0.5" style={{ animationDuration: '28s' }}>
+                    {[...COURSES, ...COURSES].map((c, idx) => (
+                      <span 
+                        key={`${c.id}-${idx}`} 
+                        className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-zinc-900 border border-zinc-800 rounded-md text-[10px] text-zinc-300 font-mono whitespace-nowrap shrink-0"
+                        title={c.title}
+                      >
+                        <img 
+                          src={c.imageUrl} 
+                          alt={c.software} 
+                          className="size-3.5 rounded-xs object-cover shrink-0" 
+                          loading="lazy" 
+                        />
+                        <span className="font-medium text-zinc-200">{c.software}</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
