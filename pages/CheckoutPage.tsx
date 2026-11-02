@@ -501,7 +501,7 @@ const CheckoutPage: React.FC = () => {
               >
                 <span className="sm:hidden font-display text-base">₹{BUNDLE_PRICE}</span>
                 <Download size={14} />
-                <span>Download All</span>
+                <span>Get All Courses</span>
                 <ArrowRight size={14} />
               </button>
             </div>
@@ -691,7 +691,7 @@ const CheckoutPage: React.FC = () => {
                 ) : (
                   <>
                     <Download size={18} />
-                    Pay ₹{finalPrice} & Download All
+                    Pay ₹{finalPrice} & Get All Courses
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </>
                 )}

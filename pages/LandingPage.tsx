@@ -1313,7 +1313,7 @@ const LandingPage: React.FC = () => {
                 ) : (
                   <>
                     <Download size={16} className="shrink-0" />
-                    <span>Download All</span>
+                    <span>Get All Courses</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform shrink-0" />
                   </>
                 )}
