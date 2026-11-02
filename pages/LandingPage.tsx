@@ -34,9 +34,9 @@ const CtaWithTimer = ({
     } rounded-2xl md:rounded-3xl p-5 md:p-7 relative overflow-hidden max-w-xl mx-auto text-center shadow-xs`}>
       <div className="relative z-10 flex flex-col items-center gap-3">
         
-        {/* Social Proof Pill */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-zinc-950 text-white rounded-full text-[10px] md:text-xs font-mono font-medium">
-          <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+        {/* Social Proof Single Line */}
+        <div className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium ${isDark ? 'text-zinc-300' : 'text-zinc-700'} whitespace-nowrap`}>
+          <span className="size-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
           <span>Our Design Students are earning 1L+/month average</span>
         </div>
 
