@@ -87,6 +87,48 @@ const CtaWithTimer = ({
   );
 };
 
+/* ─── FLUID CHANGING AUDIENCE TEXT ─── */
+const ChangingAudienceText: React.FC = () => {
+  const audiences = [
+    'Newcomers',
+    'Students',
+    'Interior Designers',
+    'Architects',
+    'Contractors',
+    'Freelancers',
+    'Civil Engineers',
+    '3D Artists'
+  ];
+  const [index, setIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % audiences.length);
+        setIsTransitioning(false);
+      }, 220);
+    }, 2200);
+    return () => clearInterval(timer);
+  }, [audiences.length]);
+
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-1.5 text-xs sm:text-sm text-zinc-700 font-medium mb-3.5 px-2">
+      <span className="font-heading font-medium text-zinc-600">This course is perfect for</span>
+      <span className="inline-flex items-center justify-center min-w-[130px] sm:min-w-[155px] h-7 px-3 bg-zinc-100 border border-zinc-200/90 rounded-full font-heading font-bold text-zinc-950 shadow-2xs overflow-hidden">
+        <span
+          className={`inline-block transition-transform transition-opacity duration-200 ease-out ${
+            isTransitioning ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'
+          }`}
+        >
+          {audiences[index]}
+        </span>
+      </span>
+    </div>
+  );
+};
+
 const LandingPage: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState(() => {
     const D = (3 * 3600 + 36 * 60 + 20) * 1000, r = D - (Date.now() % D);
@@ -379,6 +421,9 @@ const LandingPage: React.FC = () => {
                     ))}
                   </div>
                 </div>
+
+                {/* Fluid Changing Text: This course is perfect for ... */}
+                <ChangingAudienceText />
 
                 {/* Primary Hero CTA (Right below pointers!) */}
                 <div className="max-w-xl mx-auto mb-6">
