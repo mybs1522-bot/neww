@@ -34,10 +34,10 @@ const CtaWithTimer = ({
     } rounded-2xl md:rounded-3xl p-5 md:p-7 relative overflow-hidden max-w-xl mx-auto text-center shadow-xs`}>
       <div className="relative z-10 flex flex-col items-center gap-3">
         
-        {/* Urgency Pill */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-zinc-950 text-white rounded-full text-[10px] md:text-xs font-mono uppercase tracking-wider">
+        {/* Social Proof Pill */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-zinc-950 text-white rounded-full text-[10px] md:text-xs font-mono font-medium">
           <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span>₹999 Today's Batch Closing</span>
+          <span>Our Design Students are earning 1L+/month average</span>
         </div>
 
         {/* Pricing Anchor */}
@@ -329,8 +329,8 @@ const LandingPage: React.FC = () => {
                 {/* ═══ MOST IMPORTANT SALE POINTS BEFORE 1ST CTA (POINTERS ONLY) ═══ */}
                 <div className="max-w-3xl mx-auto mb-6">
                   <div className="text-center mb-3">
-                    <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-600 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                      ⚡ Everything included inside
+                    <span className="text-xs sm:text-sm font-heading font-bold text-zinc-950 bg-zinc-100 border border-zinc-200 px-3.5 py-1 rounded-full">
+                      <strong>You'll Get</strong>
                     </span>
                   </div>
 
@@ -344,7 +344,7 @@ const LandingPage: React.FC = () => {
                       {
                         num: '02',
                         icon: '🛋️',
-                        title: '10,000+ Ready 3D Indian Assets'
+                        title: '10,000+ Ready 3D Models'
                       },
                       {
                         num: '03',
@@ -823,7 +823,7 @@ const LandingPage: React.FC = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 size={14} className="text-zinc-950 shrink-0 mt-0.5" />
-                        <span><strong className="text-zinc-950">10,000+ Assets:</strong> Drag and drop modular kitchens & luxury decor</span>
+                        <span><strong className="text-zinc-950">10,000+ Models:</strong> Drag and drop modular kitchens & luxury decor</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 size={14} className="text-zinc-950 shrink-0 mt-0.5" />
