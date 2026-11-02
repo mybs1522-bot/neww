@@ -598,9 +598,9 @@ const LandingPage: React.FC = () => {
                   </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                   {WHO_IS_THIS_FOR.map((item, idx) => (
-                    <div key={idx} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-4 transition-colors duration-150 flex flex-col justify-between">
+                    <div key={idx} className="bg-zinc-50 border border-zinc-200/90 rounded-xl p-3.5 sm:p-4 transition-colors duration-150 flex flex-col justify-between">
                       <div>
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-xl p-1 bg-white rounded-lg border border-zinc-200">{item.icon}</span>
@@ -609,7 +609,7 @@ const LandingPage: React.FC = () => {
                           </span>
                         </div>
                         <h3 className="font-heading font-bold text-zinc-950 text-sm sm:text-base mb-1">{item.role}</h3>
-                        <p className="text-zinc-600 text-xs leading-relaxed mb-3">{item.desc}</p>
+                        <p className="text-zinc-600 text-xs leading-relaxed mb-2.5">{item.desc}</p>
                       </div>
                       <div className="pt-2 border-t border-zinc-200/60 flex items-center gap-1.5 text-xs font-medium text-emerald-700">
                         <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />

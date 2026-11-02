@@ -24,23 +24,23 @@ export const RAW_JOINERS = [
 export const PAIN_TRIGGERS_INDIAN = [
   {
     emoji: "😫",
-    title: "Clients Rejecting Renders as 'Cartoonish / Fake'?",
-    desc: "You spent 14+ hours modeling, but lighting looks flat, textures look fake, and the client refuses to release the milestone advance payment."
+    title: "Flat & Unrealistic Renders",
+    desc: "Lighting looks fake and clients delay or reject milestone payments."
   },
   {
     emoji: "🐢",
-    title: "Waiting 3-5 Hours for 1 Image While PC Freezes?",
-    desc: "Your laptop fans scream, V-Ray crashes at 95%, and then client says: 'Bhaiya thoda sofa color change kar do'. Another full day wasted!"
+    title: "PC Freezes & Render Crashes",
+    desc: "Waiting hours for a single frame while software crashes on heavy files."
   },
   {
     emoji: "📉",
-    title: "Stuck at ₹15,000–₹25,000/Month Junior Salary?",
-    desc: "Colleges teach outdated 2D drafting from 2012 while top architectural studios and NRI luxury clients only hire designers with 4K hyper-realistic render portfolios."
+    title: "Stuck at Low Junior Salaries",
+    desc: "Earning ₹15k–₹25k doing slow 2D CAD drafting work with zero career growth."
   },
   {
     emoji: "🤖",
-    title: "Scared AI Will Wipe Out 3D Interior Designers?",
-    desc: "AI is replacing slow modelers. But designers who know how to command AI + 3D are finishing projects 10x faster and charging ₹50,000+ per room package!"
+    title: "Fear of AI Taking 3D Work",
+    desc: "Losing clients to modern designers delivering 4K photorealistic concepts in minutes."
   }
 ];
 
@@ -48,34 +48,34 @@ export const SOLUTION_PILLARS = [
   {
     step: "01",
     badge: "STAGE 1: 2D BLUEPRINTS",
-    title: "AutoCAD & Revit BIM Pro Drafting",
-    desc: "Draft sanction-ready floor plans, electrical layouts, and working drawings in 60 minutes with pro industry shortcut keys.",
+    title: "AutoCAD & Revit BIM Drafting",
+    desc: "Draft sanction-ready floor plans and contractor drawings in 60 minutes.",
     icon: "📐",
-    result: "Contractor-ready drawings with zero construction site errors"
+    result: "Sanction-ready contractor drawings"
   },
   {
     step: "02",
     badge: "STAGE 2: 3D MODELING",
-    title: "SketchUp Pro + 3ds Max Luxury Interiors",
-    desc: "Model modular kitchens, luxury bedrooms, false ceilings, and complex elevations in minutes using drag-and-drop assets.",
+    title: "SketchUp Pro & 3ds Max Interiors",
+    desc: "Turn 2D plans into walk-in kitchens, bedrooms & elevations in under 2 hours.",
     icon: "🏛️",
-    result: "Turn 2D floor plans into walk-in 3D spaces in under 2 hours"
+    result: "Fast walk-in 3D spaces"
   },
   {
     step: "03",
     badge: "STAGE 3: PHOTOREALISM",
-    title: "V-Ray, Lumion 2024 & D5 Render 4K",
-    desc: "Master sunlight simulation, natural indirect lighting, Italian marble reflections, and cinematic 60fps video walkthroughs.",
+    title: "V-Ray, Lumion & D5 Render 4K",
+    desc: "Master cinematic lighting and natural materials that look like real site photos.",
     icon: "📸",
-    result: "Renders so real that clients think they are actual finished site photos"
+    result: "Hyper-realistic delivery"
   },
   {
     step: "04",
     badge: "STAGE 4: AI SUPERPOWERS",
-    title: "Midjourney & Stable Diffusion Architecture AI",
-    desc: "Generate 50 high-end interior concept variations in 2 minutes right in front of your client. Never start from a blank screen again.",
+    title: "Midjourney & Architecture AI",
+    desc: "Generate 50 high-end concept variations in 2 minutes right in front of clients.",
     icon: "⚡",
-    result: "Close client token advances on the very first concept meeting"
+    result: "Close token advance on Day 1"
   }
 ];
 
@@ -84,31 +84,25 @@ export const WHO_IS_THIS_FOR = [
     icon: "🎓",
     role: "Architecture & Civil Students",
     badge: "College to Job Ready",
-    desc: "Bypass outdated theoretical college syllabus. Build a job-winning 4K 3D portfolio and land ₹5–8 LPA studio placements with confidence."
+    desc: "Build a job-ready 4K 3D portfolio and crack high-paying studio placements."
   },
   {
     icon: "🛋️",
-    role: "Interior Designers & Decorators",
+    role: "Interior Designers & Freelancers",
     badge: "Close Clients 10x Faster",
-    desc: "Stop depending on slow external 3D freelancers. Present photorealistic 3D walk-in concepts and lock 50% advance token payments on the spot."
-  },
-  {
-    icon: "💻",
-    role: "3D Visualizers & Freelancers",
-    badge: "Scale Project Rates",
-    desc: "Upgrade from crash-prone, slow V-Ray renders to fast D5 Render + AI. Start charging ₹25,000 to ₹50,000+ per complete project."
+    desc: "Stop outsourcing 3D work. Present walk-in concepts and charge ₹25k–₹50k+."
   },
   {
     icon: "🏗️",
-    role: "Contractors, Builders & Site Engineers",
+    role: "Builders, Contractors & Engineers",
     badge: "Prevent Site Errors",
-    desc: "Show clients exactly how their dream villa, duplex, or modular interior will look before laying a single brick or cutting wood."
+    desc: "Show clients exact photorealistic 3D views before laying a single brick."
   },
   {
     icon: "🚀",
     role: "Complete Beginners (Zero Experience)",
-    badge: "Step-by-Step From Day 1",
-    desc: "No technical design background needed. Every single course starts with interface basics and takes you to advanced professional level."
+    badge: "Day 1 Step-by-Step",
+    desc: "Start from complete scratch. No design background or prior 3D experience needed."
   }
 ];
 
