@@ -334,25 +334,9 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Impulse Price Anchor */}
-                <div className="text-center mb-3">
+                <div className="text-center mb-5">
                   <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-2xl sm:rounded-full shadow-2xs">
                     Learn Complete Interior &amp; Exterior design. 12 Courses | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing Extra)
-                  </span>
-                </div>
-
-                {/* Core Category Pills (Compact & Mobile-Optimized) */}
-                <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-5 text-[11px] sm:text-xs">
-                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 font-medium px-2.5 py-1 rounded-full">
-                    📐 2D Floor Planning
-                  </span>
-                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 font-medium px-2.5 py-1 rounded-full">
-                    🛋️ 3D Interior Design
-                  </span>
-                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 font-medium px-2.5 py-1 rounded-full">
-                    🏛️ 3D Exterior Elevation
-                  </span>
-                  <span className="bg-zinc-50 text-zinc-800 border border-zinc-200 font-medium px-2.5 py-1 rounded-full">
-                    ⚡ 4K Photorealism & AI
                   </span>
                 </div>
 
