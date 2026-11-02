@@ -215,21 +215,6 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                             </div>
                         </div>
 
-                        {/* Synchronized Timer */}
-                        <div className="bg-red-50 rounded-xl p-3 mb-4 flex items-center justify-between border border-red-100">
-                            <div className="flex items-center gap-2">
-                                <Timer size={16} className="text-brand-primary animate-pulse" />
-                                <span className="text-xs font-bold text-gray-900">Offer ends in:</span>
-                            </div>
-                            <div className="flex items-center gap-0.5 font-display font-bold text-sm tabular-nums text-brand-primary bg-white px-2.5 py-1 rounded-md border border-red-100 shadow-sm">
-                                <span>{formatTime(timeLeft.h)}</span>
-                                <span className="text-gray-400">:</span>
-                                <span>{formatTime(timeLeft.m)}</span>
-                                <span className="text-gray-400">:</span>
-                                <span>{formatTime(timeLeft.s)}</span>
-                            </div>
-                        </div>
-
                         <div className="flex items-center justify-between mb-4">
                             <span className="text-gray-500 text-sm font-medium">Total Payable</span>
                             <div className="text-right">

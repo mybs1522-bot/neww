@@ -20,13 +20,12 @@ const CtaWithTimer = ({
   title = 'Download All 12 Courses + 6 Free Bonuses',
   subtext = 'Instant Google Drive Access • 24/7 WhatsApp Support • Software Links Included'
 }: { 
-  timeLeft: { h: number; m: number; s: number }; 
+  timeLeft?: { h: number; m: number; s: number }; 
   onClick: () => void; 
   variant?: 'default' | 'dark' | 'white';
   title?: string;
   subtext?: string;
 }) => {
-  const f = (v: number) => v.toString().padStart(2, '0');
   const isDark = variant === 'dark';
 
   return (
@@ -35,36 +34,10 @@ const CtaWithTimer = ({
     } rounded-2xl md:rounded-3xl p-5 md:p-7 relative overflow-hidden max-w-xl mx-auto text-center shadow-xs`}>
       <div className="relative z-10 flex flex-col items-center gap-3">
         
-        {/* Urgency Pill + Cursive Callout */}
-        <div className="flex flex-col sm:flex-row items-center gap-1.5">
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-zinc-950 text-white rounded-full text-[10px] md:text-xs font-mono uppercase tracking-wider">
-            <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>₹999 Today's Batch Closing</span>
-          </div>
-          <span className="font-hand text-base md:text-lg text-amber-700 font-bold animate-wiggle">
-            ✦ Only ₹83 per course!
-          </span>
-        </div>
-
-        {/* Countdown Flip Units */}
-        <div className="flex items-center justify-center gap-1.5 my-0.5">
-          {[
-            { val: f(timeLeft.h), label: 'HOURS' },
-            { val: f(timeLeft.m), label: 'MINS' },
-            { val: f(timeLeft.s), label: 'SECS' }
-          ].map((unit, i) => (
-            <React.Fragment key={i}>
-              <div className="flex flex-col items-center">
-                <div className={`font-mono font-bold text-base md:text-lg px-2.5 py-1 rounded-lg border ${
-                  isDark ? 'bg-zinc-950 text-white border-zinc-800' : 'bg-white text-zinc-950 border-zinc-200'
-                } min-w-[42px] md:min-w-[48px] shadow-xs`}>
-                  {unit.val}
-                </div>
-                <span className="text-[8px] font-mono font-medium text-zinc-500 tracking-wider mt-0.5">{unit.label}</span>
-              </div>
-              {i < 2 && <span className="text-base font-bold text-zinc-400 mb-3">:</span>}
-            </React.Fragment>
-          ))}
+        {/* Urgency Pill */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-zinc-950 text-white rounded-full text-[10px] md:text-xs font-mono uppercase tracking-wider">
+          <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span>₹999 Today's Batch Closing</span>
         </div>
 
         {/* Pricing Anchor */}
@@ -1098,11 +1071,10 @@ const LandingPage: React.FC = () => {
               <span className="text-xl font-heading font-bold text-zinc-950">₹{BUNDLE_PRICE}</span>
               <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full">73% OFF</span>
             </div>
-            <div className="flex items-center gap-1 text-[10px] text-zinc-500 font-mono truncate">
-              <span>Ends:</span>
-              <span className="font-semibold text-zinc-900">{formatTime(timeLeft.h)}:{formatTime(timeLeft.m)}:{formatTime(timeLeft.s)}</span>
+            <div className="flex items-center gap-1.5 text-[10px] text-zinc-500 font-mono truncate">
+              <span className="text-emerald-700 font-semibold">Instant Access</span>
               <span className="text-zinc-300">•</span>
-              <span className="text-emerald-700 hidden xs:inline">7-Day Refund</span>
+              <span className="text-zinc-600">7-Day Refund</span>
             </div>
           </div>
 

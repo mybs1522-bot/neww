@@ -344,7 +344,7 @@ export const FAQ_ITEMS_LANDING = [
   },
   {
     question: "Why is the price only ₹999 instead of ₹3,699?",
-    answer: "We want every aspiring Indian designer, student, and studio owner to have access to world-class 3D education without paying lakhs to coaching institutes. This ₹999 promotional price is strictly valid for the current batch and will increase to ₹3,699 once the batch timer expires."
+    answer: "We want every aspiring Indian designer, student, and studio owner to have access to world-class 3D education without paying lakhs to coaching institutes. This ₹999 promotional price is strictly valid for the current batch and will increase to ₹3,699 once the current batch closes."
   }
 ];
 

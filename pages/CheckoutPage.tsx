@@ -213,15 +213,9 @@ const CheckoutPage: React.FC = () => {
             <span className="text-xs sm:text-sm font-bold">All 12 courses for just <span className="text-brand-accent">₹{BUNDLE_PRICE}</span></span>
           </div>
           <div className="w-px h-4 bg-gray-700 hidden sm:block"></div>
-          <div className="flex items-center gap-2 shrink-0">
-            <Timer size={14} className="text-brand-primary animate-pulse" />
-            <div className="flex items-center gap-0.5 font-display font-bold text-sm tabular-nums text-brand-primary bg-gray-800 px-2.5 py-0.5 rounded-md border border-gray-700">
-              <span>{formatTime(timeLeft.h)}</span>
-              <span className="text-gray-500">:</span>
-              <span>{formatTime(timeLeft.m)}</span>
-              <span className="text-gray-500">:</span>
-              <span>{formatTime(timeLeft.s)}</span>
-            </div>
+          <div className="flex items-center gap-1.5 shrink-0 text-xs font-mono text-emerald-400">
+            <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Instant Access Active</span>
           </div>
         </div>
       </div>
@@ -563,21 +557,6 @@ const CheckoutPage: React.FC = () => {
                     {item}
                   </div>
                 ))}
-              </div>
-
-              {/* Timer */}
-              <div className="bg-red-50 rounded-xl p-3 mb-4 flex items-center justify-between border border-red-100">
-                <div className="flex items-center gap-2">
-                  <Timer size={14} className="text-brand-primary animate-pulse" />
-                  <span className="text-xs font-bold text-gray-900">Offer ends in:</span>
-                </div>
-                <div className="flex items-center gap-0.5 font-display font-bold text-sm tabular-nums text-brand-primary bg-white px-2.5 py-1 rounded-md border border-red-100 shadow-sm">
-                  <span>{formatTime(timeLeft.h)}</span>
-                  <span className="text-gray-400">:</span>
-                  <span>{formatTime(timeLeft.m)}</span>
-                  <span className="text-gray-400">:</span>
-                  <span>{formatTime(timeLeft.s)}</span>
-                </div>
               </div>
 
               {/* Contact Inputs */}
