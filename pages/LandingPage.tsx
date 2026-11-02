@@ -1167,9 +1167,9 @@ const LandingPage: React.FC = () => {
             {/* Modal Header */}
             <div className="bg-zinc-950 text-white p-4 sm:p-5 border-b border-zinc-800">
               <div className="inline-flex items-center gap-1 text-zinc-400 text-[10px] font-mono font-medium mb-1">
-                <Sparkles size={11} className="text-emerald-400" /> Complete 12-course architecture pass
+                <Sparkles size={11} className="text-emerald-400" /> Complete 12-course pass
               </div>
-              <h3 className="text-lg sm:text-xl font-heading font-bold text-white">Avada PRO 3D Architecture Bundle</h3>
+              <h3 className="text-lg sm:text-xl font-heading font-bold text-white">Interior/Exterior Design Courses</h3>
               
               <div className="flex items-baseline gap-2 mt-1.5">
                 {discountPercent > 0 ? (
@@ -1190,6 +1190,31 @@ const LandingPage: React.FC = () => {
                   </>
                 )}
               </div>
+
+              {/* Small logos of courses included */}
+              <div className="mt-3 pt-2.5 border-t border-zinc-800/80">
+                <div className="text-[10px] font-mono text-zinc-400 mb-1.5 flex items-center justify-between">
+                  <span>12 Courses Included:</span>
+                  <span className="text-[9px] text-emerald-400 font-semibold">Software Links</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {COURSES.map((c) => (
+                    <span 
+                      key={c.id} 
+                      className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-[10px] text-zinc-300 font-mono"
+                      title={c.title}
+                    >
+                      <img 
+                        src={c.imageUrl} 
+                        alt={c.software} 
+                        className="size-3.5 rounded-xs object-cover shrink-0" 
+                        loading="lazy" 
+                      />
+                      <span>{c.software}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Modal Body */}
@@ -1197,7 +1222,7 @@ const LandingPage: React.FC = () => {
               
               {/* Feature Chips */}
               <div className="grid grid-cols-2 gap-1.5 mb-3.5 text-[10px] sm:text-[11px] font-medium text-zinc-700">
-                {['12 Full Software Courses', '10,000+ 3D Indian Models', 'Official Skill Certificate', '24/7 WhatsApp Support'].map((item, i) => (
+                {['12 Full Software Courses', '10,000+ 3D Models', 'Official Skill Certificate', '24/7 WhatsApp Support'].map((item, i) => (
                   <div key={i} className="flex items-center gap-1.5 bg-zinc-50 p-1.5 rounded-lg border border-zinc-200">
                     <CheckCircle2 size={12} className="text-zinc-900 shrink-0" />
                     <span className="truncate">{item}</span>
