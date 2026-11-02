@@ -338,10 +338,10 @@ const LandingPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Impulse Price Anchor (Less than a dinner out) */}
+                {/* Impulse Price Anchor */}
                 <div className="text-center mb-3">
-                  <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-full shadow-2xs">
-                    Less than a dinner out: just <span className="line-through font-mono text-zinc-400">₹3,699</span> <strong className="text-zinc-950 font-bold font-mono">₹999 (one-time)</strong> • Guaranteed freelance projects included
+                  <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-2xl sm:rounded-full shadow-2xs">
+                    Learn Complete Interior &amp; Exterior design. 12 Courses | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing Extra)
                   </span>
                 </div>
 
