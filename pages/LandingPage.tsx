@@ -328,14 +328,9 @@ const LandingPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Subtitle with High-Impact Handholding Hook */}
-                <div className="max-w-xl mx-auto mb-3 px-1">
-                  <p className="text-xs sm:text-sm md:text-base text-zinc-700 leading-relaxed font-normal">
-                    We will handhold you from zero. You just need a laptop and 1–2 hours each day for the next 15 days. This will transform how you work and close high-paying client projects!
-                  </p>
-                  <div className="font-hand text-base sm:text-lg text-emerald-700 font-bold -rotate-1 mt-1">
-                    ✨ Zero 3D experience needed • 100% beginner friendly!
-                  </div>
+                {/* Beginner Friendly Callout */}
+                <div className="font-hand text-base sm:text-lg text-emerald-700 font-bold -rotate-1 mb-3">
+                  ✨ Zero 3D experience needed • 100% beginner friendly!
                 </div>
 
                 {/* Impulse Price Anchor */}
