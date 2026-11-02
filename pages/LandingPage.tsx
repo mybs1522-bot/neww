@@ -457,6 +457,58 @@ const LandingPage: React.FC = () => {
 
             <Pattern />
 
+            {/* ═══ STUDENT WORK & RENDERS (JUST BELOW 12 COURSES INCLUDED) ═══ */}
+            <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
+              <div className="px-3 sm:px-4 mb-5 text-center">
+                <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
+                  📸 100% real student results
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white mt-2">
+                  See What Beginners Created in Just 30 Days
+                </h2>
+                <div className="font-hand text-lg sm:text-xl text-amber-400 font-bold animate-wiggle mt-1">
+                  ✨ No prior architectural background required!
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                {/* ROW 1 */}
+                <div className="flex gap-3 animate-scroll-left hover:pause">
+                  {[...PAGE_PREVIEWS_ROW1, ...PAGE_PREVIEWS_ROW1].map((img, i) => (
+                    <div key={i} className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative">
+                      <img src={img} alt="Student 3D Render" className="w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute bottom-2 left-2 bg-black/80 px-2 py-0.5 rounded text-[9px] font-mono text-zinc-300 border border-white/10">
+                        Avada Student Project
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* ROW 2 */}
+                <div className="flex gap-3 animate-scroll-right hover:pause">
+                  {[...PAGE_PREVIEWS_ROW2, ...PAGE_PREVIEWS_ROW2].map((img, i) => (
+                    <div key={i} className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative">
+                      <img src={img} alt="Student 3D Render" className="w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute bottom-2 left-2 bg-black/80 px-2 py-0.5 rounded text-[9px] font-mono text-zinc-300 border border-white/10">
+                        Avada Student Project
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="text-center mt-6">
+                <button
+                  onClick={openPaymentModal}
+                  className="px-6 py-3 rounded-full bg-white text-zinc-950 font-heading font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-colors duration-150 cursor-pointer shadow-md animate-pulse-slow"
+                >
+                  Claim Full Course Access Now
+                </button>
+              </div>
+            </section>
+
+            <Pattern />
+
             {/* ═══ 3. THE 4 PAIN POINTS (PUNCHY & HIGHLIGHTED) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
               <div className="px-3 sm:px-4">
@@ -657,58 +709,6 @@ const LandingPage: React.FC = () => {
                   ))}
                 </div>
 
-              </div>
-            </section>
-
-            <Pattern />
-
-            {/* ═══ 7. STUDENT WORK & RENDERS ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
-              <div className="px-3 sm:px-4 mb-5 text-center">
-                <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
-                  📸 100% real student results
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white mt-2">
-                  See What Beginners Created in Just 30 Days
-                </h2>
-                <div className="font-hand text-lg sm:text-xl text-amber-400 font-bold animate-wiggle mt-1">
-                  ✨ No prior architectural background required!
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                {/* ROW 1 */}
-                <div className="flex gap-3 animate-scroll-left hover:pause">
-                  {[...PAGE_PREVIEWS_ROW1, ...PAGE_PREVIEWS_ROW1].map((img, i) => (
-                    <div key={i} className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative">
-                      <img src={img} alt="Student 3D Render" className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute bottom-2 left-2 bg-black/80 px-2 py-0.5 rounded text-[9px] font-mono text-zinc-300 border border-white/10">
-                        Avada Student Project
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* ROW 2 */}
-                <div className="flex gap-3 animate-scroll-right hover:pause">
-                  {[...PAGE_PREVIEWS_ROW2, ...PAGE_PREVIEWS_ROW2].map((img, i) => (
-                    <div key={i} className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative">
-                      <img src={img} alt="Student 3D Render" className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute bottom-2 left-2 bg-black/80 px-2 py-0.5 rounded text-[9px] font-mono text-zinc-300 border border-white/10">
-                        Avada Student Project
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="text-center mt-6">
-                <button
-                  onClick={openPaymentModal}
-                  className="px-6 py-3 rounded-full bg-white text-zinc-950 font-heading font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-colors duration-150 cursor-pointer shadow-md animate-pulse-slow"
-                >
-                  Claim Full Course Access Now
-                </button>
               </div>
             </section>
 
