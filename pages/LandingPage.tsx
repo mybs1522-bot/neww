@@ -12,6 +12,16 @@ import {
   PAGE_PREVIEWS_ROW1, PAGE_PREVIEWS_ROW2, SocialCommentsSlider
 } from './LandingHelpers';
 
+const getSameDayDate = () => {
+  const d = new Date();
+  const day = d.getDate();
+  const month = d.toLocaleString('en-US', { month: 'long' });
+  const s = ['th', 'st', 'nd', 'rd'];
+  const v = day % 100;
+  const suffix = s[(v - 20) % 10] || s[v] || s[0];
+  return `${day}${suffix} ${month}`;
+};
+
 /* ─── REUSABLE PREMIUM CTA WITH TIMER ─── */
 const CtaWithTimer = ({ 
   timeLeft, 
@@ -35,10 +45,10 @@ const CtaWithTimer = ({
     } rounded-2xl md:rounded-3xl p-5 md:p-7 relative overflow-hidden max-w-xl mx-auto text-center shadow-xs`}>
       <div className="relative z-10 flex flex-col items-center gap-3">
         
-        {/* Social Proof Single Line */}
+        {/* Urgency Single Line */}
         <div className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium ${isDark ? 'text-zinc-300' : 'text-zinc-700'} whitespace-nowrap`}>
-          <span className="size-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-          <span>Our Design Students are earning 1L+/month average</span>
+          <span className="size-2 rounded-full bg-red-500 animate-pulse shrink-0" />
+          <span>Students Week Discount ending on {getSameDayDate()}</span>
         </div>
 
         {/* Countdown Flip Units */}
