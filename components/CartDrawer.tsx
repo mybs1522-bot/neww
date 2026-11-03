@@ -136,7 +136,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                                     <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Best Deal</span>
                                 </div>
                                 <div className="font-display font-bold text-base mb-1">
-                                    Get all 12 courses for ₹{BUNDLE_PRICE}
+                                    Get all 10 courses for ₹{BUNDLE_PRICE}
                                 </div>
                                 <div className="text-gray-400 text-[10px] mb-3 leading-tight">
                                     Save ₹{(COURSES.length * 199 - BUNDLE_PRICE).toLocaleString()} vs buying individually
@@ -146,7 +146,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                                     className="w-full py-2 bg-brand-primary hover:bg-blue-700 text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 transition-colors shadow-glow"
                                 >
                                     <Sparkles size={12} />
-                                    Grab All 12 Courses
+                                    Grab All 10 Courses
                                 </button>
                             </div>
                         </div>
@@ -157,7 +157,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         <div className="mt-6 p-4 rounded-2xl bg-green-50 border border-green-100 text-center">
                             <div className="flex items-center justify-center gap-2 text-green-700 font-bold mb-1">
                                 <Check size={16} strokeWidth={3} />
-                                All 12 courses added!
+                                All 10 courses added!
                             </div>
                             <div className="text-green-600 text-xs">
                                 Bundle discount applied: ₹{savings.toLocaleString()} saved

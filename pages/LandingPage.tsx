@@ -17,7 +17,7 @@ const CtaWithTimer = ({
   timeLeft, 
   onClick, 
   variant = 'default', 
-  title = 'Download All 12 Courses + 6 Free Bonuses',
+  title = 'Download All 10 Courses + 6 Free Bonuses',
   subtext = 'Instant Google Drive Access • 24/7 WhatsApp Support • Software Links Included'
 }: { 
   timeLeft?: { h: number; m: number; s: number }; 
@@ -313,7 +313,7 @@ const LandingPage: React.FC = () => {
                   </span>
                   <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.18] max-w-2xl mx-auto">
                     <span className="block text-2xl sm:text-4xl md:text-5xl">
-                      You'll learn to Design <span className="highlight-yellow">Floor Plans, 3D Interiors & Exteriors</span>, <span className="highlight-green">Image & Video renders</span>.
+                      Learn Complete <span className="highlight-yellow">Interior & Exterior Design</span> — <span className="highlight-green">From Zero</span>.
                     </span>
                   </h1>
                 </div>
@@ -340,7 +340,7 @@ const LandingPage: React.FC = () => {
                 {/* Impulse Price Anchor */}
                 <div className="text-center mb-5">
                   <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-2xl sm:rounded-full shadow-2xs">
-                    Learn Complete Interior &amp; Exterior design. 12 Courses | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing Extra)
+                    Learn Complete Interior &amp; Exterior design. 10 Courses | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing Extra)
                   </span>
                 </div>
 
@@ -420,7 +420,7 @@ const LandingPage: React.FC = () => {
                     timeLeft={timeLeft} 
                     onClick={openPaymentModal} 
                     variant="default"
-                    title="⚡ GET ALL 12 COURSES NOW"
+                    title="⚡ GET ALL 10 COURSES NOW"
                     subtext="Instant Access in 60 Seconds • UPI / GPay / Cards Accepted"
                   />
                 </div>
@@ -741,7 +741,7 @@ const LandingPage: React.FC = () => {
                     timeLeft={timeLeft} 
                     onClick={openPaymentModal} 
                     variant="white"
-                    title="CLAIM 12 COURSES + ALL 6 BONUSES NOW"
+                    title="CLAIM 10 COURSES + ALL 6 BONUSES NOW"
                   />
                 </div>
               </div>
@@ -923,7 +923,7 @@ const LandingPage: React.FC = () => {
                   Don't Let Another Year Pass Wishing You Had Mastered 3D & AI
                 </h2>
                 <p className="text-zinc-400 text-xs sm:text-sm max-w-lg mx-auto mb-6 leading-relaxed">
-                  For less than the price of one dinner, get all 12 courses, 10,000+ 3D models, lifetime updates, and our 24/7 support team.
+                  For less than the price of one dinner, get all 10 courses, 10,000+ 3D models, lifetime updates, and our 24/7 support team.
                 </p>
 
                 <CtaWithTimer 
@@ -991,7 +991,7 @@ const LandingPage: React.FC = () => {
             className="btn-premium animate-pulse-slow py-2.5 px-4 sm:px-6 text-xs sm:text-sm font-heading font-semibold flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
           >
             <Zap size={13} className="fill-white shrink-0" />
-            <span>Get All 12 Courses</span>
+            <span>Get All 10 Courses</span>
             <ArrowRight size={13} className="shrink-0" />
           </button>
         </div>
@@ -1017,7 +1017,7 @@ const LandingPage: React.FC = () => {
             </h3>
 
             <p className="text-zinc-600 text-xs leading-relaxed mb-3.5">
-              Over <strong>52,480+ Indian designers</strong> are already using these 12 courses & 10,000+ 3D models. If you close this page, price will increase to <strong>₹3,699</strong>!
+              Over <strong>52,480+ Indian designers</strong> are already using these 10 courses & 10,000+ 3D models. If you close this page, price will increase to <strong>₹3,699</strong>!
             </p>
 
             <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-2.5 mb-3.5 text-left text-xs text-zinc-700 space-y-1 font-medium">
@@ -1102,7 +1102,7 @@ const LandingPage: React.FC = () => {
               {/* Small logos of courses included - Single Scrolling Line */}
               <div className="mt-3 pt-2.5 border-t border-zinc-800/80">
                 <div className="text-[10px] font-mono text-zinc-400 mb-1.5 flex items-center justify-between">
-                  <span>12 Courses Included:</span>
+                  <span>10 Courses Included:</span>
                   <span className="text-[9px] text-emerald-400 font-semibold">Software Links</span>
                 </div>
                 
@@ -1305,7 +1305,7 @@ const LandingPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn-premium block w-full py-3 px-4 text-center text-xs sm:text-sm font-heading font-semibold"
               >
-                🚀 Open 12 Courses on Google Drive
+                🚀 Open 10 Courses on Google Drive
               </a>
             </div>
 

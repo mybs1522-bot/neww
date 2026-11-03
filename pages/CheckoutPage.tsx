@@ -210,7 +210,7 @@ const CheckoutPage: React.FC = () => {
         <div className="container mx-auto flex items-center justify-center gap-4 sm:gap-8 text-sm">
           <div className="flex items-center gap-2 shrink-0">
             <Zap size={14} className="text-yellow-400 fill-yellow-400" />
-            <span className="text-xs sm:text-sm font-bold">All 12 courses for just <span className="text-brand-accent">₹{BUNDLE_PRICE}</span></span>
+            <span className="text-xs sm:text-sm font-bold">All 10 courses for just <span className="text-brand-accent">₹{BUNDLE_PRICE}</span></span>
           </div>
           <div className="w-px h-4 bg-gray-700 hidden sm:block"></div>
           <div className="flex items-center gap-1.5 shrink-0 text-xs font-mono text-emerald-400">
