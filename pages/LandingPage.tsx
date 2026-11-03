@@ -449,8 +449,19 @@ const LandingPage: React.FC = () => {
                     timeLeft={timeLeft} 
                     onClick={openPaymentModal} 
                     variant="default"
-                    title="⚡ GET ALL 10 COURSES NOW"
+                    title="GET ALL 10 COURSES NOW"
                     subtext="Instant Access in 60 Seconds • UPI / GPay / Cards Accepted"
+                  />
+                </div>
+
+                {/* Live Doubt Classes Every Week Graphic (Right Below 1st CTA) */}
+                <div className="max-w-xl mx-auto mb-5 px-2 flex justify-center">
+                  <img
+                    src="/live-classes-every-week.png"
+                    alt="Live Classes For Doubts & Questions Every Week"
+                    className="w-full max-w-[500px] h-auto object-contain cursor-pointer hover:scale-[1.01] transition-transform duration-300 drop-shadow-sm"
+                    onClick={openPaymentModal}
+                    loading="lazy"
                   />
                 </div>
 
@@ -490,6 +501,17 @@ const LandingPage: React.FC = () => {
             {/* ═══ REAL STUDENT TESTIMONIALS (MOVED HERE) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
               <div className="px-3 sm:px-4">
+                {/* ═══ CTA ABOVE WHAT DESIGNERS & ARCHITECTS SAY ═══ */}
+                <div className="max-w-xl mx-auto mb-8 sm:mb-10">
+                  <CtaWithTimer 
+                    timeLeft={timeLeft} 
+                    onClick={openPaymentModal} 
+                    variant="default"
+                    title="GET ALL 10 COURSES NOW"
+                    subtext="Instant Access in 60 Seconds • UPI / GPay / Cards Accepted"
+                  />
+                </div>
+
                 <div className="text-center mb-6">
                   <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
                     💬 Verified student reviews
