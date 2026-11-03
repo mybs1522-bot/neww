@@ -469,7 +469,7 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
               <div className="px-3 sm:px-4 mb-5 text-center">
                 <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
-                  📸 100% real student results
+                  Student Results
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white mt-2">
                   See What Beginners Created in Just 30 Days
