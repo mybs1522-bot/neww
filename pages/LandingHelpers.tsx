@@ -603,7 +603,7 @@ export const SocialCommentsSlider: React.FC = () => {
       <div className="flex items-center justify-center gap-2 mb-3 px-3 text-center">
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200/90 text-[11px] font-heading font-semibold text-zinc-800 shadow-2xs">
           <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Real Community Praise</span>
+          <span>Student's Write</span>
           <span className="text-zinc-300">•</span>
           <span className="inline-flex items-center gap-1.5 text-zinc-500">
             <InstagramIcon className="size-3 text-[#E1306C]" />
