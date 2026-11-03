@@ -24,13 +24,13 @@ const getSameDayDate = () => {
   return `${day}${suffix} ${month}`;
 };
 
-/* ─── REUSABLE PREMIUM CTA WITH TIMER ─── */
+/* ─── REUSABLE PREMIUM CTA WITH TIMER (COMPACT CONVERSION-OPTIMIZED) ─── */
 const CtaWithTimer = ({ 
   timeLeft, 
   onClick, 
   variant = 'default', 
-  title = 'Download All 10 Courses + 6 Free Bonuses',
-  subtext = 'Instant Google Drive Access • 24/7 WhatsApp Support • Software Links Included'
+  title = 'GET ALL 10 COURSES NOW',
+  subtext = 'Instant Google Drive Access • Verified Skill Certificate Included'
 }: { 
   timeLeft?: { h: number; m: number; s: number }; 
   onClick: () => void; 
@@ -42,82 +42,85 @@ const CtaWithTimer = ({
   const isDark = variant === 'dark';
 
   return (
-    <div className={`screen-line-before screen-line-after border ${
-      isDark ? 'border-zinc-800 bg-zinc-900 text-white' : 'border-zinc-200 bg-zinc-50/90 text-zinc-950'
-    } rounded-2xl md:rounded-3xl p-5 md:p-7 relative overflow-hidden max-w-xl mx-auto text-center shadow-xs`}>
-      <div className="relative z-10 flex flex-col items-center gap-3">
+    <div className={`border ${
+      isDark 
+        ? 'border-zinc-800 bg-zinc-900 text-white' 
+        : 'border-zinc-200/90 bg-white text-zinc-950 shadow-md'
+    } rounded-2xl p-3.5 sm:p-5 relative overflow-hidden max-w-lg mx-auto text-center`}>
+      <div className="relative z-10 flex flex-col items-center gap-2.5 sm:gap-3">
         
-        {/* Urgency Single Line */}
-        <div className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium ${isDark ? 'text-zinc-300' : 'text-zinc-700'} whitespace-nowrap`}>
-          <span className="size-2 rounded-full bg-red-500 animate-pulse shrink-0" />
-          <span>Students Week Discount ending on {getSameDayDate()}</span>
+        {/* Compact Urgency & Live Countdown Bar */}
+        <div className={`w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-xl border text-xs ${
+          isDark 
+            ? 'bg-zinc-950/80 border-zinc-800 text-zinc-200' 
+            : 'bg-red-50/90 border-red-200/70 text-red-950'
+        }`}>
+          <div className="flex items-center gap-1.5 min-w-0">
+            <span className="size-2 rounded-full bg-red-500 animate-pulse shrink-0" />
+            <span className="font-heading font-bold text-[11px] sm:text-xs truncate">
+              Students Week • Ends {getSameDayDate()}
+            </span>
+          </div>
+
+          {timeLeft && (
+            <div className={`flex items-center gap-1 font-mono text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-md border shrink-0 ${
+              isDark 
+                ? 'bg-zinc-900 border-zinc-700 text-amber-400' 
+                : 'bg-white border-red-200 text-red-600 shadow-2xs'
+            }`}>
+              <span>{f(timeLeft.h)}h</span>
+              <span className="text-zinc-400">:</span>
+              <span>{f(timeLeft.m)}m</span>
+              <span className="text-zinc-400">:</span>
+              <span className="text-red-500 font-extrabold">{f(timeLeft.s)}s</span>
+            </div>
+          )}
         </div>
 
-        {/* Countdown Flip Units */}
-        {timeLeft && (
-          <div className="flex items-center justify-center gap-1.5 my-0.5">
-            {[
-              { val: f(timeLeft.h), label: 'HOURS' },
-              { val: f(timeLeft.m), label: 'MINS' },
-              { val: f(timeLeft.s), label: 'SECS' }
-            ].map((unit, i) => (
-              <React.Fragment key={i}>
-                <div className="flex flex-col items-center">
-                  <div className={`font-mono font-bold text-base md:text-lg px-2.5 py-1 rounded-lg border ${
-                    isDark ? 'bg-zinc-950 text-white border-zinc-800' : 'bg-white text-zinc-950 border-zinc-200'
-                  } min-w-[42px] md:min-w-[48px] shadow-xs`}>
-                    {unit.val}
-                  </div>
-                  <span className="text-[8px] font-mono font-medium text-zinc-500 tracking-wider mt-0.5">{unit.label}</span>
-                </div>
-                {i < 2 && <span className="text-base font-bold text-zinc-400 mb-3">:</span>}
-              </React.Fragment>
-            ))}
+        {/* Pricing Anchor & Savings Badge */}
+        <div className="flex items-center justify-between w-full px-1">
+          <div className="flex items-baseline gap-2">
+            <span className={`text-3xl sm:text-4xl font-heading font-extrabold tracking-tight ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+              ₹{BUNDLE_PRICE}
+            </span>
+            <span className="text-zinc-400 line-through text-xs sm:text-sm font-mono">
+              ₹{BUNDLE_ORIGINAL_PRICE.toLocaleString('en-IN')}
+            </span>
           </div>
-        )}
-
-        {/* Pricing Anchor */}
-        <div className="flex items-baseline justify-center gap-2 md:gap-3 my-0.5">
-          <span className="text-zinc-400 line-through text-xs md:text-sm font-mono">₹{BUNDLE_ORIGINAL_PRICE.toLocaleString('en-IN')}</span>
-          <span className={`text-3xl md:text-4xl font-heading font-bold tracking-tight ${isDark ? 'text-white' : 'text-zinc-950'}`}>₹{BUNDLE_PRICE}</span>
-          <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[10px] md:text-xs font-mono font-bold px-2 py-0.5 rounded-full">
-            73% OFF
+          <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[10px] sm:text-[11px] font-mono font-bold px-2.5 py-1 rounded-full shadow-2xs">
+            73% OFF • SAVE ₹2,700
           </span>
         </div>
 
-        {/* Large Action Button */}
+        {/* High Conversion Action Button */}
         <button
           onClick={onClick}
-          className={`w-full py-3.5 md:py-4 px-6 rounded-full font-heading font-semibold text-sm md:text-base transition-colors duration-150 flex items-center justify-center gap-2 group cursor-pointer animate-pulse-slow ${
+          className={`w-full py-3 sm:py-3.5 px-5 rounded-xl font-heading font-bold text-sm sm:text-base transition-all duration-150 flex items-center justify-center gap-2 group cursor-pointer active:scale-[0.98] shadow-md ${
             isDark 
-              ? 'bg-white text-zinc-950 hover:bg-zinc-100 shadow-lg' 
-              : 'btn-premium'
+              ? 'bg-white text-zinc-950 hover:bg-zinc-100' 
+              : 'btn-premium text-white hover:brightness-110'
           }`}
         >
-          <Zap size={16} className={isDark ? 'fill-zinc-950' : 'fill-white'} />
-          <span>{title}</span>
+          <Zap size={16} className={`shrink-0 ${isDark ? 'fill-zinc-950 text-zinc-950' : 'fill-amber-400 text-amber-400 animate-pulse'}`} />
+          <span className="tracking-wide uppercase">{title}</span>
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform shrink-0" />
         </button>
 
-        {/* Cursive Risk-Reversal Callout */}
-        <div className="font-hand text-base md:text-lg text-emerald-700 font-bold -rotate-1">
-          🔒 100% Risk-Free • 7-Day Money-Back Guarantee
+        {/* Compact Trust Points */}
+        <div className="flex items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] text-zinc-500 font-medium">
+          <span className="inline-flex items-center gap-1">
+            <CheckCircle2 size={12} className="text-emerald-600 shrink-0" /> Instant Drive Access
+          </span>
+          <span className="text-zinc-300">•</span>
+          <span className="inline-flex items-center gap-1">
+            <CheckCircle2 size={12} className="text-emerald-600 shrink-0" /> 10 Full Courses
+          </span>
+          <span className="text-zinc-300">•</span>
+          <span className="inline-flex items-center gap-1">
+            <CheckCircle2 size={12} className="text-emerald-600 shrink-0" /> Razorpay UPI/Cards
+          </span>
         </div>
 
-        {/* Trust Points */}
-        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-[10px] md:text-[11px] text-zinc-500 font-medium">
-          <span className="inline-flex items-center gap-1">
-            <CheckCircle2 size={12} className="text-emerald-600" /> Razorpay UPI/Cards
-          </span>
-          <span>•</span>
-          <span className="inline-flex items-center gap-1">
-            <CheckCircle2 size={12} className="text-emerald-600" /> Instant Google Drive Link
-          </span>
-          <span>•</span>
-          <span className="inline-flex items-center gap-1">
-            <CheckCircle2 size={12} className="text-emerald-600" /> Skill Certificate
-          </span>
-        </div>
       </div>
     </div>
   );
