@@ -480,14 +480,11 @@ const LandingPage: React.FC = () => {
 
             {/* ═══ STUDENT WORK & RENDERS (JUST BELOW HERO CTA) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
-              <div className="px-3 sm:px-4 mb-5 text-center">
+              <div className="px-3 sm:px-4 mb-4 text-center">
                 <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
                   Student Results
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white mt-2">
-                  See What Beginners Created in Just 30 Days
-                </h2>
-                <div className="font-hand text-lg sm:text-xl text-amber-400 font-bold animate-wiggle mt-1">
+                <div className="font-hand text-lg sm:text-xl text-amber-400 font-bold animate-wiggle mt-1.5">
                   ✨ No prior architectural background required!
                 </div>
               </div>
