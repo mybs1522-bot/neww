@@ -819,15 +819,16 @@ const LandingPage: React.FC = () => {
           
           <div className="flex flex-col min-w-0">
             <div className="flex items-baseline gap-1.5">
+              <span className="text-xl sm:text-2xl font-heading font-extrabold text-zinc-950">₹{BUNDLE_PRICE}</span>
               <span className="text-[11px] text-zinc-400 line-through font-mono">₹3,699</span>
-              <span className="text-xl font-heading font-bold text-zinc-950">₹{BUNDLE_PRICE}</span>
-              <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full">73% OFF</span>
+              <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full">73% OFF</span>
             </div>
-            <div className="flex items-center gap-1 text-[10px] text-zinc-500 font-mono truncate">
-              <span>Ends:</span>
-              <span className="font-semibold text-zinc-900">{formatTime(timeLeft.h)}:{formatTime(timeLeft.m)}:{formatTime(timeLeft.s)}</span>
+            <div className="flex items-center gap-1 text-[9.5px] sm:text-[10.5px] text-zinc-600 font-medium truncate">
+              <span className="size-1.5 rounded-full bg-red-500 animate-pulse shrink-0" />
+              <span className="font-bold text-red-700">Students Week Offer</span>
               <span className="text-zinc-300">•</span>
-              <span className="text-emerald-700 hidden xs:inline">Instant Access</span>
+              <span className="text-zinc-700">Ends {getSameDayDate()}</span>
+              <span className="font-mono font-bold text-red-600">({formatTime(timeLeft.h)}:{formatTime(timeLeft.m)}:{formatTime(timeLeft.s)})</span>
             </div>
           </div>
 
