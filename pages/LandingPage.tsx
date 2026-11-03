@@ -340,7 +340,7 @@ const LandingPage: React.FC = () => {
                 {/* Impulse Price Anchor */}
                 <div className="text-center mb-5">
                   <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-2xl sm:rounded-full shadow-2xs">
-                    Learn Complete Interior &amp; Exterior design. 10 Courses | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing Extra)
+                    Learn to Create Homes, Offices and Villas. 10 Courses. | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing extra)
                   </span>
                 </div>
 
