@@ -484,9 +484,10 @@ const LandingPage: React.FC = () => {
                 <div className="flex gap-3 animate-scroll-left hover:pause">
                   {[...PAGE_PREVIEWS_ROW1, ...PAGE_PREVIEWS_ROW1].map((img, i) => (
                     <div key={i} className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative">
-                      <img src={img} alt="Student 3D Render" className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute bottom-2 left-2 bg-black/80 px-2 py-0.5 rounded text-[9px] font-mono text-zinc-300 border border-white/10">
-                        Avada Student Project
+                      <img src={img} alt="3D Architecture & Interior Render" className="w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute bottom-2 left-2 bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded text-[9px] font-mono text-zinc-200 border border-white/10 flex items-center gap-1">
+                        <span className="size-1 rounded-full bg-emerald-400" />
+                        <span>{['D5 Render 4K', 'SketchUp + V-Ray', '3ds Max + Corona', 'Lumion Pro', 'Enscape Architecture', 'D5 Exterior Villa', 'Revit to 3D', 'V-Ray Photorealism'][i % 8]}</span>
                       </div>
                     </div>
                   ))}
@@ -496,9 +497,10 @@ const LandingPage: React.FC = () => {
                 <div className="flex gap-3 animate-scroll-right hover:pause">
                   {[...PAGE_PREVIEWS_ROW2, ...PAGE_PREVIEWS_ROW2].map((img, i) => (
                     <div key={i} className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative">
-                      <img src={img} alt="Student 3D Render" className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute bottom-2 left-2 bg-black/80 px-2 py-0.5 rounded text-[9px] font-mono text-zinc-300 border border-white/10">
-                        Avada Student Project
+                      <img src={img} alt="3D Architecture & Interior Render" className="w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute bottom-2 left-2 bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded text-[9px] font-mono text-zinc-200 border border-white/10 flex items-center gap-1">
+                        <span className="size-1 rounded-full bg-emerald-400" />
+                        <span>{['SketchUp + D5', 'V-Ray Interior', 'Lumion Cinematic', '3ds Max Architecture', 'Enscape Realtime', 'D5 Luxury Living', 'AutoCAD to 3D', 'AI Render Workflow'][i % 8]}</span>
                       </div>
                     </div>
                   ))}
