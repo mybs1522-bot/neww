@@ -290,7 +290,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Amit Patel',
     role: 'BIM Specialist',
     company: 'Ahmedabad',
-    content: 'The Revit and 3ds Max courses are structured better than what I was taught in my 4-year degree. Clear, concise, and immediately applicable to real-world Indian projects.',
+    content: 'The Revit and 3ds Max courses are structured better than what I was taught in my 4-year degree. Clear, concise, and immediately applicable to real-world projects.',
     rating: 5
   }
 ];
@@ -302,7 +302,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     question: 'Are project files and 3D assets included?',
-    answer: 'Yes! You receive over 10,000+ Indian & international 3D models, 5,000+ 4K PBR textures, contractor drawing templates, and full scene files for every single course.'
+    answer: 'Yes! You receive over 10,000+ ready & international 3D models, 5,000+ 4K PBR textures, contractor drawing templates, and full scene files for every single course.'
   },
   {
     question: 'Can I watch on my mobile phone?',

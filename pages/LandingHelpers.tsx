@@ -21,7 +21,7 @@ export const RAW_JOINERS = [
   { name: "Karan Johar", city: "Indore", time: "38 min ago", plan: "12-Course Architecture Master Bundle" },
 ];
 
-export const PAIN_TRIGGERS_INDIAN = [
+export const PAIN_TRIGGERS = [
   {
     emoji: "😫",
     title: "Flat & Unrealistic Renders",
@@ -165,7 +165,7 @@ export const PAGE_PREVIEWS_ROW2 = [
 ];
 
 export const FEAR_STATS = [
-  { stat: '52,480+', label: 'Indian Architects & Designers Enrolled with 4.9★ Rating', icon: '🎓' },
+  { stat: '52,480+', label: 'Architects & Designers Enrolled with 4.9★ Rating', icon: '🎓' },
   { stat: '10x Faster', label: 'Client Approvals with Real-time D5 + Lumion + AI Workflow', icon: '⚡' },
   { stat: '₹50k - ₹1.5L', label: 'Average Monthly Freelance Earning Potential post completion', icon: '💰' },
   { stat: '30 Days', label: 'Step-by-step from beginner to creating 4K magazine-grade 3D designs', icon: '⏱️' },
@@ -174,7 +174,7 @@ export const FEAR_STATS = [
 export const FREE_BONUSES = [
   {
     id: "b1",
-    title: "10,000+ Indian & Modern 3D Models Library",
+    title: "10,000+ Ready & Modern 3D Models Library",
     worth: "₹14,999",
     desc: "Ready-to-use Modular Kitchens, Godrej Wardrobes, Mandir / Pooja Units, Luxury Italian Sofas, Master Beds & Ceiling Light Fixtures. Drag & drop directly into SketchUp / 3ds Max.",
     icon: "🛋️",
@@ -190,7 +190,7 @@ export const FREE_BONUSES = [
   },
   {
     id: "b3",
-    title: "Indian Client Quotation & Freelance Contract Toolkit",
+    title: "Client Quotation & Freelance Contract Toolkit",
     worth: "₹4,999",
     desc: "Word/PDF editable contract templates, price quotation sheets (per sq. ft. & per room), and script to demand 50% advance token without resistance.",
     icon: "📋",
@@ -235,9 +235,9 @@ export const VALUE_STACK_ITEMS = [
   { name: '10. Stable Diffusion Sketch-to-Render AI Generator', value: '₹4,999' },
   { name: '11. Unreal Engine 5 Real-Time Virtual Architecture', value: '₹6,999' },
   { name: '12. Photoshop Architectural Post-Production & Touch-ups', value: '₹3,999' },
-  { name: 'BONUS #1: 10,000+ 3D Indian Furniture & Interior Models', value: '₹14,999' },
+  { name: 'BONUS #1: 10,000+ 3D Furniture & Interior Models', value: '₹14,999' },
   { name: 'BONUS #2: 5,000+ 4K PBR Materials & Textures Pack', value: '₹7,999' },
-  { name: 'BONUS #3: Indian Client Quotation & Legal Contract Kit', value: '₹4,999' },
+  { name: 'BONUS #3: Client Quotation & Legal Contract Kit', value: '₹4,999' },
   { name: 'BONUS #4: 150+ Secret AI Architecture Prompts Bible', value: '₹3,999' },
   { name: 'BONUS #5: Official Skill Certificate for Resume & Portfolio', value: '₹2,999' },
   { name: 'BONUS #6: Lifetime Updates + Safe Software Download Guides', value: 'Included' },
@@ -297,7 +297,7 @@ export const TESTIMONIALS_LANDING = [
     name: 'Rohit Mehta',
     role: 'Turnkey Interior Contractor',
     location: 'Ahmedabad, Gujarat',
-    content: 'Guaranteed value for Indian conditions! Indian client quotation templates and contract formats are so practical. No client disputes anymore because 3D clarity is 100%. Highly recommended to everyone in the construction field.',
+    content: 'Guaranteed value for all project conditions! Client quotation templates and contract formats are so practical. No client disputes anymore because 3D clarity is 100%. Highly recommended to everyone in the construction field.',
     rating: 5,
     verified: true
   },
@@ -338,7 +338,7 @@ export const FAQ_ITEMS_LANDING = [
   },
   {
     question: "Why is the price only ₹999 instead of ₹3,699?",
-    answer: "We want every aspiring Indian designer, student, and studio owner to have access to world-class 3D education without paying lakhs to coaching institutes. This ₹999 promotional price is strictly valid for the current batch and will increase to ₹3,699 once the current batch closes."
+    answer: "We want every aspiring designer, student, and studio owner to have access to world-class 3D education without paying lakhs to coaching institutes. This ₹999 promotional price is strictly valid for the current batch and will increase to ₹3,699 once the current batch closes."
   }
 ];
 
@@ -369,7 +369,7 @@ export const INCOME_TIERS = [
     before: '₹15,000 - ₹25,000 Fixed Salary',
     after: '₹75,000 - ₹1,50,000+ (Freelance/Studio)',
     icon: '💼',
-    tip: 'Work with Indian & International NRI clients'
+    tip: 'Work with local & international NRI clients'
   }
 ];
 

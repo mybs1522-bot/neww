@@ -7,7 +7,7 @@ import { COURSES, BUNDLE_PRICE, BUNDLE_ORIGINAL_PRICE } from '../constants';
 import { openRazorpayCheckout } from '../services/razorpay';
 import {
   Logo, Pattern, SocialProofToast,
-  PAIN_TRIGGERS_INDIAN, SOLUTION_PILLARS, WHO_IS_THIS_FOR, TRANSFORMATION_STORIES,
+  SOLUTION_PILLARS, WHO_IS_THIS_FOR, TRANSFORMATION_STORIES,
   FREE_BONUSES, TESTIMONIALS_LANDING, FAQ_ITEMS_LANDING,
   PAGE_PREVIEWS_ROW1, PAGE_PREVIEWS_ROW2
 } from './LandingHelpers';
@@ -519,7 +519,7 @@ const LandingPage: React.FC = () => {
 
             <Pattern />
 
-            {/* ═══ REAL INDIAN STUDENT TESTIMONIALS (MOVED HERE) ═══ */}
+            {/* ═══ REAL STUDENT TESTIMONIALS (MOVED HERE) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
               <div className="px-3 sm:px-4">
                 <div className="text-center mb-6">
@@ -527,7 +527,7 @@ const LandingPage: React.FC = () => {
                     💬 Verified student reviews
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
-                    What Indian Designers &amp; Architects Say
+                    What Designers &amp; Architects Say
                   </h2>
                 </div>
 
@@ -818,7 +818,7 @@ const LandingPage: React.FC = () => {
             <div className="max-w-3xl mx-auto flex flex-col items-center gap-2.5">
               <Logo />
               <p className="text-zinc-500 text-[11px] mt-1">
-                © 2026 Avada Design & Architecture. All rights reserved. Helping 52,000+ Indian designers succeed.
+                © 2026 Avada Design & Architecture. All rights reserved. Helping 52,000+ designers succeed.
               </p>
               <div className="flex justify-center gap-3 text-[11px] font-mono text-zinc-500 uppercase tracking-wider">
                 <a href="/refund-policy" className="hover:text-zinc-900 transition-colors">Refund Policy</a>
@@ -893,7 +893,7 @@ const LandingPage: React.FC = () => {
             </h3>
 
             <p className="text-zinc-600 text-xs leading-relaxed mb-3.5">
-              Over <strong>52,480+ Indian designers</strong> are already using these 10 courses & 10,000+ 3D models. If you close this page, price will increase to <strong>₹3,699</strong>!
+              Over <strong>52,480+ designers</strong> are already using these 10 courses & 10,000+ 3D models. If you close this page, price will increase to <strong>₹3,699</strong>!
             </p>
 
             <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-2.5 mb-3.5 text-left text-xs text-zinc-700 space-y-1 font-medium">
