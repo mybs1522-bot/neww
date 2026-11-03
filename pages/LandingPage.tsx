@@ -442,28 +442,7 @@ const LandingPage: React.FC = () => {
 
             <Pattern />
 
-            {/* ═══ 10-COURSE PACKAGE (JUST BELOW HERO SECTION) ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-6 sm:py-10 bg-white text-center overflow-hidden">
-              <div className="px-3 sm:px-4 mb-4 sm:mb-6">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-extrabold text-zinc-950 tracking-tight">
-                  10-Course Package
-                </h2>
-              </div>
-
-              <div className="max-w-xl mx-auto px-4 flex justify-center">
-                <img 
-                  src="/10-course-package.png" 
-                  alt="10-Course Package" 
-                  className="w-full max-w-[380px] sm:max-w-[460px] md:max-w-[500px] h-auto object-contain cursor-pointer hover:scale-[1.01] transition-transform duration-300 drop-shadow-sm"
-                  onClick={openPaymentModal}
-                  loading="lazy"
-                />
-              </div>
-            </section>
-
-            <Pattern />
-
-            {/* ═══ STUDENT WORK & RENDERS (JUST BELOW 10-COURSE PACKAGE) ═══ */}
+            {/* ═══ STUDENT WORK & RENDERS (JUST BELOW HERO CTA) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
               <div className="px-3 sm:px-4 mb-5 text-center">
                 <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
