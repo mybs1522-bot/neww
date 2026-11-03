@@ -58,7 +58,7 @@ const CtaWithTimer = ({
           <div className="flex items-center gap-1.5 min-w-0">
             <span className="size-2 rounded-full bg-red-500 animate-pulse shrink-0" />
             <span className="font-heading font-bold text-[11px] sm:text-xs truncate">
-              Students Week • Ends {getSameDayDate()}
+              Students Week Offer • Ends {getSameDayDate()}
             </span>
           </div>
 
@@ -95,15 +95,14 @@ const CtaWithTimer = ({
         {/* High Conversion Action Button */}
         <button
           onClick={onClick}
-          className={`w-full py-3 sm:py-3.5 px-5 rounded-xl font-heading font-bold text-sm sm:text-base transition-all duration-150 flex items-center justify-center gap-2 group cursor-pointer active:scale-[0.98] shadow-md ${
+          className={`w-full py-3.5 px-5 rounded-2xl font-heading font-bold text-sm sm:text-base transition-all duration-150 flex items-center justify-center gap-2 group cursor-pointer active:scale-[0.98] shadow-md border-2 ${
             isDark 
-              ? 'bg-white text-zinc-950 hover:bg-zinc-100' 
-              : 'btn-premium text-white hover:brightness-110'
+              ? 'bg-white text-zinc-950 hover:bg-zinc-100 border-white' 
+              : 'bg-zinc-950 text-white hover:bg-zinc-900 border-zinc-950'
           }`}
         >
-          <Zap size={16} className={`shrink-0 ${isDark ? 'fill-zinc-950 text-zinc-950' : 'fill-amber-400 text-amber-400 animate-pulse'}`} />
           <span className="tracking-wide uppercase">{title}</span>
-          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform shrink-0" />
+          <Download size={17} className="group-hover:translate-y-0.5 transition-transform shrink-0" />
         </button>
 
         {/* Compact Trust Points */}
@@ -828,17 +827,16 @@ const LandingPage: React.FC = () => {
               <span>Ends:</span>
               <span className="font-semibold text-zinc-900">{formatTime(timeLeft.h)}:{formatTime(timeLeft.m)}:{formatTime(timeLeft.s)}</span>
               <span className="text-zinc-300">•</span>
-              <span className="text-emerald-700 hidden xs:inline">7-Day Refund</span>
+              <span className="text-emerald-700 hidden xs:inline">Instant Access</span>
             </div>
           </div>
 
           <button
             onClick={openPaymentModal}
-            className="btn-premium animate-pulse-slow py-2.5 px-4 sm:px-6 text-xs sm:text-sm font-heading font-semibold flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+            className="bg-zinc-950 text-white hover:bg-zinc-900 border-2 border-zinc-950 rounded-full py-2 px-4 sm:px-6 text-xs sm:text-sm font-heading font-semibold flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-sm active:scale-95 transition-all"
           >
-            <Zap size={13} className="fill-white shrink-0" />
             <span>Get All 10 Courses</span>
-            <ArrowRight size={13} className="shrink-0" />
+            <Download size={14} className="shrink-0" />
           </button>
         </div>
       </div>
