@@ -9,7 +9,7 @@ import {
   Logo, Pattern, SocialProofToast,
   SOLUTION_PILLARS, WHO_IS_THIS_FOR, TRANSFORMATION_STORIES,
   FREE_BONUSES, TESTIMONIALS_LANDING, FAQ_ITEMS_LANDING,
-  PAGE_PREVIEWS_ROW1, PAGE_PREVIEWS_ROW2
+  PAGE_PREVIEWS_ROW1, PAGE_PREVIEWS_ROW2, SocialCommentsSlider
 } from './LandingHelpers';
 
 /* ─── REUSABLE PREMIUM CTA WITH TIMER ─── */
@@ -369,7 +369,7 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* 9:16 Vertical Video Player Box */}
-                <div className="w-full max-w-[340px] sm:max-w-[380px] mx-auto mb-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-zinc-800/80 bg-black overflow-hidden">
+                <div className="w-full max-w-[340px] sm:max-w-[380px] mx-auto mb-6 rounded-2xl sm:rounded-3xl shadow-2xl border border-zinc-800/80 bg-black overflow-hidden">
                   <div className="w-full overflow-hidden bg-black relative" style={{ paddingTop: '177.78%' }}>
                     <iframe 
                       src="https://iframe.mediadelivery.net/embed/489113/7f3a8bfe-d216-44df-b7e3-7a70f0e008df?autoplay=true&loop=true&muted=true&preload=true&responsive=true" 
@@ -380,6 +380,9 @@ const LandingPage: React.FC = () => {
                     />
                   </div>
                 </div>
+
+                {/* ═══ INSTAGRAM, X & FACEBOOK COMMUNITY REVIEWS SLIDER ═══ */}
+                <SocialCommentsSlider />
 
                 {/* ═══ MOST IMPORTANT SALE POINTS BEFORE 1ST CTA (POINTERS ONLY) ═══ */}
                 <div className="max-w-3xl mx-auto mb-6">

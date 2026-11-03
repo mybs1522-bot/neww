@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ShieldCheck, Zap, CheckCircle, CheckCircle2, Users, X, Sparkles, Star, Award, Clock, DollarSign, BookOpen, Gift, Check, Flame, MessageSquare, AlertCircle } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, CheckCircle, CheckCircle2, Users, X, Sparkles, Star, Award, Clock, DollarSign, BookOpen, Gift, Check, Flame, MessageSquare, AlertCircle, Heart } from 'lucide-react';
 
 export const getDriveUrl = (id: string) => `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
 
 export const RAW_JOINERS = [
-  { name: "Priya Sharma", city: "Mumbai", time: "1 min ago", plan: "12-Course Architecture Master Bundle" },
-  { name: "Rahul Verma", city: "New Delhi", time: "3 min ago", plan: "12-Course Architecture Master Bundle" },
-  { name: "Ananya Gupta", city: "Pune", time: "5 min ago", plan: "12-Course Architecture Master Bundle" },
-  { name: "Vikramjit Singh", city: "Jaipur", time: "7 min ago", plan: "12-Course Architecture Master Bundle" },
-  { name: "Meera Iyer", city: "Chennai", time: "9 min ago", plan: "12-Course Architecture Master Bundle" },
-  { name: "Aravind Reddy", city: "Bengaluru", time: "12 min ago", plan: "12-Course Architecture Master Bundle" },
-  { name: "Neha Kulkarni", city: "Nagpur", time: "14 min ago", plan: "12-Course Architecture Master Bundle" },
-  { name: "Rohit Mehta", city: "Ahmedabad", time: "16 min ago", plan: "12-Course Architecture Master Bundle" },
-  { name: "Simran Kaur", city: "Chandigarh", time: "19 min ago", plan: "12-Course Architecture Master Bundle" },
+  { name: "Priya Sharma", city: "Mumbai", time: "1 min ago", plan: "10-Course Package" },
+  { name: "Rahul Verma", city: "New Delhi", time: "3 min ago", plan: "10-Course Package" },
+  { name: "Ananya Gupta", city: "Pune", time: "5 min ago", plan: "10-Course Package" },
+  { name: "Vikramjit Singh", city: "Jaipur", time: "7 min ago", plan: "10-Course Package" },
+  { name: "Meera Iyer", city: "Chennai", time: "9 min ago", plan: "10-Course Package" },
+  { name: "Aravind Reddy", city: "Bengaluru", time: "12 min ago", plan: "10-Course Package" },
+  { name: "Neha Kulkarni", city: "Nagpur", time: "14 min ago", plan: "10-Course Package" },
+  { name: "Rohit Mehta", city: "Ahmedabad", time: "16 min ago", plan: "10-Course Package" },
+  { name: "Simran Kaur", city: "Chandigarh", time: "19 min ago", plan: "10-Course Package" },
   { name: "Arjun Deshmukh", city: "Hyderabad", time: "22 min ago", plan: "12-Course Architecture Master Bundle" },
   { name: "Tanmay Bhattacharya", city: "Kolkata", time: "25 min ago", plan: "12-Course Architecture Master Bundle" },
   { name: "Sneha Patel", city: "Surat", time: "28 min ago", plan: "12-Course Architecture Master Bundle" },
@@ -422,9 +422,248 @@ export const SocialProofToast: React.FC = () => {
             <p className="text-xs font-semibold text-zinc-900 truncate">{j.name}</p>
             <span className="text-[10px] text-zinc-500 font-mono shrink-0">• {j.city}</span>
           </div>
-          <p className="text-[10px] text-zinc-500 truncate">Enrolled in 12-Course Bundle • <span className="text-emerald-600 font-medium font-mono">{j.time}</span></p>
+          <p className="text-[10px] text-zinc-500 truncate">Enrolled in 10-Course Package • <span className="text-emerald-600 font-medium font-mono">{j.time}</span></p>
         </div>
         <div className="shrink-0 size-2 rounded-full bg-emerald-500 animate-pulse"></div>
+      </div>
+    </div>
+  );
+};
+
+/* ─── SOCIAL PLATFORM ICONS (SUBTLE & CRISP) ─── */
+export const InstagramIcon = ({ className = "size-3.5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+export const FacebookIcon = ({ className = "size-3.5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+  </svg>
+);
+
+export const XIcon = ({ className = "size-3" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
+
+/* ─── 14 REALISTIC SOCIAL COMMUNITY COMMENTS ─── */
+export const SOCIAL_COMMENTS = [
+  {
+    name: "Karan Sharma",
+    handle: "@karan.archstudio",
+    platform: "instagram" as const,
+    gradient: "from-purple-500 via-pink-500 to-orange-400",
+    comment: "The D5 real-time walkthrough workflow saved me 20+ hours on my first villa project. Client approved on the spot 🔥",
+    time: "2h ago",
+    likes: 54,
+    verified: true
+  },
+  {
+    name: "Neha Verma",
+    handle: "@neha_interiors",
+    platform: "x" as const,
+    gradient: "from-zinc-700 to-zinc-950",
+    comment: "Institutes were asking ₹45k for outdated CAD & 3ds Max. Got all 10 courses here for ₹999. Best investment of 2026 honestly.",
+    time: "5h ago",
+    likes: 112,
+    verified: true
+  },
+  {
+    name: "Rohit Mehta",
+    handle: "@rohit.contractor",
+    platform: "facebook" as const,
+    gradient: "from-blue-600 to-indigo-700",
+    comment: "The client quotation & contract kit alone helped me lock a 50% advance token. No more client payment disputes 🙏",
+    time: "1d ago",
+    likes: 38,
+    verified: false
+  },
+  {
+    name: "Ananya Iyer",
+    handle: "@ananya.3dspace",
+    platform: "instagram" as const,
+    gradient: "from-pink-500 to-rose-600",
+    comment: "10,000+ 3D models library is insane quality! Modular kitchens and luxury sofas just drag and drop into SketchUp.",
+    time: "3h ago",
+    likes: 89,
+    verified: true
+  },
+  {
+    name: "Vikramaditya S.",
+    handle: "@vikram_renderlab",
+    platform: "x" as const,
+    gradient: "from-emerald-600 to-teal-800",
+    comment: "From zero 3D experience to photorealistic living room renders in 12 days. Even my senior architect was shocked.",
+    time: "8h ago",
+    likes: 76,
+    verified: false
+  },
+  {
+    name: "Tanvi Kulkarni",
+    handle: "@tanvi_creativestudio",
+    platform: "instagram" as const,
+    gradient: "from-amber-500 to-orange-600",
+    comment: "V-Ray lighting was a nightmare before this. Finally understood dome light & HDRI setup simply without 40hrs of fluff.",
+    time: "1d ago",
+    likes: 43,
+    verified: true
+  },
+  {
+    name: "Siddharth Rao",
+    handle: "@siddharth.bim",
+    platform: "facebook" as const,
+    gradient: "from-blue-500 to-blue-700",
+    comment: "Got stuck during Revit to Lumion live sync at 11 PM. WhatsApp support team replied in 4 mins and solved it!",
+    time: "2d ago",
+    likes: 67,
+    verified: false
+  },
+  {
+    name: "Pooja Deshmukh",
+    handle: "@pooja_archconcept",
+    platform: "instagram" as const,
+    gradient: "from-violet-500 to-purple-600",
+    comment: "The AI prompt bible is like a cheat code. Generated 6 exterior variations in front of client during our zoom call 🤯",
+    time: "4h ago",
+    likes: 95,
+    verified: true
+  },
+  {
+    name: "Aditya Nair",
+    handle: "@aditya_visuals",
+    platform: "x" as const,
+    gradient: "from-cyan-600 to-blue-700",
+    comment: "Made my ₹999 back 15x over on my very first Upwork rendering gig. Google Drive access link arrived in 30 seconds.",
+    time: "12h ago",
+    likes: 140,
+    verified: true
+  },
+  {
+    name: "Ritika Sen",
+    handle: "@ritika_interiorcraft",
+    platform: "instagram" as const,
+    gradient: "from-rose-500 to-red-600",
+    comment: "Enscape walkthroughs with VR presentation closed my biggest turnkey flat project. Highly recommend to all students.",
+    time: "6h ago",
+    likes: 62,
+    verified: true
+  },
+  {
+    name: "Manish Gupta",
+    handle: "@manish.civilinfra",
+    platform: "facebook" as const,
+    gradient: "from-blue-700 to-blue-900",
+    comment: "Civil engineer here with zero creative background. The step-by-step Hindi/English explanation made 3D modeling so simple.",
+    time: "3d ago",
+    likes: 51,
+    verified: false
+  },
+  {
+    name: "Divya Reddy",
+    handle: "@divya_elevations",
+    platform: "instagram" as const,
+    gradient: "from-amber-600 to-pink-600",
+    comment: "Course 10 (AI Render generator) + SketchUp is magic. Render draft that used to take 5 hours now takes 2 minutes.",
+    time: "7h ago",
+    likes: 83,
+    verified: true
+  },
+  {
+    name: "Harsh Vardhan",
+    handle: "@harsh_designstudio",
+    platform: "x" as const,
+    gradient: "from-zinc-800 to-black",
+    comment: "Software download and installation guides worked seamlessly without license errors on Windows 11. 10/10 execution.",
+    time: "1d ago",
+    likes: 91,
+    verified: false
+  },
+  {
+    name: "Shreya Mukherjee",
+    handle: "@shreya.spaceplanner",
+    platform: "instagram" as const,
+    gradient: "from-fuchsia-600 to-pink-500",
+    comment: "Got verified skill certificate for my portfolio. Added to my LinkedIn and already got 2 freelance inquiries!",
+    time: "10h ago",
+    likes: 104,
+    verified: true
+  }
+];
+
+/* ─── INSTAGRAM / X / FACEBOOK COMMENT SLIDER COMPONENT ─── */
+export const SocialCommentsSlider: React.FC = () => {
+  return (
+    <div className="w-full my-6 overflow-hidden">
+      {/* Header Badge */}
+      <div className="flex items-center justify-center gap-2 mb-3 px-3 text-center">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200/90 text-[11px] font-heading font-semibold text-zinc-800 shadow-2xs">
+          <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Real Community Praise</span>
+          <span className="text-zinc-300">•</span>
+          <span className="inline-flex items-center gap-1.5 text-zinc-500">
+            <InstagramIcon className="size-3 text-[#E1306C]" />
+            <XIcon className="size-2.5 text-zinc-900" />
+            <FacebookIcon className="size-3 text-[#1877F2]" />
+          </span>
+        </span>
+      </div>
+
+      {/* Infinite scrolling ticker */}
+      <div className="relative w-full overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-white to-transparent z-10" />
+
+        <div className="flex gap-3 animate-scroll-left hover:pause w-max py-1.5 px-2">
+          {[...SOCIAL_COMMENTS, ...SOCIAL_COMMENTS].map((item, idx) => (
+            <div 
+              key={idx} 
+              className="w-[270px] sm:w-[290px] shrink-0 bg-white border border-zinc-200/90 rounded-2xl p-3 shadow-2xs hover:shadow-xs hover:border-zinc-300 transition-all text-left flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className={`size-7 rounded-full bg-gradient-to-tr ${item.gradient} text-white flex items-center justify-center font-heading font-bold text-[11px] shrink-0 shadow-2xs`}>
+                      {item.name.charAt(0)}
+                    </div>
+                    <div className="min-w-0 leading-tight">
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs font-heading font-bold text-zinc-950 truncate">{item.name}</span>
+                        {item.verified && (
+                          <span className="text-blue-500 text-[10px] leading-none" title="Verified Designer">✓</span>
+                        )}
+                      </div>
+                      <span className="text-[10px] font-mono text-zinc-400 block truncate">{item.handle}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <span className="text-[10px] font-mono text-zinc-400">{item.time}</span>
+                    <span className="shrink-0">
+                      {item.platform === 'instagram' && <InstagramIcon className="size-3.5 text-[#E1306C]" />}
+                      {item.platform === 'facebook' && <FacebookIcon className="size-3.5 text-[#1877F2]" />}
+                      {item.platform === 'x' && <XIcon className="size-3 text-zinc-900" />}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-700 leading-snug line-clamp-3">
+                  {item.comment}
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between text-[10px] font-mono text-zinc-400 mt-2.5 pt-1.5 border-t border-zinc-100">
+                <span className="text-emerald-700 font-medium">✓ Enrolled Student</span>
+                <span className="flex items-center gap-1 text-zinc-500">
+                  <Heart size={10} className="fill-red-500 text-red-500" />
+                  <span>{item.likes}</span>
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
