@@ -8,7 +8,7 @@ import { openRazorpayCheckout } from '../services/razorpay';
 import {
   Logo, Pattern, SocialProofToast,
   PAIN_TRIGGERS_INDIAN, SOLUTION_PILLARS, WHO_IS_THIS_FOR, TRANSFORMATION_STORIES,
-  FREE_BONUSES, VALUE_STACK_ITEMS, TESTIMONIALS_LANDING, FAQ_ITEMS_LANDING,
+  FREE_BONUSES, TESTIMONIALS_LANDING, FAQ_ITEMS_LANDING,
   PAGE_PREVIEWS_ROW1, PAGE_PREVIEWS_ROW2
 } from './LandingHelpers';
 
@@ -774,132 +774,6 @@ const LandingPage: React.FC = () => {
 
             <Pattern />
 
-            {/* ═══ 9. OLD WAY vs AVADA PRO 3D WAY ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
-              <div className="px-3 sm:px-4">
-                <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    ⚡ Value comparison
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
-                    ₹999 vs ₹1,50,000 Offline Institute
-                  </h2>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* The Old Struggle */}
-                  <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-4 sm:p-5">
-                    <div className="flex items-center gap-2 mb-3 text-zinc-700 font-heading font-bold text-sm sm:text-base border-b border-zinc-200 pb-2">
-                      <X size={16} className="p-0.5 bg-zinc-200 rounded-full text-zinc-600" />
-                      <span>The Lonely Struggle (Old Way)</span>
-                    </div>
-                    <ul className="space-y-2.5 text-xs text-zinc-600">
-                      <li className="flex items-start gap-2">
-                        <X size={14} className="text-red-500 shrink-0 mt-0.5" />
-                        <span>Scattered YouTube videos with no support when V-Ray crashes</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <X size={14} className="text-red-500 shrink-0 mt-0.5" />
-                        <span>Institutes charging ₹35,000–₹1,50,000 for outdated 2015 syllabus</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <X size={14} className="text-red-500 shrink-0 mt-0.5" />
-                        <span>No ready 3D models; wasting 5 hours modeling a single sofa</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <X size={14} className="text-red-500 shrink-0 mt-0.5" />
-                        <span>No client contracts, ending up underpaid at ₹1,000 per room</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* The Avada Way */}
-                  <div className="bg-white border-2 border-zinc-950 rounded-xl p-4 sm:p-5 relative">
-                    <div className="absolute top-0 right-0 bg-zinc-950 text-white text-[9px] font-mono font-bold px-2 py-0.5 rounded-bl-lg uppercase tracking-wider">
-                      PRO METHOD
-                    </div>
-                    <div className="flex items-center gap-2 mb-3 text-zinc-950 font-heading font-bold text-sm sm:text-base border-b border-zinc-200 pb-2">
-                      <CheckCircle2 size={16} className="text-zinc-950" />
-                      <span>The Avada PRO 3D Blueprint</span>
-                    </div>
-                    <ul className="space-y-2.5 text-xs text-zinc-800 font-medium">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 size={14} className="text-zinc-950 shrink-0 mt-0.5" />
-                        <span><strong className="text-zinc-950">30-Day Flow:</strong> AutoCAD → SketchUp → V-Ray → D5 → AI</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 size={14} className="text-zinc-950 shrink-0 mt-0.5" />
-                        <span><strong className="text-zinc-950">24/7 WhatsApp Team Help:</strong> Instant solutions to crashes & bugs</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 size={14} className="text-zinc-950 shrink-0 mt-0.5" />
-                        <span><strong className="text-zinc-950">10,000+ Models:</strong> Drag and drop modular kitchens & luxury decor</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 size={14} className="text-zinc-950 shrink-0 mt-0.5" />
-                        <span><strong className="text-zinc-950">Client Proposal Templates:</strong> Lock 50% advance token payments</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <Pattern />
-
-            {/* ═══ 11. GRAND SLAM VALUE STACK ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-white">
-              <div className="max-w-3xl mx-auto px-3 sm:px-4">
-                <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-3 py-0.5 rounded-full">
-                    🎁 Everything included
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-950 mt-2">
-                    Everything You Get Inside the ₹999 Bundle
-                  </h2>
-                  <p className="text-zinc-600 text-xs sm:text-sm mt-1">
-                    Normal value if purchased separately: <strong className="font-mono text-zinc-900">₹54,000+</strong>
-                  </p>
-                </div>
-
-                <div className="bg-white border border-zinc-200 rounded-2xl overflow-hidden shadow-xs">
-                  <div className="divide-y divide-zinc-200 text-xs sm:text-sm">
-                    {VALUE_STACK_ITEMS.map((item, i) => (
-                      <div key={i} className="flex items-center justify-between px-4 py-2 bg-white hover:bg-zinc-50 transition-colors">
-                        <div className="flex items-center gap-2 text-zinc-800 pr-2">
-                          <CheckCircle2 size={13} className="text-zinc-900 shrink-0" />
-                          <span>{item.name}</span>
-                        </div>
-                        <span className="font-mono text-zinc-500 text-xs shrink-0">{item.value}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Total Value Summary Box */}
-                  <div className="bg-zinc-950 text-white p-5 sm:p-6 text-center">
-                    <p className="text-zinc-400 text-[10px] font-mono font-medium mb-1">Total real market value</p>
-                    <p className="text-xl font-mono font-bold text-zinc-400 line-through mb-1">₹54,988</p>
-                    <div className="flex items-baseline justify-center gap-2 mb-4">
-                      <span className="text-zinc-400 text-xs font-medium">Today's Batch Price:</span>
-                      <span className="text-3xl sm:text-4xl font-heading font-bold text-white">₹{BUNDLE_PRICE}</span>
-                      <span className="text-emerald-400 text-xs font-mono font-semibold uppercase">(Save ₹53,989)</span>
-                    </div>
-
-                    <button
-                      onClick={openPaymentModal}
-                      className="w-full max-w-md mx-auto py-3.5 rounded-full bg-white text-zinc-950 font-heading font-semibold text-sm sm:text-base hover:bg-zinc-100 transition-colors duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-md animate-pulse-slow"
-                    >
-                      <Download size={16} />
-                      <span>Get Instant Access to Everything</span>
-                    </button>
-                    <p className="text-[10px] text-zinc-400 mt-2 font-mono">⚡ Immediate Google Drive Access Delivered on Email & WhatsApp</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <Pattern />
-
             {/* ═══ 12. FAQ SECTION ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-50/50">
               <div className="max-w-3xl mx-auto px-3 sm:px-4">
@@ -933,30 +807,6 @@ const LandingPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </div>
-            </section>
-
-            <Pattern />
-
-            {/* ═══ 13. FINAL CLOSING CTA SECTION ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-10 sm:py-16 bg-zinc-950 text-white relative overflow-hidden text-center">
-              <div className="max-w-3xl mx-auto px-4 relative z-10">
-                <span className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-zinc-800 text-zinc-300 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider mb-2.5 border border-zinc-700">
-                  <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" /> Limited batch intake
-                </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white leading-tight mb-2.5">
-                  Don't Let Another Year Pass Wishing You Had Mastered 3D & AI
-                </h2>
-                <p className="text-zinc-400 text-xs sm:text-sm max-w-lg mx-auto mb-6 leading-relaxed">
-                  For less than the price of one dinner, get all 10 courses, 10,000+ 3D models, lifetime updates, and our 24/7 support team.
-                </p>
-
-                <CtaWithTimer 
-                  timeLeft={timeLeft} 
-                  onClick={openPaymentModal} 
-                  variant="dark"
-                  title="CLAIM YOUR ACCESS PASS NOW"
-                />
               </div>
             </section>
           </main>
