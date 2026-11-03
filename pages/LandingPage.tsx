@@ -344,13 +344,13 @@ const LandingPage: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Video Player Box */}
-                <div className="w-full max-w-3xl mx-auto mb-6 rounded-2xl shadow-xl border border-zinc-800 bg-black overflow-hidden">
-                  <div className="w-full overflow-hidden bg-black" style={{ position: 'relative', paddingTop: '56.25%' }}>
+                {/* 9:16 Vertical Video Player Box */}
+                <div className="w-full max-w-[340px] sm:max-w-[380px] mx-auto mb-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-zinc-800/80 bg-black overflow-hidden">
+                  <div className="w-full overflow-hidden bg-black relative" style={{ paddingTop: '177.78%' }}>
                     <iframe 
-                      src="https://iframe.mediadelivery.net/embed/489113/a4460094-5648-498d-8d29-6e63aa1feb91?autoplay=true&loop=true&muted=true&preload=true&responsive=true" 
+                      src="https://iframe.mediadelivery.net/embed/489113/7f3a8bfe-d216-44df-b7e3-7a70f0e008df?autoplay=true&loop=true&muted=true&preload=true&responsive=true" 
                       loading="lazy" 
-                      style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }} 
+                      style={{ border: 0, position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }} 
                       allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" 
                       allowFullScreen={true} 
                     />
