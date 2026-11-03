@@ -26,6 +26,7 @@ const CtaWithTimer = ({
   title?: string;
   subtext?: string;
 }) => {
+  const f = (v: number) => v.toString().padStart(2, '0');
   const isDark = variant === 'dark';
 
   return (
@@ -39,6 +40,29 @@ const CtaWithTimer = ({
           <span className="size-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
           <span>Our Design Students are earning 1L+/month average</span>
         </div>
+
+        {/* Countdown Flip Units */}
+        {timeLeft && (
+          <div className="flex items-center justify-center gap-1.5 my-0.5">
+            {[
+              { val: f(timeLeft.h), label: 'HOURS' },
+              { val: f(timeLeft.m), label: 'MINS' },
+              { val: f(timeLeft.s), label: 'SECS' }
+            ].map((unit, i) => (
+              <React.Fragment key={i}>
+                <div className="flex flex-col items-center">
+                  <div className={`font-mono font-bold text-base md:text-lg px-2.5 py-1 rounded-lg border ${
+                    isDark ? 'bg-zinc-950 text-white border-zinc-800' : 'bg-white text-zinc-950 border-zinc-200'
+                  } min-w-[42px] md:min-w-[48px] shadow-xs`}>
+                    {unit.val}
+                  </div>
+                  <span className="text-[8px] font-mono font-medium text-zinc-500 tracking-wider mt-0.5">{unit.label}</span>
+                </div>
+                {i < 2 && <span className="text-base font-bold text-zinc-400 mb-3">:</span>}
+              </React.Fragment>
+            ))}
+          </div>
+        )}
 
         {/* Pricing Anchor */}
         <div className="flex items-baseline justify-center gap-2 md:gap-3 my-0.5">
@@ -979,10 +1003,11 @@ const LandingPage: React.FC = () => {
               <span className="text-xl font-heading font-bold text-zinc-950">₹{BUNDLE_PRICE}</span>
               <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full">73% OFF</span>
             </div>
-            <div className="flex items-center gap-1.5 text-[10px] text-zinc-500 font-mono truncate">
-              <span className="text-emerald-700 font-semibold">Instant Access</span>
+            <div className="flex items-center gap-1 text-[10px] text-zinc-500 font-mono truncate">
+              <span>Ends:</span>
+              <span className="font-semibold text-zinc-900">{formatTime(timeLeft.h)}:{formatTime(timeLeft.m)}:{formatTime(timeLeft.s)}</span>
               <span className="text-zinc-300">•</span>
-              <span className="text-zinc-600">7-Day Refund</span>
+              <span className="text-emerald-700 hidden xs:inline">7-Day Refund</span>
             </div>
           </div>
 

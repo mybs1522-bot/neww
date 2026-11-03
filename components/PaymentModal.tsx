@@ -382,6 +382,23 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, ini
           {step === 'PACKAGE_PREVIEW' && (
              <div className="p-5 border-t border-gray-100 bg-white z-20 shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
                  <div className="flex flex-col gap-3">
+                    {/* Timer */}
+                    <div className="flex justify-center">
+                        <div className="inline-flex items-center gap-2 bg-red-50 px-3 py-1 rounded-lg border border-red-100">
+                            <div className="flex items-center gap-1 text-brand-primary animate-pulse">
+                                <Timer size={14} />
+                            </div>
+                            <span className="text-[10px] sm:text-xs font-bold text-gray-700 uppercase tracking-wide">Discount ends in:</span>
+                            <div className="flex items-center gap-0.5 text-sm font-bold font-mono text-brand-primary">
+                                <span>{formatTime(timeLeft.h)}</span>
+                                <span>:</span>
+                                <span>{formatTime(timeLeft.m)}</span>
+                                <span>:</span>
+                                <span>{formatTime(timeLeft.s)}</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <button 
                         onClick={() => setStep('PLANS')}
                         className="w-full py-3.5 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all shadow-glow flex items-center justify-center gap-2 group text-lg"
