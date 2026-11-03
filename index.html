@@ -231,22 +231,45 @@
         will-change: transform;
       }
 
-      /* Hardware-accelerated subtle marquee for mobile 60/120fps */
-      @keyframes scroll-left { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
-      @keyframes scroll-right { 0% { transform: translate3d(-50%, 0, 0); } 100% { transform: translate3d(0, 0, 0); } }
+      /* Hardware-accelerated subtle marquee for mobile 60/120fps with battery saver resilience */
+      @keyframes scroll-left { 
+        0% { transform: translate3d(0, 0, 0); } 
+        100% { transform: translate3d(-50%, 0, 0); } 
+      }
+      @keyframes scroll-right { 
+        0% { transform: translate3d(-50%, 0, 0); } 
+        100% { transform: translate3d(0, 0, 0); } 
+      }
       .animate-scroll-left {
         display: flex;
         width: max-content;
-        animation: scroll-left 45s linear infinite;
+        animation: scroll-left 38s linear infinite;
         will-change: transform;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
       }
       .animate-scroll-right {
         display: flex;
         width: max-content;
-        animation: scroll-right 45s linear infinite;
+        animation: scroll-right 38s linear infinite;
         will-change: transform;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
       }
-      .hover\:pause:hover, .hover\:pause:active { animation-play-state: paused; }
+      /* Only pause on hover if device has a real mouse pointer, never freeze permanently on mobile tap */
+      @media (hover: hover) and (pointer: fine) {
+        .hover\:pause:hover { 
+          animation-play-state: paused; 
+        }
+      }
 
       /* Hallmark Floor 7: prefers-reduced-motion fallback */
       @media (prefers-reduced-motion: reduce) {
@@ -255,6 +278,12 @@
           animation-iteration-count: 1 !important;
           transition-duration: 0.01ms !important;
           scroll-behavior: auto !important;
+        }
+        /* Sliders must keep gliding gracefully or allow manual swipe on battery saver / reduced motion devices */
+        .animate-scroll-left,
+        .animate-scroll-right {
+          animation-duration: 75s !important;
+          animation-iteration-count: infinite !important;
         }
       }
 
@@ -272,7 +301,6 @@
   }
 }
     </script>
-    <link rel="stylesheet" href="/index.css">
   </head>
   <body class="bg-white text-zinc-950 font-sans antialiased selection:bg-zinc-200 selection:text-zinc-900">
     <noscript>

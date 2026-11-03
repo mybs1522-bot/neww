@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, ShieldCheck, Zap, CheckCircle, CheckCircle2, Users, X, Sparkles, Star, Award, Clock, DollarSign, BookOpen, Gift, Check, Flame, MessageSquare, AlertCircle, Heart } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowRight, ShieldCheck, Zap, CheckCircle, CheckCircle2, Users, X, Sparkles, Star, Award, Clock, DollarSign, BookOpen, Gift, Check, Flame, MessageSquare, AlertCircle, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const getDriveUrl = (id: string) => `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
 
@@ -597,10 +597,60 @@ export const SOCIAL_COMMENTS = [
 
 /* ─── INSTAGRAM / X / FACEBOOK COMMENT SLIDER COMPONENT ─── */
 export const SocialCommentsSlider: React.FC = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const touchStartXRef = useRef<number | null>(null);
+  const currentDragRef = useRef<number>(0);
+  const resumeTimerRef = useRef<any>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    setIsPaused(true);
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartXRef.current !== null) {
+      const diff = e.touches[0].clientX - touchStartXRef.current;
+      currentDragRef.current = diff;
+      setDragOffset(diff);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    touchStartXRef.current = null;
+    resumeTimerRef.current = setTimeout(() => {
+      setDragOffset(0);
+      currentDragRef.current = 0;
+      setIsPaused(false);
+    }, 1600);
+  };
+
+  const nudge = (direction: 'left' | 'right') => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    setIsPaused(true);
+    const shift = direction === 'left' ? -280 : 280;
+    setDragOffset(prev => prev + shift);
+    resumeTimerRef.current = setTimeout(() => {
+      setDragOffset(0);
+      setIsPaused(false);
+    }, 2500);
+  };
+
   return (
-    <div className="w-full my-6 overflow-hidden">
-      {/* Header Badge */}
+    <div className="w-full my-6 overflow-hidden select-none">
+      {/* Header Badge with subtle mobile navigation arrows */}
       <div className="flex items-center justify-center gap-2 mb-3 px-3 text-center">
+        <button
+          type="button"
+          onClick={() => nudge('right')}
+          className="size-6 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/90 text-zinc-600 flex items-center justify-center transition-transform active:scale-90 shadow-2xs cursor-pointer"
+          aria-label="Previous review"
+          title="Previous"
+        >
+          <ChevronLeft className="size-3.5" />
+        </button>
+
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200/90 text-[11px] font-heading font-semibold text-zinc-800 shadow-2xs">
           <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
           <span>Student's Write</span>
@@ -611,18 +661,41 @@ export const SocialCommentsSlider: React.FC = () => {
             <FacebookIcon className="size-3 text-[#1877F2]" />
           </span>
         </span>
+
+        <button
+          type="button"
+          onClick={() => nudge('left')}
+          className="size-6 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/90 text-zinc-600 flex items-center justify-center transition-transform active:scale-90 shadow-2xs cursor-pointer"
+          aria-label="Next review"
+          title="Next"
+        >
+          <ChevronRight className="size-3.5" />
+        </button>
       </div>
 
-      {/* Infinite scrolling ticker */}
-      <div className="relative w-full overflow-hidden">
+      {/* Infinite scrolling ticker with touch & swipe support */}
+      <div 
+        className="relative w-full overflow-hidden touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+      >
         <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-white to-transparent z-10" />
 
-        <div className="flex gap-3 animate-scroll-left hover:pause w-max py-1.5 px-2">
+        <div 
+          className="flex gap-3 animate-scroll-left hover:pause w-max py-1.5 px-2 transition-transform duration-200 ease-out"
+          style={{
+            animationPlayState: isPaused ? 'paused' : 'running',
+            transform: dragOffset !== 0 ? `translate3d(${dragOffset}px, 0, 0)` : undefined,
+          }}
+        >
           {[...SOCIAL_COMMENTS, ...SOCIAL_COMMENTS].map((item, idx) => (
             <div 
               key={idx} 
-              className="w-[270px] sm:w-[290px] shrink-0 bg-white border border-zinc-200/90 rounded-2xl p-3 shadow-2xs hover:shadow-xs hover:border-zinc-300 transition-all text-left flex flex-col justify-between"
+              className="w-[270px] sm:w-[290px] shrink-0 bg-white border border-zinc-200/90 rounded-2xl p-3 shadow-2xs hover:shadow-xs hover:border-zinc-300 text-left flex flex-col justify-between"
+              style={{ contain: 'content' }}
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
@@ -660,6 +733,155 @@ export const SocialCommentsSlider: React.FC = () => {
                   <Heart size={10} className="fill-red-500 text-red-500" />
                   <span>{item.likes}</span>
                 </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ─── STUDENT RENDERS SHOWCASE WITH BATTERY SAVER & TOUCH SWIPE OPTIMIZATION ─── */
+export const StudentRendersShowcase: React.FC = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  const [dragOffset1, setDragOffset1] = useState(0);
+  const [dragOffset2, setDragOffset2] = useState(0);
+  const touchStartXRef = useRef<number | null>(null);
+  const resumeTimerRef = useRef<any>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    setIsPaused(true);
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartXRef.current !== null) {
+      const diff = e.touches[0].clientX - touchStartXRef.current;
+      setDragOffset1(diff);
+      setDragOffset2(-diff);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    touchStartXRef.current = null;
+    resumeTimerRef.current = setTimeout(() => {
+      setDragOffset1(0);
+      setDragOffset2(0);
+      setIsPaused(false);
+    }, 1600);
+  };
+
+  const nudge = (direction: 'left' | 'right') => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    setIsPaused(true);
+    const shift = direction === 'left' ? -280 : 280;
+    setDragOffset1(prev => prev + shift);
+    setDragOffset2(prev => prev - shift);
+    resumeTimerRef.current = setTimeout(() => {
+      setDragOffset1(0);
+      setDragOffset2(0);
+      setIsPaused(false);
+    }, 2500);
+  };
+
+  const BADGES_ROW1 = ['D5 Render 4K', 'SketchUp + V-Ray', '3ds Max + Corona', 'Lumion Pro', 'Enscape Architecture', 'D5 Exterior Villa', 'Revit to 3D', 'V-Ray Photorealism'];
+  const BADGES_ROW2 = ['SketchUp + D5', 'V-Ray Interior', 'Lumion Cinematic', '3ds Max Architecture', 'Enscape Realtime', 'D5 Luxury Living', 'AutoCAD to 3D', 'AI Render Workflow'];
+
+  return (
+    <div className="w-full">
+      {/* Header Badge with subtle interactive nudge buttons */}
+      <div className="px-3 sm:px-4 mb-4 text-center">
+        <div className="flex items-center justify-center gap-2 mb-1.5">
+          <button
+            type="button"
+            onClick={() => nudge('right')}
+            className="size-6 rounded-full bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 flex items-center justify-center transition-transform active:scale-90 shadow-2xs cursor-pointer"
+            aria-label="Previous renders"
+            title="Previous"
+          >
+            <ChevronLeft className="size-3.5" />
+          </button>
+
+          <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
+            Student Results
+          </span>
+
+          <button
+            type="button"
+            onClick={() => nudge('left')}
+            className="size-6 rounded-full bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 flex items-center justify-center transition-transform active:scale-90 shadow-2xs cursor-pointer"
+            aria-label="Next renders"
+            title="Next"
+          >
+            <ChevronRight className="size-3.5" />
+          </button>
+        </div>
+
+        <div className="font-hand text-lg sm:text-xl text-amber-400 font-bold animate-wiggle">
+          ✨ No prior architectural background required!
+        </div>
+      </div>
+
+      <div 
+        className="flex flex-col gap-3 touch-pan-y select-none"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+      >
+        {/* ROW 1 */}
+        <div 
+          className="flex gap-3 animate-scroll-left hover:pause transition-transform duration-200 ease-out"
+          style={{
+            animationPlayState: isPaused ? 'paused' : 'running',
+            transform: dragOffset1 !== 0 ? `translate3d(${dragOffset1}px, 0, 0)` : undefined,
+          }}
+        >
+          {[...PAGE_PREVIEWS_ROW1, ...PAGE_PREVIEWS_ROW1].map((img, i) => (
+            <div 
+              key={i} 
+              className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative shadow-sm"
+              style={{ contain: 'content' }}
+            >
+              <img 
+                src={img} 
+                alt="3D Architecture & Interior Render" 
+                className="w-full h-full object-cover" 
+                decoding="async"
+              />
+              <div className="absolute bottom-2 left-2 bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded text-[9px] font-mono text-zinc-200 border border-white/10 flex items-center gap-1 pointer-events-none">
+                <span className="size-1 rounded-full bg-emerald-400" />
+                <span>{BADGES_ROW1[i % BADGES_ROW1.length]}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ROW 2 */}
+        <div 
+          className="flex gap-3 animate-scroll-right hover:pause transition-transform duration-200 ease-out"
+          style={{
+            animationPlayState: isPaused ? 'paused' : 'running',
+            transform: dragOffset2 !== 0 ? `translate3d(${dragOffset2}px, 0, 0)` : undefined,
+          }}
+        >
+          {[...PAGE_PREVIEWS_ROW2, ...PAGE_PREVIEWS_ROW2].map((img, i) => (
+            <div 
+              key={i} 
+              className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative shadow-sm"
+              style={{ contain: 'content' }}
+            >
+              <img 
+                src={img} 
+                alt="3D Architecture & Interior Render" 
+                className="w-full h-full object-cover" 
+                decoding="async"
+              />
+              <div className="absolute bottom-2 left-2 bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded text-[9px] font-mono text-zinc-200 border border-white/10 flex items-center gap-1 pointer-events-none">
+                <span className="size-1 rounded-full bg-emerald-400" />
+                <span>{BADGES_ROW2[i % BADGES_ROW2.length]}</span>
               </div>
             </div>
           ))}

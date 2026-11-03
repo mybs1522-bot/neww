@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ArrowRight, Star, CheckCircle, CheckCircle2, X, ChevronDown, Sparkles, 
-  Download, Mail, Lock, Loader2, ShieldCheck, Zap, Gift, DollarSign, MessageCircle
+  Download, Mail, Lock, Loader2, ShieldCheck, Zap, Gift, DollarSign, MessageCircle,
+  ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { COURSES, BUNDLE_PRICE, BUNDLE_ORIGINAL_PRICE } from '../constants';
 import { openRazorpayCheckout } from '../services/razorpay';
+import { HeroReelPlayer } from '../components/HeroReelPlayer';
 import {
   Logo, Pattern, SocialProofToast,
   SOLUTION_PILLARS, WHO_IS_THIS_FOR, TRANSFORMATION_STORIES,
   FREE_BONUSES, TESTIMONIALS_LANDING, FAQ_ITEMS_LANDING,
-  PAGE_PREVIEWS_ROW1, PAGE_PREVIEWS_ROW2, SocialCommentsSlider
+  SocialCommentsSlider, StudentRendersShowcase
 } from './LandingHelpers';
 
 const getSameDayDate = () => {
@@ -379,17 +381,7 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* 9:16 Vertical Video Player Box */}
-                <div className="w-full max-w-[340px] sm:max-w-[380px] mx-auto mb-6 rounded-2xl sm:rounded-3xl shadow-2xl border border-zinc-800/80 bg-black overflow-hidden">
-                  <div className="w-full overflow-hidden bg-black relative" style={{ paddingTop: '177.78%' }}>
-                    <iframe 
-                      src="https://iframe.mediadelivery.net/embed/489113/7f3a8bfe-d216-44df-b7e3-7a70f0e008df?autoplay=true&loop=true&muted=true&preload=true&responsive=true" 
-                      loading="lazy" 
-                      style={{ border: 0, position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }} 
-                      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" 
-                      allowFullScreen={true} 
-                    />
-                  </div>
-                </div>
+                <HeroReelPlayer />
 
                 {/* ═══ INSTAGRAM, X & FACEBOOK COMMUNITY REVIEWS SLIDER ═══ */}
                 <SocialCommentsSlider />
@@ -480,42 +472,7 @@ const LandingPage: React.FC = () => {
 
             {/* ═══ STUDENT WORK & RENDERS (JUST BELOW HERO CTA) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
-              <div className="px-3 sm:px-4 mb-4 text-center">
-                <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
-                  Student Results
-                </span>
-                <div className="font-hand text-lg sm:text-xl text-amber-400 font-bold animate-wiggle mt-1.5">
-                  ✨ No prior architectural background required!
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                {/* ROW 1 */}
-                <div className="flex gap-3 animate-scroll-left hover:pause">
-                  {[...PAGE_PREVIEWS_ROW1, ...PAGE_PREVIEWS_ROW1].map((img, i) => (
-                    <div key={i} className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative">
-                      <img src={img} alt="3D Architecture & Interior Render" className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute bottom-2 left-2 bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded text-[9px] font-mono text-zinc-200 border border-white/10 flex items-center gap-1">
-                        <span className="size-1 rounded-full bg-emerald-400" />
-                        <span>{['D5 Render 4K', 'SketchUp + V-Ray', '3ds Max + Corona', 'Lumion Pro', 'Enscape Architecture', 'D5 Exterior Villa', 'Revit to 3D', 'V-Ray Photorealism'][i % 8]}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* ROW 2 */}
-                <div className="flex gap-3 animate-scroll-right hover:pause">
-                  {[...PAGE_PREVIEWS_ROW2, ...PAGE_PREVIEWS_ROW2].map((img, i) => (
-                    <div key={i} className="w-[200px] sm:w-[300px] shrink-0 aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 relative">
-                      <img src={img} alt="3D Architecture & Interior Render" className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute bottom-2 left-2 bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded text-[9px] font-mono text-zinc-200 border border-white/10 flex items-center gap-1">
-                        <span className="size-1 rounded-full bg-emerald-400" />
-                        <span>{['SketchUp + D5', 'V-Ray Interior', 'Lumion Cinematic', '3ds Max Architecture', 'Enscape Realtime', 'D5 Luxury Living', 'AutoCAD to 3D', 'AI Render Workflow'][i % 8]}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <StudentRendersShowcase />
 
               <div className="text-center mt-6">
                 <button
