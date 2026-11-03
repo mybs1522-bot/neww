@@ -442,56 +442,28 @@ const LandingPage: React.FC = () => {
 
             <Pattern />
 
-            {/* ═══ 12 COURSES INCLUDED (JUST BELOW HERO SECTION) ═══ */}
-            <section className="screen-line-before screen-line-after border-x border-grid py-6 sm:py-8 bg-white text-center overflow-hidden">
-              <div className="px-3 sm:px-4 mb-4">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-zinc-950 tracking-tight">
-                  12 Courses Included
+            {/* ═══ 10-COURSE PACKAGE (JUST BELOW HERO SECTION) ═══ */}
+            <section className="screen-line-before screen-line-after border-x border-grid py-6 sm:py-10 bg-white text-center overflow-hidden">
+              <div className="px-3 sm:px-4 mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-extrabold text-zinc-950 tracking-tight">
+                  10-Course Package
                 </h2>
               </div>
 
-              {/* Seamless Infinite Marquee */}
-              <div className="relative w-full overflow-hidden">
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white to-transparent z-10" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-white to-transparent z-10" />
-
-                <div className="flex gap-2.5 sm:gap-3.5 animate-scroll-right hover:pause w-max py-2 px-2">
-                  {[...COURSES, ...COURSES].map((course, i) => (
-                    <div 
-                      key={i} 
-                      onClick={openPaymentModal}
-                      className="w-[130px] sm:w-[150px] shrink-0 bg-white border border-zinc-200/90 rounded-2xl overflow-hidden p-2.5 text-center shadow-2xs hover:shadow-xs hover:border-zinc-300 transition-colors duration-150 cursor-pointer group"
-                    >
-                      <div className="w-full aspect-square overflow-hidden rounded-xl bg-zinc-100 mb-2 border border-zinc-100">
-                        <img 
-                          src={course.imageUrl} 
-                          alt={course.title} 
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                          referrerPolicy="no-referrer"
-                          onError={(e) => {
-                            const target = e.currentTarget;
-                            if (!target.src.includes('drive.google.com')) {
-                              target.src = 'https://drive.google.com/thumbnail?id=' + course.id + '&sz=w800';
-                            }
-                          }}
-                        />
-                      </div>
-                      <span className="text-xs sm:text-sm font-heading font-bold text-zinc-950 block truncate group-hover:text-zinc-700">
-                        {course.title}
-                      </span>
-                      <span className="text-[10px] sm:text-xs font-mono text-zinc-500 block truncate mt-0.5">
-                        {course.software}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+              <div className="max-w-xl mx-auto px-4 flex justify-center">
+                <img 
+                  src="/10-course-package.png" 
+                  alt="10-Course Package" 
+                  className="w-full max-w-[380px] sm:max-w-[460px] md:max-w-[500px] h-auto object-contain cursor-pointer hover:scale-[1.01] transition-transform duration-300 drop-shadow-sm"
+                  onClick={openPaymentModal}
+                  loading="lazy"
+                />
               </div>
             </section>
 
             <Pattern />
 
-            {/* ═══ STUDENT WORK & RENDERS (JUST BELOW 12 COURSES INCLUDED) ═══ */}
+            {/* ═══ STUDENT WORK & RENDERS (JUST BELOW 10-COURSE PACKAGE) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
               <div className="px-3 sm:px-4 mb-5 text-center">
                 <span className="text-[10px] sm:text-xs font-mono font-medium text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-0.5 rounded-full">
