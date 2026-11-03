@@ -450,15 +450,14 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Banner Below CTA */}
-                <div className="max-w-3xl mx-auto mb-2 text-left">
-                  <div className="overflow-hidden rounded-2xl border border-zinc-200 shadow-sm">
-                    <img
-                      src="/banner-1.jpg"
-                      alt="Learn to Design Home, Offices & Villas"
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                    />
-                  </div>
+                <div className="max-w-xl mx-auto mb-4 px-2 flex justify-center">
+                  <img
+                    src="/banner-1.png"
+                    alt="15-Days to Stunning Designs & Renders"
+                    className="w-full max-w-[480px] h-auto object-contain cursor-pointer hover:scale-[1.01] transition-transform duration-300 drop-shadow-sm"
+                    onClick={openPaymentModal}
+                    loading="lazy"
+                  />
                 </div>
 
               </div>
