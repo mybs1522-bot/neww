@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 export const HeroReelPlayer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -96,18 +96,6 @@ export const HeroReelPlayer: React.FC = () => {
             allowFullScreen={true} 
           />
         )}
-
-        {/* Top Badges */}
-        <div className="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none z-20">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-mono text-white shadow-xs">
-            <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>4K Walkthrough Reel</span>
-          </span>
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/30 text-[9px] font-mono text-amber-300">
-            <Sparkles className="size-2.5" />
-            <span>Student Work</span>
-          </span>
-        </div>
 
         {/* Center Tap to Play Button (Visible when paused or autoplay blocked by battery saver) */}
         {(!isPlaying || isAutoplayBlocked) && (
