@@ -92,17 +92,15 @@ const CtaWithTimer = ({
           </span>
         </div>
 
-        {/* High Conversion Action Button */}
+        {/* High Conversion 3D Action Button */}
         <button
           onClick={onClick}
-          className={`w-full py-3.5 px-5 rounded-2xl font-heading font-bold text-sm sm:text-base transition-all duration-150 flex items-center justify-center gap-2 group cursor-pointer active:scale-[0.98] shadow-md border-2 ${
-            isDark 
-              ? 'bg-white text-zinc-950 hover:bg-zinc-100 border-white' 
-              : 'bg-zinc-950 text-white hover:bg-zinc-900 border-zinc-950'
+          className={`w-full py-3.5 sm:py-4 px-5 font-heading font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 group cursor-pointer select-none ${
+            isDark ? 'btn-3d-light' : 'btn-3d'
           }`}
         >
           <span className="tracking-wide uppercase">{title}</span>
-          <Download size={17} className="group-hover:translate-y-0.5 transition-transform shrink-0" />
+          <Download size={18} className="group-hover:translate-y-0.5 transition-transform shrink-0 stroke-[2.5]" />
         </button>
 
         {/* Compact Trust Points */}
@@ -479,9 +477,10 @@ const LandingPage: React.FC = () => {
               <div className="text-center mt-6">
                 <button
                   onClick={openPaymentModal}
-                  className="px-6 py-3 rounded-full bg-white text-zinc-950 font-heading font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-colors duration-150 cursor-pointer shadow-md animate-pulse-slow"
+                  className="btn-3d-light px-7 py-3 font-heading font-bold text-xs sm:text-sm cursor-pointer select-none inline-flex items-center gap-2"
                 >
-                  Claim Full Course Access Now
+                  <span>Claim Full Course Access Now</span>
+                  <Download size={15} className="shrink-0 stroke-[2.5]" />
                 </button>
               </div>
             </section>
@@ -835,10 +834,11 @@ const LandingPage: React.FC = () => {
 
           <button
             onClick={openPaymentModal}
-            className="bg-zinc-950 text-white hover:bg-zinc-900 border-2 border-zinc-950 rounded-full py-2 px-4 sm:px-6 text-xs sm:text-sm font-heading font-semibold flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-sm active:scale-95 transition-all"
+            className="btn-3d py-2.5 px-4 sm:px-6 text-xs sm:text-sm font-heading font-bold flex items-center justify-center gap-1.5 cursor-pointer shrink-0 select-none"
+            style={{ borderBottomWidth: '4px' }}
           >
             <span>Get All 10 Courses</span>
-            <Download size={14} className="shrink-0" />
+            <Download size={15} className="shrink-0 stroke-[2.5]" />
           </button>
         </div>
       </div>
