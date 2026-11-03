@@ -313,7 +313,7 @@ const LandingPage: React.FC = () => {
                   </span>
                   <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.18] max-w-2xl mx-auto">
                     <span className="block text-2xl sm:text-4xl md:text-5xl">
-                      Learn Complete <span className="highlight-yellow">Interior & Exterior Design</span> — <span className="highlight-green">From Zero</span>.
+                      Learn Complete Interior & Exterior Design — From Zero
                     </span>
                   </h1>
                 </div>
