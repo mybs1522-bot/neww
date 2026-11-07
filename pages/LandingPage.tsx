@@ -57,9 +57,9 @@ const CtaWithTimer = ({
             : 'bg-amber-50/90 border-amber-200/80 text-amber-950'
         }`}>
           <div className="flex items-center gap-2 min-w-0">
-            <DiwaliAnimatedIcon size={18} className="shrink-0" />
+            <DiwaliAnimatedIcon size={22} className="shrink-0" />
             <span className="font-heading font-bold text-[11px] sm:text-xs truncate">
-              Diwali Sale Offer • Ends {getSameDayDate()}
+              Diwali Offer • Ends {getSameDayDate()}
             </span>
           </div>
 
@@ -848,8 +848,8 @@ const LandingPage: React.FC = () => {
               </span>
             </div>
             <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-zinc-600 font-medium truncate mt-0.5">
-              <DiwaliAnimatedIcon size={16} className="shrink-0" />
-              <span className="font-bold text-amber-700">Diwali Sale Offer</span>
+              <DiwaliAnimatedIcon size={20} className="shrink-0" />
+              <span className="font-bold text-amber-700">Diwali Offer</span>
               <span className="text-zinc-300">•</span>
               <span className="text-zinc-700">Ends {getSameDayDate()}</span>
             </div>
