@@ -8,6 +8,7 @@ import { COURSES, BUNDLE_PRICE, BUNDLE_ORIGINAL_PRICE } from '../constants';
 import { openRazorpayCheckout } from '../services/razorpay';
 import { HeroReelPlayer } from '../components/HeroReelPlayer';
 import { DiwaliAnimatedIcon } from '../components/DiwaliAnimatedIcon';
+import { AnimatedPriceSlash } from '../components/AnimatedPriceSlash';
 import { DiwaliBackgroundCelebration } from '../components/DiwaliBackgroundCelebration';
 import {
   Logo, Pattern, SocialProofToast,
@@ -79,20 +80,8 @@ const CtaWithTimer = ({
           )}
         </div>
 
-        {/* Pricing Anchor & Savings Badge */}
-        <div className="flex items-center justify-between w-full px-1">
-          <div className="flex items-baseline gap-2">
-            <span className={`text-3xl sm:text-4xl font-heading font-extrabold tracking-tight ${isDark ? 'text-white' : 'text-zinc-950'}`}>
-              ₹{BUNDLE_PRICE}
-            </span>
-            <span className="text-zinc-400 line-through text-xs sm:text-sm font-mono">
-              ₹{BUNDLE_ORIGINAL_PRICE.toLocaleString('en-IN')}
-            </span>
-          </div>
-          <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[10px] sm:text-[11px] font-mono font-bold px-2.5 py-1 rounded-full shadow-2xs">
-            78% OFF • SAVE ₹2,900
-          </span>
-        </div>
+        {/* Pricing Anchor with Animated Viewport Slash & Sale Reveal */}
+        <AnimatedPriceSlash isDark={isDark} />
 
         {/* High Conversion 3D Action Button */}
         <button
@@ -349,16 +338,9 @@ const LandingPage: React.FC = () => {
 
                 {/* Outcome Headline with Highlighter & Diwali Phone Landing Animation */}
                 <div className="mb-2.5 phone-landing-1">
-                  <div className="flex flex-wrap items-center justify-center gap-2 mb-2.5">
-                    {/* Festive Diwali Celebration Pill */}
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-amber-500/15 via-yellow-500/20 to-amber-500/15 border border-amber-500/35 text-amber-900 rounded-full text-xs font-heading font-bold shadow-2xs">
-                      <DiwaliAnimatedIcon size={16} />
-                      <span>Shubh Deepavali Special • ₹{BUNDLE_PRICE} Active</span>
-                      <span className="text-amber-400">•</span>
-                      <span className="text-emerald-700 font-mono font-extrabold">Save ₹{(BUNDLE_ORIGINAL_PRICE - BUNDLE_PRICE).toLocaleString('en-IN')}</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-500/10 border border-amber-500/25 text-amber-900 rounded-full text-xs font-mono font-semibold">
-                      ⏱️ In 15 days
+                  <div className="flex items-center justify-center mb-2">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-amber-500/10 border border-amber-500/25 text-amber-900 rounded-full text-xs font-mono font-semibold">
+                      ⏱️ In the next 15 days
                     </span>
                   </div>
                   <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.18] max-w-2xl mx-auto">
