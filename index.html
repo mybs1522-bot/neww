@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="no-referrer" />
     <title>Avada PRO 3D — 2D Floor Planning, 3D Interior & Exterior Design & 4K AI Rendering | ₹999 Bundle</title>
-    <meta name="description" content="Master 2D Floor Planning, 3D Interior & Exterior Architectural Design, and 4K Photorealistic Walkthroughs in 15 days. 52,000+ enrolled. Get all 10 courses for ₹999." />
+    <meta name="description" content="Master 2D Floor Planning, 3D Interior & Exterior Architectural Design, and 4K Photorealistic Walkthroughs in 15 days. 52,000+ enrolled. Get all 10 courses for ₹799." />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <link rel="preconnect" href="https://iframe.mediadelivery.net">
@@ -330,6 +330,104 @@
           animation-duration: 75s !important;
           animation-iteration-count: infinite !important;
         }
+      }
+
+      /* ═══ DIWALI CELEBRATION & SMOOTH PHONE LANDING ENTRANCES ═══ */
+      @keyframes phoneLandingReveal {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 20px, 0);
+        }
+        100% {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      .phone-landing-1 {
+        animation: phoneLandingReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+        will-change: transform, opacity;
+      }
+      .phone-landing-2 {
+        animation: phoneLandingReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+        will-change: transform, opacity;
+      }
+      .phone-landing-3 {
+        animation: phoneLandingReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+        will-change: transform, opacity;
+      }
+      .phone-landing-4 {
+        animation: phoneLandingReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        will-change: transform, opacity;
+      }
+
+      @keyframes diwaliBackgroundEmberRise {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 100vh, 0) scale(0.6);
+        }
+        20% {
+          opacity: 0.75;
+        }
+        50% {
+          opacity: 0.9;
+          transform: translate3d(14px, 50vh, 0) scale(1.1);
+        }
+        80% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 0;
+          transform: translate3d(-14px, -20px, 0) scale(0.4);
+        }
+      }
+
+      @keyframes diwaliLandingSparkle {
+        0% {
+          opacity: 0;
+          transform: scale(0.15) rotate(0deg) translate3d(0, 0, 0);
+        }
+        25% {
+          opacity: 1;
+          transform: scale(1.25) rotate(90deg) translate3d(0, -6px, 0);
+        }
+        60% {
+          opacity: 0.85;
+          transform: scale(0.95) rotate(160deg) translate3d(0, 10px, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.2) rotate(240deg) translate3d(0, 28px, 0);
+        }
+      }
+
+      @keyframes diwaliCurtainFade {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, -10px, 0);
+        }
+        15% {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+        70% {
+          opacity: 0.8;
+        }
+        100% {
+          opacity: 0;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      /* Festive shimmering gold badge */
+      @keyframes festiveSheen {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+      .festive-gold-sheen {
+        background: linear-gradient(90deg, #FEF3C7 0%, #FDE047 25%, #F59E0B 50%, #FDE047 75%, #FEF3C7 100%);
+        background-size: 200% auto;
+        animation: festiveSheen 3.5s linear infinite;
       }
 
       body {

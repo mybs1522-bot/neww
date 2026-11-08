@@ -249,7 +249,7 @@ export const TESTIMONIALS_LANDING = [
     name: 'Priya Patel',
     role: 'Interior Designer & Studio Founder',
     location: 'Mumbai, Maharashtra',
-    content: 'Honestly, I was scared of 3ds Max and V-Ray settings. This course explained lighting in such simple everyday terms! Last week I closed a 3BHK flat interior design project in Powai for ₹1.65 Lakh. Best ₹999 investment of my life.',
+    content: 'Honestly, I was scared of 3ds Max and V-Ray settings. This course explained lighting in such simple everyday terms! Last week I closed a 3BHK flat interior design project in Powai for ₹1.65 Lakh. Best ₹799 investment of my life.',
     rating: 5,
     verified: true
   },
@@ -337,8 +337,8 @@ export const FAQ_ITEMS_LANDING = [
     answer: "Yes, an official verified Skill Certificate is included at zero extra charge. You can proudly add it to your CV, LinkedIn, and client portfolio."
   },
   {
-    question: "Why is the price only ₹999 instead of ₹3,699?",
-    answer: "We want every aspiring designer, student, and studio owner to have access to world-class 3D education without paying lakhs to coaching institutes. This ₹999 promotional price is strictly valid for the current batch and will increase to ₹3,699 once the current batch closes."
+    question: "Why is the price only ₹799 instead of ₹3,699?",
+    answer: "We want every aspiring designer, student, and studio owner to have access to world-class 3D education without paying lakhs to coaching institutes. This ₹799 promotional price is strictly valid for the current batch and will increase to ₹3,699 once the current batch closes."
   }
 ];
 
@@ -468,7 +468,7 @@ export const SOCIAL_COMMENTS = [
     handle: "@neha_interiors",
     platform: "x" as const,
     gradient: "from-zinc-700 to-zinc-950",
-    comment: "Institutes were asking ₹45k for outdated CAD & 3ds Max. Got all 10 courses here for ₹999. Best investment of 2026 honestly.",
+    comment: "Institutes were asking ₹45k for outdated CAD & 3ds Max. Got all 10 courses here for ₹799. Best investment of 2026 honestly.",
     time: "5h ago",
     likes: 112,
     verified: true
@@ -538,7 +538,7 @@ export const SOCIAL_COMMENTS = [
     handle: "@aditya_visuals",
     platform: "x" as const,
     gradient: "from-cyan-600 to-blue-700",
-    comment: "Made my ₹999 back 15x over on my very first Upwork rendering gig. Google Drive access link arrived in 30 seconds.",
+    comment: "Made my ₹799 back 15x over on my very first Upwork rendering gig. Google Drive access link arrived in 30 seconds.",
     time: "12h ago",
     likes: 140,
     verified: true

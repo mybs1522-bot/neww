@@ -8,6 +8,7 @@ import { COURSES, BUNDLE_PRICE, BUNDLE_ORIGINAL_PRICE } from '../constants';
 import { openRazorpayCheckout } from '../services/razorpay';
 import { HeroReelPlayer } from '../components/HeroReelPlayer';
 import { DiwaliAnimatedIcon } from '../components/DiwaliAnimatedIcon';
+import { DiwaliBackgroundCelebration } from '../components/DiwaliBackgroundCelebration';
 import {
   Logo, Pattern, SocialProofToast,
   SOLUTION_PILLARS, WHO_IS_THIS_FOR, TRANSFORMATION_STORIES,
@@ -89,7 +90,7 @@ const CtaWithTimer = ({
             </span>
           </div>
           <span className="bg-emerald-500/15 text-emerald-700 border border-emerald-500/30 text-[10px] sm:text-[11px] font-mono font-bold px-2.5 py-1 rounded-full shadow-2xs">
-            73% OFF • SAVE ₹2,700
+            78% OFF • SAVE ₹2,900
           </span>
         </div>
 
@@ -334,8 +335,11 @@ const LandingPage: React.FC = () => {
     : COURSES.filter(c => ['9', '10', '11'].includes(c.id));
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950 font-sans selection:bg-zinc-200 selection:text-zinc-900">
-      <div className="w-full">
+    <div className="relative min-h-screen bg-white text-zinc-950 font-sans selection:bg-zinc-200 selection:text-zinc-900 overflow-x-clip">
+      {/* ═══ DIWALI AMBIENT CELEBRATION & LANDING BURST EFFECT ═══ */}
+      <DiwaliBackgroundCelebration />
+
+      <div className="w-full relative z-10">
         <div className="mx-auto px-4 md:max-w-4xl">
           <main>
             
@@ -343,11 +347,20 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid pt-5 sm:pt-8 pb-8 bg-white text-center">
               <div className="px-2 sm:px-4">
 
-                {/* Outcome Headline with Highlighter */}
-                <div className="mb-2.5">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-amber-500/10 border border-amber-500/25 text-amber-900 rounded-full text-xs font-mono font-semibold mb-2">
-                    ⏱️ In the next 15 days
-                  </span>
+                {/* Outcome Headline with Highlighter & Diwali Phone Landing Animation */}
+                <div className="mb-2.5 phone-landing-1">
+                  <div className="flex flex-wrap items-center justify-center gap-2 mb-2.5">
+                    {/* Festive Diwali Celebration Pill */}
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-amber-500/15 via-yellow-500/20 to-amber-500/15 border border-amber-500/35 text-amber-900 rounded-full text-xs font-heading font-bold shadow-2xs">
+                      <DiwaliAnimatedIcon size={16} />
+                      <span>Shubh Deepavali Special • ₹{BUNDLE_PRICE} Active</span>
+                      <span className="text-amber-400">•</span>
+                      <span className="text-emerald-700 font-mono font-extrabold">Save ₹{(BUNDLE_ORIGINAL_PRICE - BUNDLE_PRICE).toLocaleString('en-IN')}</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-500/10 border border-amber-500/25 text-amber-900 rounded-full text-xs font-mono font-semibold">
+                      ⏱️ In 15 days
+                    </span>
+                  </div>
                   <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.18] max-w-2xl mx-auto">
                     <span className="block text-2xl sm:text-4xl md:text-5xl">
                       Learn Complete Interior & Exterior Design — From Zero
@@ -356,7 +369,7 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Stylish Highlight on Phone: Recorded Course + Live Doubt Classes */}
-                <div className="flex items-center justify-center my-3">
+                <div className="flex items-center justify-center my-3 phone-landing-2">
                   <div className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-1.5 bg-zinc-950 text-white rounded-full shadow-md border border-zinc-800 text-xs sm:text-sm">
                     <span className="font-heading font-semibold text-zinc-200">
                       🎬 Recorded Course
@@ -370,19 +383,21 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Beginner Friendly Callout */}
-                <div className="font-hand text-base sm:text-lg text-emerald-700 font-bold -rotate-1 mb-3">
+                <div className="font-hand text-base sm:text-lg text-emerald-700 font-bold -rotate-1 mb-3 phone-landing-3">
                   ✨ Zero 3D experience needed • 100% beginner friendly!
                 </div>
 
                 {/* Impulse Price Anchor */}
                 <div className="text-center mb-5">
                   <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-2xl sm:rounded-full shadow-2xs">
-                    Learn to Create Homes, Offices and Villas. 10 Courses. | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing extra)
+                    Learn to Create Homes, Offices and Villas. 10 Courses. | Only <strong className="text-zinc-950 font-bold font-mono">₹799</strong> (Nothing extra)
                   </span>
                 </div>
 
                 {/* 9:16 Vertical Video Player Box */}
-                <HeroReelPlayer />
+                <div className="phone-landing-4">
+                  <HeroReelPlayer />
+                </div>
 
                 {/* ═══ INSTAGRAM, X & FACEBOOK COMMUNITY REVIEWS SLIDER ═══ */}
                 <SocialCommentsSlider />
@@ -703,7 +718,7 @@ const LandingPage: React.FC = () => {
                       <div className="p-3.5 pt-0">
                         <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-1.5 text-center text-[10px] font-mono text-zinc-700 flex items-center justify-center gap-1.5">
                           <CheckCircle2 size={12} className="text-emerald-600" />
-                          <span>Full Lifetime Access Included in ₹999</span>
+                          <span>Full Lifetime Access Included in ₹799</span>
                         </div>
                       </div>
                     </div>
@@ -882,7 +897,7 @@ const LandingPage: React.FC = () => {
             </span>
 
             <h3 className="text-lg sm:text-xl font-heading font-bold text-zinc-950 mt-2 mb-1.5">
-              Ruko! Yeh Offer Dobara ₹999 Me Nahi Milega!
+              Ruko! Yeh Offer Dobara ₹799 Me Nahi Milega!
             </h3>
 
             <p className="text-zinc-600 text-xs leading-relaxed mb-3.5">
