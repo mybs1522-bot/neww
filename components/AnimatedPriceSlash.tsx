@@ -62,7 +62,7 @@ export const AnimatedPriceSlash: React.FC<AnimatedPriceSlashProps> = ({
       className={`flex items-center justify-between w-full px-1 min-h-[44px] select-none ${className}`}
     >
       <div className="flex items-baseline gap-2.5">
-        {/* Sale Price ₹799 - Pops in with celebratory spring bounce when cut */}
+        {/* Sale Price ₹999 - Pops in with celebratory spring bounce when cut */}
         <div className="relative flex items-center">
           <span
             className={`font-heading font-extrabold tracking-tight transition-all duration-500 inline-block ${
@@ -142,8 +142,8 @@ export const AnimatedPriceSlash: React.FC<AnimatedPriceSlashProps> = ({
             </>
           ) : (
             <span className="flex items-center gap-1">
-              <span className="size-1.5 rounded-full bg-amber-500 animate-pulse" />
-              Diwali Offer
+              <span className="size-1.5 rounded-full bg-red-500 animate-pulse" />
+              Special Offer
             </span>
           )}
         </span>

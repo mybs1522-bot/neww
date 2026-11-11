@@ -7,9 +7,7 @@ import {
 import { COURSES, BUNDLE_PRICE, BUNDLE_ORIGINAL_PRICE } from '../constants';
 import { openRazorpayCheckout } from '../services/razorpay';
 import { HeroReelPlayer } from '../components/HeroReelPlayer';
-import { DiwaliAnimatedIcon } from '../components/DiwaliAnimatedIcon';
 import { AnimatedPriceSlash } from '../components/AnimatedPriceSlash';
-import { DiwaliBackgroundCelebration } from '../components/DiwaliBackgroundCelebration';
 import {
   Logo, Pattern, SocialProofToast,
   SOLUTION_PILLARS, WHO_IS_THIS_FOR, TRANSFORMATION_STORIES,
@@ -55,13 +53,13 @@ const CtaWithTimer = ({
         {/* Compact Urgency & Live Countdown Bar */}
         <div className={`w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-xl border text-xs ${
           isDark 
-            ? 'bg-zinc-950/80 border-amber-900/40 text-amber-100' 
-            : 'bg-amber-50/90 border-amber-200/80 text-amber-950'
+            ? 'bg-zinc-950/80 border-zinc-800 text-zinc-200' 
+            : 'bg-red-50/90 border-red-200/70 text-red-950'
         }`}>
-          <div className="flex items-center gap-2 min-w-0">
-            <DiwaliAnimatedIcon size={22} className="shrink-0" />
+          <div className="flex items-center gap-1.5 min-w-0">
+            <span className="size-2 rounded-full bg-red-500 animate-pulse shrink-0" />
             <span className="font-heading font-bold text-[11px] sm:text-xs truncate">
-              Diwali Offer • Ends {getSameDayDate()}
+              Students Week Offer • Ends {getSameDayDate()}
             </span>
           </div>
 
@@ -69,13 +67,13 @@ const CtaWithTimer = ({
             <div className={`flex items-center gap-1 font-mono text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-md border shrink-0 ${
               isDark 
                 ? 'bg-zinc-900 border-zinc-700 text-amber-400' 
-                : 'bg-white border-amber-200 text-amber-800 shadow-2xs'
+                : 'bg-white border-red-200 text-red-600 shadow-2xs'
             }`}>
               <span>{f(timeLeft.h)}h</span>
               <span className="text-zinc-400">:</span>
               <span>{f(timeLeft.m)}m</span>
               <span className="text-zinc-400">:</span>
-              <span className="text-red-600 font-extrabold">{f(timeLeft.s)}s</span>
+              <span className="text-red-500 font-extrabold">{f(timeLeft.s)}s</span>
             </div>
           )}
         </div>
@@ -325,9 +323,6 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-white text-zinc-950 font-sans selection:bg-zinc-200 selection:text-zinc-900 overflow-x-clip">
-      {/* ═══ DIWALI AMBIENT CELEBRATION & LANDING BURST EFFECT ═══ */}
-      <DiwaliBackgroundCelebration />
-
       <div className="w-full relative z-10">
         <div className="mx-auto px-4 md:max-w-4xl">
           <main>
@@ -336,7 +331,7 @@ const LandingPage: React.FC = () => {
             <section className="screen-line-before screen-line-after border-x border-grid pt-5 sm:pt-8 pb-8 bg-white text-center">
               <div className="px-2 sm:px-4">
 
-                {/* Outcome Headline with Highlighter & Diwali Phone Landing Animation */}
+                {/* Outcome Headline with Highlighter & Phone Landing Animation */}
                 <div className="mb-2.5 phone-landing-1">
                   <div className="flex items-center justify-center mb-2">
                     <span className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-amber-500/10 border border-amber-500/25 text-amber-900 rounded-full text-xs font-mono font-semibold">
@@ -372,7 +367,7 @@ const LandingPage: React.FC = () => {
                 {/* Impulse Price Anchor */}
                 <div className="text-center mb-5">
                   <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-2xl sm:rounded-full shadow-2xs">
-                    Learn to Create Homes, Offices and Villas. 10 Courses. | Only <strong className="text-zinc-950 font-bold font-mono">₹799</strong> (Nothing extra)
+                    Learn to Create Homes, Offices and Villas. 10 Courses. | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing extra)
                   </span>
                 </div>
 
@@ -700,7 +695,7 @@ const LandingPage: React.FC = () => {
                       <div className="p-3.5 pt-0">
                         <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-1.5 text-center text-[10px] font-mono text-zinc-700 flex items-center justify-center gap-1.5">
                           <CheckCircle2 size={12} className="text-emerald-600" />
-                          <span>Full Lifetime Access Included in ₹799</span>
+                          <span>Full Lifetime Access Included in ₹999</span>
                         </div>
                       </div>
                     </div>
@@ -845,8 +840,8 @@ const LandingPage: React.FC = () => {
               </span>
             </div>
             <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-zinc-600 font-medium truncate mt-0.5">
-              <DiwaliAnimatedIcon size={20} className="shrink-0" />
-              <span className="font-bold text-amber-700">Diwali Offer</span>
+              <span className="size-1.5 rounded-full bg-red-500 animate-pulse shrink-0" />
+              <span className="font-bold text-red-700">Students Week Offer</span>
               <span className="text-zinc-300">•</span>
               <span className="text-zinc-700">Ends {getSameDayDate()}</span>
             </div>
@@ -879,7 +874,7 @@ const LandingPage: React.FC = () => {
             </span>
 
             <h3 className="text-lg sm:text-xl font-heading font-bold text-zinc-950 mt-2 mb-1.5">
-              Ruko! Yeh Offer Dobara ₹799 Me Nahi Milega!
+              Ruko! Yeh Offer Dobara ₹999 Me Nahi Milega!
             </h3>
 
             <p className="text-zinc-600 text-xs leading-relaxed mb-3.5">
