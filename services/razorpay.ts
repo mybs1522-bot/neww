@@ -1,4 +1,4 @@
-const RAZORPAY_KEY_ID = 'rzp_live_Wh4xEHePkQXqRO';
+const RAZORPAY_KEY_ID = 'rzp_live_U2xwN7bE4AlHuO';
 
 interface RazorpayOptions {
   key: string;
