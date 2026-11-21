@@ -238,10 +238,17 @@ const LandingPage: React.FC = () => {
 
   const handlePayment = () => {
     let hasError = false;
-    const cleanPhone = phone.replace(/\D/g, '').replace(/^91/, '').slice(-10);
+    let cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length === 12 && cleanPhone.startsWith('91')) {
+      cleanPhone = cleanPhone.slice(2);
+    } else if (cleanPhone.length === 11 && cleanPhone.startsWith('0')) {
+      cleanPhone = cleanPhone.slice(1);
+    } else if (cleanPhone.length > 10) {
+      cleanPhone = cleanPhone.slice(-10);
+    }
     const cleanEmail = email.trim();
 
-    if (!cleanPhone || cleanPhone.length < 10) { 
+    if (!cleanPhone || cleanPhone.length !== 10) { 
       setPhoneError(true); 
       hasError = true; 
     } else { 
@@ -1042,6 +1049,8 @@ const LandingPage: React.FC = () => {
                         let val = e.target.value.replace(/\D/g, '');
                         if (val.length > 10 && val.startsWith('91')) {
                           val = val.slice(2);
+                        } else if (val.length > 10 && val.startsWith('0')) {
+                          val = val.slice(1);
                         }
                         setPhone(val.slice(0, 10)); 
                         setPhoneError(false); 

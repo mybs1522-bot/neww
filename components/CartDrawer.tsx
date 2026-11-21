@@ -40,12 +40,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
     const handleCheckoutClick = () => {
         let hasError = false;
-        if (!phone || phone.length < 10) {
-            setPhoneError(true);
-            hasError = true;
-        } else {
-            setPhoneError(false);
-        }
+        let cleanPhone = phone.replace(/\D/g, ''); if (cleanPhone.length === 12 && cleanPhone.startsWith('91')) { cleanPhone = cleanPhone.slice(2); } else if (cleanPhone.length === 11 && cleanPhone.startsWith('0')) { cleanPhone = cleanPhone.slice(1); } else if (cleanPhone.length > 10) { cleanPhone = cleanPhone.slice(-10); } if (!cleanPhone || cleanPhone.length !== 10) { setPhoneError(true); hasError = true; } else { setPhoneError(false); }
         if (!email || !validateEmail(email)) {
             setEmailError(true);
             hasError = true;
