@@ -4,15 +4,15 @@ import { ArrowRight, ShieldCheck, Zap, CheckCircle, CheckCircle2, Users, X, Spar
 export const getDriveUrl = (id: string) => `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
 
 export const RAW_JOINERS = [
-  { name: "Priya Sharma", city: "Mumbai", time: "1 min ago", plan: "10-Course Package" },
-  { name: "Rahul Verma", city: "New Delhi", time: "3 min ago", plan: "10-Course Package" },
-  { name: "Ananya Gupta", city: "Pune", time: "5 min ago", plan: "10-Course Package" },
-  { name: "Vikramjit Singh", city: "Jaipur", time: "7 min ago", plan: "10-Course Package" },
-  { name: "Meera Iyer", city: "Chennai", time: "9 min ago", plan: "10-Course Package" },
-  { name: "Aravind Reddy", city: "Bengaluru", time: "12 min ago", plan: "10-Course Package" },
-  { name: "Neha Kulkarni", city: "Nagpur", time: "14 min ago", plan: "10-Course Package" },
-  { name: "Rohit Mehta", city: "Ahmedabad", time: "16 min ago", plan: "10-Course Package" },
-  { name: "Simran Kaur", city: "Chandigarh", time: "19 min ago", plan: "10-Course Package" },
+  { name: "Priya Sharma", city: "Mumbai", time: "1 min ago", plan: "3D Design Career Bundle" },
+  { name: "Rahul Verma", city: "New Delhi", time: "3 min ago", plan: "3D Design Career Bundle" },
+  { name: "Ananya Gupta", city: "Pune", time: "5 min ago", plan: "3D Design Career Bundle" },
+  { name: "Vikramjit Singh", city: "Jaipur", time: "7 min ago", plan: "3D Design Career Bundle" },
+  { name: "Meera Iyer", city: "Chennai", time: "9 min ago", plan: "3D Design Career Bundle" },
+  { name: "Aravind Reddy", city: "Bengaluru", time: "12 min ago", plan: "3D Design Career Bundle" },
+  { name: "Neha Kulkarni", city: "Nagpur", time: "14 min ago", plan: "3D Design Career Bundle" },
+  { name: "Rohit Mehta", city: "Ahmedabad", time: "16 min ago", plan: "3D Design Career Bundle" },
+  { name: "Simran Kaur", city: "Chandigarh", time: "19 min ago", plan: "3D Design Career Bundle" },
   { name: "Arjun Deshmukh", city: "Hyderabad", time: "22 min ago", plan: "12-Course Architecture Master Bundle" },
   { name: "Tanmay Bhattacharya", city: "Kolkata", time: "25 min ago", plan: "12-Course Architecture Master Bundle" },
   { name: "Sneha Patel", city: "Surat", time: "28 min ago", plan: "12-Course Architecture Master Bundle" },
@@ -422,7 +422,7 @@ export const SocialProofToast: React.FC = () => {
             <p className="text-xs font-semibold text-zinc-900 truncate">{j.name}</p>
             <span className="text-[10px] text-zinc-500 font-mono shrink-0">• {j.city}</span>
           </div>
-          <p className="text-[10px] text-zinc-500 truncate">Enrolled in 10-Course Package • <span className="text-emerald-600 font-medium font-mono">{j.time}</span></p>
+          <p className="text-[10px] text-zinc-500 truncate">Joined 3D Design Career Bundle • <span className="text-emerald-600 font-medium font-mono">{j.time}</span></p>
         </div>
         <div className="shrink-0 size-2 rounded-full bg-emerald-500 animate-pulse"></div>
       </div>
@@ -468,7 +468,7 @@ export const SOCIAL_COMMENTS = [
     handle: "@neha_interiors",
     platform: "x" as const,
     gradient: "from-zinc-700 to-zinc-950",
-    comment: "Institutes were asking ₹45k for outdated CAD & 3ds Max. Got all 10 courses here for ₹999. Best investment of 2026 honestly.",
+    comment: "Institutes were asking ₹45k for outdated CAD & 3ds Max. Learned all of it here for ₹999. Best investment of 2026 honestly.",
     time: "5h ago",
     likes: 112,
     verified: true

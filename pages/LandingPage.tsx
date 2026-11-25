@@ -1,28 +1,61 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { 
   ArrowRight, Star, CheckCircle, CheckCircle2, X, ChevronDown, Sparkles, 
   Download, Mail, Lock, Loader2, ShieldCheck, Zap, Gift, DollarSign, MessageCircle,
-  ChevronLeft, ChevronRight
+  ChevronLeft, ChevronRight, Check
 } from 'lucide-react';
 import { COURSES, BUNDLE_PRICE, BUNDLE_ORIGINAL_PRICE } from '../constants';
 import { openRazorpayCheckout } from '../services/razorpay';
 import { HeroReelPlayer } from '../components/HeroReelPlayer';
 import { AnimatedPriceSlash } from '../components/AnimatedPriceSlash';
+import { LiveClassesBanner, RendersBanner } from '../components/PromoBanners';
+import { SketchToRenderShowcase } from '../components/SketchToRender';
 import {
   Logo, Pattern, SocialProofToast,
   SOLUTION_PILLARS, WHO_IS_THIS_FOR, TRANSFORMATION_STORIES,
   FREE_BONUSES, TESTIMONIALS_LANDING, FAQ_ITEMS_LANDING,
-  SocialCommentsSlider, StudentRendersShowcase
+  SocialCommentsSlider
 } from './LandingHelpers';
 
 const getSameDayDate = () => {
   const d = new Date();
   const day = d.getDate();
-  const month = d.toLocaleString('en-US', { month: 'long' });
+  const month = d.toLocaleString('en-US', { month: 'short' });
   const s = ['th', 'st', 'nd', 'rd'];
   const v = day % 100;
   const suffix = s[(v - 20) % 10] || s[v] || s[0];
   return `${day}${suffix} ${month}`;
+};
+
+/* ─── Sticky-bar label that flips between two calls to action ─── */
+const STICKY_LABELS = ['Start Earning', 'Download Now'];
+const RotatingCtaLabel = () => {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const t = window.setInterval(() => setI((n) => (n + 1) % STICKY_LABELS.length), 2200);
+    return () => window.clearInterval(t);
+  }, []);
+  return (
+    <span className="relative inline-grid overflow-hidden" aria-live="off">
+      {/* invisible copies reserve the width of the longest label so the button never jumps */}
+      {STICKY_LABELS.map((l) => (
+        <span key={l} className="invisible col-start-1 row-start-1 whitespace-nowrap" aria-hidden="true">{l}</span>
+      ))}
+      <AnimatePresence initial={false} mode="popLayout">
+        <motion.span
+          key={i}
+          className="col-start-1 row-start-1 whitespace-nowrap text-center"
+          initial={{ y: '110%', opacity: 0 }}
+          animate={{ y: '0%', opacity: 1 }}
+          exit={{ y: '-110%', opacity: 0 }}
+          transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {STICKY_LABELS[i]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
 };
 
 /* ─── REUSABLE PREMIUM CTA WITH TIMER (COMPACT CONVERSION-OPTIMIZED) ─── */
@@ -30,7 +63,7 @@ const CtaWithTimer = ({
   timeLeft, 
   onClick, 
   variant = 'default', 
-  title = 'GET ALL 10 COURSES NOW',
+  title = 'START EARNING WITH 3D DESIGN',
   subtext = 'Instant Google Drive Access • Verified Skill Certificate Included'
 }: { 
   timeLeft?: { h: number; m: number; s: number }; 
@@ -58,8 +91,8 @@ const CtaWithTimer = ({
         }`}>
           <div className="flex items-center gap-1.5 min-w-0">
             <span className="size-2 rounded-full bg-red-500 animate-pulse shrink-0" />
-            <span className="font-heading font-bold text-[11px] sm:text-xs truncate">
-              Students Week Offer • Ends {getSameDayDate()}
+            <span className="font-heading font-bold text-[11px] sm:text-xs leading-tight text-left">
+              Black Friday Offer • <span className="whitespace-nowrap">Ends {getSameDayDate()}</span>
             </span>
           </div>
 
@@ -99,7 +132,7 @@ const CtaWithTimer = ({
           </span>
           <span className="text-zinc-300">•</span>
           <span className="inline-flex items-center gap-1">
-            <CheckCircle2 size={12} className="text-emerald-600 shrink-0" /> 10 Full Courses
+            <CheckCircle2 size={12} className="text-emerald-600 shrink-0" /> Job-Ready Skills
           </span>
           <span className="text-zinc-300">•</span>
           <span className="inline-flex items-center gap-1">
@@ -347,7 +380,7 @@ const LandingPage: React.FC = () => {
                   </div>
                   <h1 className="font-heading font-bold text-zinc-950 tracking-tight leading-[1.18] max-w-2xl mx-auto">
                     <span className="block text-2xl sm:text-4xl md:text-5xl">
-                      Learn Complete Interior & Exterior Design — From Zero
+                      Learn to Design Realistic Interiors & Exteriors — From Zero
                     </span>
                   </h1>
                 </div>
@@ -374,17 +407,52 @@ const LandingPage: React.FC = () => {
                 {/* Impulse Price Anchor */}
                 <div className="text-center mb-5">
                   <span className="inline-block text-xs sm:text-sm text-zinc-700 font-normal bg-zinc-100/90 border border-zinc-200 px-3.5 py-1.5 rounded-2xl sm:rounded-full shadow-2xs">
-                    Learn to Create Homes, Offices and Villas. 10 Courses. | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing extra)
+                    Design homes, offices &amp; villas clients pay ₹25k+ for | Only <strong className="text-zinc-950 font-bold font-mono">₹999</strong> (Nothing extra)
                   </span>
                 </div>
 
-                {/* 9:16 Vertical Video Player Box */}
+                {/* 16:9 Sales Video (SketchUp -> render), streamed from Bunny Stream (library 494628) */}
                 <div className="phone-landing-4">
-                  <HeroReelPlayer />
+                  <HeroReelPlayer
+                    aspect="landscape"
+                    poster="/videos/hero-sales-poster.jpg"
+                    bunnyEmbed="https://iframe.mediadelivery.net/embed/494628/c9b504cf-3545-42e2-8638-50fe79198928"
+                    bunnyPrimary
+                  />
                 </div>
 
                 {/* ═══ INSTAGRAM, X & FACEBOOK COMMUNITY REVIEWS SLIDER ═══ */}
                 <SocialCommentsSlider />
+
+                {/* ═══ QUICK SALES GIST (just above You'll Get) ═══ */}
+                <div
+                  className="max-w-md mx-auto mb-6 rounded-2xl border border-amber-200/70 px-4 py-4 sm:px-5 text-left shadow-2xs"
+                  style={{
+                    backgroundColor: '#FDF8EE',
+                    backgroundImage:
+                      'linear-gradient(rgba(180,140,90,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(180,140,90,.12) 1px, transparent 1px)',
+                    backgroundSize: '22px 22px',
+                  }}
+                >
+                  <p className="text-[15px] sm:text-base leading-snug text-zinc-600">
+                    Go from zero to <strong className="text-zinc-950">client-ready 3D renders</strong> in 15 days.
+                    And we clear your doubts <strong className="text-zinc-950">live, every week</strong> until you get it.
+                  </p>
+                  <ul className="mt-3 space-y-2">
+                    {[
+                      'No design degree or experience needed',
+                      'Charge ₹25k–₹50k+ for one 3D project',
+                      'Lifetime access for a one-time ₹999',
+                    ].map((t) => (
+                      <li key={t} className="flex items-center gap-2.5 text-[15px] sm:text-base font-semibold text-zinc-950">
+                        <span className="flex size-6 shrink-0 items-center justify-center rounded-full border-[1.5px] border-emerald-900 bg-emerald-200/70">
+                          <Check className="size-3.5 stroke-[3] text-emerald-950" />
+                        </span>
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 {/* ═══ MOST IMPORTANT SALE POINTS BEFORE 1ST CTA (POINTERS ONLY) ═══ */}
                 <div className="max-w-3xl mx-auto mb-6">
@@ -449,31 +517,19 @@ const LandingPage: React.FC = () => {
                     timeLeft={timeLeft} 
                     onClick={openPaymentModal} 
                     variant="default"
-                    title="GET ALL 10 COURSES NOW"
+                    title="START MY 3D DESIGN CAREER"
                     subtext="Instant Access in 60 Seconds • UPI / GPay / Cards Accepted"
                   />
                 </div>
 
                 {/* Live Doubt Classes Every Week Graphic (Right Below 1st CTA) */}
                 <div className="max-w-xl mx-auto mb-5 px-2 flex justify-center">
-                  <img
-                    src="/live-classes-every-week.png"
-                    alt="Live Classes For Doubts & Questions Every Week"
-                    className="w-full max-w-[500px] h-auto object-contain cursor-pointer hover:scale-[1.01] transition-transform duration-300 drop-shadow-sm"
-                    onClick={openPaymentModal}
-                    loading="lazy"
-                  />
+                  <LiveClassesBanner onClick={openPaymentModal} className="max-w-[500px] drop-shadow-sm" />
                 </div>
 
                 {/* Banner Below CTA */}
                 <div className="max-w-xl mx-auto mb-4 px-2 flex justify-center">
-                  <img
-                    src="/banner-1.png"
-                    alt="15-Days to Stunning Designs & Renders"
-                    className="w-full max-w-[480px] h-auto object-contain cursor-pointer hover:scale-[1.01] transition-transform duration-300 drop-shadow-sm"
-                    onClick={openPaymentModal}
-                    loading="lazy"
-                  />
+                  <RendersBanner onClick={openPaymentModal} className="max-w-[480px] drop-shadow-sm" />
                 </div>
 
               </div>
@@ -481,16 +537,16 @@ const LandingPage: React.FC = () => {
 
             <Pattern />
 
-            {/* ═══ STUDENT WORK & RENDERS (JUST BELOW HERO CTA) ═══ */}
+            {/* ═══ STUDENT WORK: SKETCHUP → RENDER BEFORE / AFTER (JUST BELOW HERO CTA) ═══ */}
             <section className="screen-line-before screen-line-after border-x border-grid py-8 sm:py-12 bg-zinc-950 text-white overflow-hidden">
-              <StudentRendersShowcase />
+              <SketchToRenderShowcase />
 
               <div className="text-center mt-6">
                 <button
                   onClick={openPaymentModal}
                   className="btn-3d-light px-7 py-3 font-heading font-bold text-xs sm:text-sm cursor-pointer select-none inline-flex items-center gap-2"
                 >
-                  <span>Claim Full Course Access Now</span>
+                  <span>Make Renders Like These</span>
                   <Download size={15} className="shrink-0 stroke-[2.5]" />
                 </button>
               </div>
@@ -507,7 +563,7 @@ const LandingPage: React.FC = () => {
                     timeLeft={timeLeft} 
                     onClick={openPaymentModal} 
                     variant="default"
-                    title="GET ALL 10 COURSES NOW"
+                    title="GET JOB-READY IN 15 DAYS"
                     subtext="Instant Access in 60 Seconds • UPI / GPay / Cards Accepted"
                   />
                 </div>
@@ -756,7 +812,7 @@ const LandingPage: React.FC = () => {
                     timeLeft={timeLeft} 
                     onClick={openPaymentModal} 
                     variant="white"
-                    title="CLAIM 10 COURSES + ALL 6 BONUSES NOW"
+                    title="START EARNING + 6 FREE BONUSES"
                   />
                 </div>
               </div>
@@ -846,9 +902,9 @@ const LandingPage: React.FC = () => {
                 <span>{formatTime(timeLeft.h)}:{formatTime(timeLeft.m)}:{formatTime(timeLeft.s)}</span>
               </span>
             </div>
-            <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-zinc-600 font-medium truncate mt-0.5">
+            <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-zinc-600 font-medium whitespace-nowrap mt-0.5">
               <span className="size-1.5 rounded-full bg-red-500 animate-pulse shrink-0" />
-              <span className="font-bold text-red-700">Students Week Offer</span>
+              <span className="font-bold text-red-700">Black Friday Offer</span>
               <span className="text-zinc-300">•</span>
               <span className="text-zinc-700">Ends {getSameDayDate()}</span>
             </div>
@@ -859,7 +915,7 @@ const LandingPage: React.FC = () => {
             className="btn-3d py-2.5 px-4 sm:px-6 text-xs sm:text-sm font-heading font-bold flex items-center justify-center gap-1.5 cursor-pointer shrink-0 select-none"
             style={{ borderBottomWidth: '4px' }}
           >
-            <span>Get All 10 Courses</span>
+            <RotatingCtaLabel />
             <Download size={15} className="shrink-0 stroke-[2.5]" />
           </button>
         </div>
@@ -885,7 +941,7 @@ const LandingPage: React.FC = () => {
             </h3>
 
             <p className="text-zinc-600 text-xs leading-relaxed mb-3.5">
-              Over <strong>52,480+ designers</strong> are already using these 10 courses & 10,000+ 3D models. If you close this page, price will increase to <strong>₹3,699</strong>!
+              Over <strong>52,480+ designers</strong> are already building paid 3D design skills with this bundle & 10,000+ 3D models. If you close this page, price will increase to <strong>₹3,699</strong>!
             </p>
 
             <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-2.5 mb-3.5 text-left text-xs text-zinc-700 space-y-1 font-medium">
@@ -970,7 +1026,7 @@ const LandingPage: React.FC = () => {
               {/* Small logos of courses included - Single Scrolling Line */}
               <div className="mt-3 pt-2.5 border-t border-zinc-800/80">
                 <div className="text-[10px] font-mono text-zinc-400 mb-1.5 flex items-center justify-between">
-                  <span>10 Courses Included:</span>
+                  <span>Skills You'll Master:</span>
                   <span className="text-[9px] text-emerald-400 font-semibold">Software Links</span>
                 </div>
                 
@@ -1134,7 +1190,7 @@ const LandingPage: React.FC = () => {
                 ) : (
                   <>
                     <Download size={16} className="shrink-0" />
-                    <span>Get All Courses</span>
+                    <span>Get Instant Access</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform shrink-0" />
                   </>
                 )}

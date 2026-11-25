@@ -1,12 +1,31 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
-export const HeroReelPlayer: React.FC = () => {
+const DEFAULT_BUNNY = 'https://iframe.mediadelivery.net/embed/489113/7f3a8bfe-d216-44df-b7e3-7a70f0e008df';
+
+type HeroReelPlayerProps = {
+  src?: string;
+  poster?: string;
+  /** 'portrait' = 9:16 reel, 'landscape' = 16:9 */
+  aspect?: 'portrait' | 'landscape';
+  /** Bunny Stream embed URL (no query string). Used as fallback if the MP4 fails, or as the main player when bunnyPrimary is true. */
+  bunnyEmbed?: string;
+  bunnyPrimary?: boolean;
+};
+
+export const HeroReelPlayer: React.FC<HeroReelPlayerProps> = ({
+  src = '/videos/hero-reel.mp4',
+  poster = '/videos/hero-poster.jpg',
+  aspect = 'portrait',
+  bunnyEmbed = DEFAULT_BUNNY,
+  bunnyPrimary = false,
+}) => {
+  const landscape = aspect === 'landscape';
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isMuted, setIsMuted] = useState<boolean>(true);
   const [isAutoplayBlocked, setIsAutoplayBlocked] = useState<boolean>(false);
-  const [hasError, setHasError] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(bunnyPrimary && !!bunnyEmbed);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -65,17 +84,17 @@ export const HeroReelPlayer: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-[340px] sm:max-w-[380px] mx-auto mb-6 rounded-2xl sm:rounded-3xl shadow-2xl border border-zinc-800/80 bg-black overflow-hidden relative group">
+    <div className={`w-full ${landscape ? 'max-w-[860px]' : 'max-w-[340px] sm:max-w-[380px]'} mx-auto mb-6 rounded-2xl sm:rounded-3xl shadow-2xl border border-zinc-800/80 bg-black overflow-hidden relative group`}>
       <div 
         className="w-full overflow-hidden bg-black relative cursor-pointer select-none" 
-        style={{ paddingTop: '177.78%' }}
+        style={{ paddingTop: landscape ? '56.25%' : '177.78%' }}
         onClick={() => togglePlay()}
       >
         {!hasError ? (
           <video
             ref={videoRef}
-            src="/videos/hero-reel.mp4"
-            poster="/videos/hero-poster.jpg"
+            src={src}
+            poster={poster}
             autoPlay
             loop
             muted
@@ -87,18 +106,20 @@ export const HeroReelPlayer: React.FC = () => {
             onPause={() => setIsPlaying(false)}
             className="absolute inset-0 w-full h-full object-cover"
           />
-        ) : (
+        ) : bunnyEmbed ? (
           <iframe 
-            src="https://iframe.mediadelivery.net/embed/489113/7f3a8bfe-d216-44df-b7e3-7a70f0e008df?autoplay=true&loop=true&muted=true&preload=true&responsive=true&playsinline=true" 
+            src={`${bunnyEmbed}?autoplay=true&loop=true&muted=true&preload=true&responsive=true&playsinline=true`} 
             loading="eager" 
             style={{ border: 0, position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }} 
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" 
             allowFullScreen={true} 
           />
+        ) : (
+          <img src={poster} alt="" className="absolute inset-0 w-full h-full object-cover" />
         )}
 
         {/* Center Tap to Play Button (Visible when paused or autoplay blocked by battery saver) */}
-        {(!isPlaying || isAutoplayBlocked) && (
+        {!hasError && (!isPlaying || isAutoplayBlocked) && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] z-20 transition-opacity">
             <div className="size-16 rounded-full bg-white/95 text-zinc-950 flex items-center justify-center shadow-2xl transform active:scale-90 transition-transform">
               <Play className="size-7 ml-1 fill-zinc-950 text-zinc-950" />
